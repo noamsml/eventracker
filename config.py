@@ -3,13 +3,17 @@ from enum import StrEnum, auto
 from functools import cache
 import os
 
+EVENTRACKER_ID="1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY"
+
 class Env(StrEnum):
     development = auto()
     test = auto()
 
-@cache
+# Absent a DI framework, using a global is the easiest way to force the env to "test" for tests
+force_override_env: Env | None = None
+
 def env() -> Env:
-   return Env[os.environ.get('ENV', "development")]
+   return force_override_env or Env[os.environ.get('ENV', "development")]
 
 class DatabaseConfig(BaseModel):
     db_name: str | None = None
@@ -21,6 +25,10 @@ class DatabaseConfig(BaseModel):
 
 class Config(BaseModel):
     database: DatabaseConfig
+    sheet_id: str = EVENTRACKER_ID
+    # Configure on new install to avoid importing random junk from 
+    # early 2024
+    base_row: int = 700
 
 @cache
 def config(force_env: Env | None = None):

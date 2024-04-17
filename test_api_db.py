@@ -6,6 +6,7 @@ import pytest
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
 from config import Env
+import config
 
 from fastapi.testclient import TestClient
 
@@ -21,6 +22,8 @@ LINK =  "http://link"
 EVENT_DESCRIPTION = "description"
 EVENT_ADDRESS = "address"
 EVENT_COST="$5"
+
+config.force_override_env = Env.test
 
 def create_sample_event(event_date: date, engine: Engine) -> str:
     id = db_model.make_id()
@@ -48,7 +51,7 @@ def api_tester():
     return TestClient(api.app)
 
 def db_engine_for_test():
-    return db_connectivity.make_db_engine(force_env=Env.test)
+    return db_connectivity.make_db_engine()
 
 api.app.dependency_overrides[db_connectivity.make_db_engine] = db_engine_for_test 
 
