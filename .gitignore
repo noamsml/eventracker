@@ -1,3 +1,5 @@
 env
 config/development.json
 config/production.json
+googleclientsecret.json
+googletoken.json
