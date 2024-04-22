@@ -2,5 +2,6 @@
     "database": {
         "username": "sheets",
         "password": "sheets"
-    }
+    },
+    "base_row": 50
 }

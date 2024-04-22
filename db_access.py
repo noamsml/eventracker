@@ -1,11 +1,16 @@
 from sqlalchemy import Engine, select
 from sqlalchemy.orm import Session
-from datetime import date
-from typing import List
+from datetime import date, datetime
+from typing import List, Dict
 import db_model
+import config
 
+# Misc functions to talk with the db -- at some point I should reorg these to live in model-specific classes and
+# all take a Session but I'm trying to get this whole thing done first
 
-def get_events(engine: Engine, date_range: tuple[date, date] | None) -> List[db_model.LocalEvent]:
+def get_events(
+    engine: Engine, date_range: tuple[date, date] | None
+) -> List[db_model.LocalEvent]:
     with Session(engine) as session:
         if date_range:
             return session.scalars(
@@ -16,6 +21,37 @@ def get_events(engine: Engine, date_range: tuple[date, date] | None) -> List[db_
             ).all()
         else:
             values = session.scalars(
-                select(db_model.LocalEvent).where(db_model.LocalEvent.date >= date.today())
+                select(db_model.LocalEvent).where(
+                    db_model.LocalEvent.date >= date.today()
+                )
             ).all()
             return values
+
+
+def get_cursor(engine: Engine, cursor_date: date) -> int:
+    with Session(engine) as session:
+        maybe_cursor = session.scalars(
+            select(db_model.Cursor).where(db_model.Cursor.cursor_date == cursor_date)
+        ).one_or_none()
+
+    if not maybe_cursor:
+        return config.config().base_row
+
+    return maybe_cursor.value
+
+
+def update_cursors(session: Session, cursor_map: Dict[date, int]):
+    cursors_to_update = session.scalars(
+        select(db_model.Cursor).where(
+            db_model.Cursor.cursor_date.in_(cursor_map.keys())
+        )
+    ).all()
+
+    cursors_to_update_map = {cursor.cursor_date: cursor for cursor in cursors_to_update}
+
+    for cursor_date, value in cursor_map.items():
+        if cursor_date in cursors_to_update_map:
+            cursors_to_update_map[cursor_date].value = value
+        else:
+            new_cursor = db_model.Cursor(cursor_date=cursor_date, value=value)
+            session.add(new_cursor)

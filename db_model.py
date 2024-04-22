@@ -1,7 +1,7 @@
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-from datetime import date
+from datetime import date, datetime
 import uuid
 
 import sqlalchemy
@@ -43,3 +43,11 @@ class LocalEvent(Base):
     description: Mapped[long_str]
     cost: Mapped[medium_str]
     link: Mapped[long_str]
+
+# Technically this is most likely a unary value, but storing it in a file or whatever is bad practice
+# so this is a table with one-ish row
+class Cursor(Base):
+    __tablename__ = "cursors"
+
+    cursor_date: Mapped[date] = mapped_column(primary_key=True)
+    value: Mapped[int]
