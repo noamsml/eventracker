@@ -1,4 +1,4 @@
-from sqlalchemy import Engine, select
+from sqlalchemy import Engine, select, delete
 from sqlalchemy.orm import Session
 from datetime import date, datetime
 from typing import List, Dict
@@ -17,28 +17,30 @@ def get_events(
                 select(db_model.LocalEvent).where(
                     (db_model.LocalEvent.date >= date_range[0])
                     & (db_model.LocalEvent.date <= date_range[1])
-                )
+                ).order_by(db_model.LocalEvent.date.asc())
             ).all()
         else:
             values = session.scalars(
                 select(db_model.LocalEvent).where(
                     db_model.LocalEvent.date >= date.today()
-                )
+                ).order_by(db_model.LocalEvent.date.asc())
             ).all()
             return values
 
 
 def get_cursor(engine: Engine, cursor_date: date) -> int:
     with Session(engine) as session:
-        maybe_cursor = session.scalars(
-            select(db_model.Cursor).where(db_model.Cursor.cursor_date == cursor_date)
-        ).one_or_none()
+        return get_cursor_in_session(session, cursor_date)
+
+def get_cursor_in_session(session: Session, cursor_date: date) -> int:
+    maybe_cursor = session.scalars(
+        select(db_model.Cursor).where(db_model.Cursor.cursor_date == cursor_date)
+    ).one_or_none()
 
     if not maybe_cursor:
         return config.config().base_row
 
     return maybe_cursor.value
-
 
 def update_cursors(session: Session, cursor_map: Dict[date, int]):
     cursors_to_update = session.scalars(
@@ -55,3 +57,6 @@ def update_cursors(session: Session, cursor_map: Dict[date, int]):
         else:
             new_cursor = db_model.Cursor(cursor_date=cursor_date, value=value)
             session.add(new_cursor)
+
+def clear_events_table(session: Session):
+    session.execute(delete(db_model.LocalEvent))

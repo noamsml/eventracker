@@ -10,7 +10,8 @@ from typing import Annotated
 
 short_str = Annotated[str, 32]
 medium_str = Annotated[str, 128]
-long_str = Annotated[str, 512]
+long_str = Annotated[str, 1024]
+longest_str = Annotated[str, 9001]
 
 def make_id():
     return str(uuid.uuid4())
@@ -19,7 +20,8 @@ class Base(DeclarativeBase):
     type_annotation_map = {
         short_str: sqlalchemy.String(length=32),
         medium_str: sqlalchemy.String(length=128),
-        long_str: sqlalchemy.String(length=512)
+        long_str: sqlalchemy.String(length=1024),
+        longest_str: sqlalchemy.Text
     }
 
 class LocalEvent(Base):
@@ -40,7 +42,7 @@ class LocalEvent(Base):
     start_seconds: Mapped[int | None] # Seconds in the day (from 0 for 12 AM to 60 * 60 * 24 - 1 for 11:59 PM)
     end_seconds: Mapped[int | None] # Seconds in the day (from 0 for 12 AM to 60 * 60 * 48 - 1 for 11:59 PM the next day)
     address: Mapped[medium_str]
-    description: Mapped[long_str]
+    description: Mapped[longest_str]
     cost: Mapped[medium_str]
     link: Mapped[long_str]
 

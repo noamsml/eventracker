@@ -39,7 +39,7 @@ class DecenteredSheetImporter:
     def retrieve_batch(self) -> Batch:
         raw_batch = self.spreadsheet_retriever.retrieve_spreadsheet_range(COL_RANGE, (self.cursor, self.cursor+self.batch_size))
         sheet_rows = [SheetRow(*row) for row in raw_batch]
-        last_cursor = sheet_rows[-1].row_number
+        last_cursor = sheet_rows[-1].row_number if sheet_rows else (self.cursor - 1)
         has_more = last_cursor >= (self.cursor + self.batch_size - 1)
         self.cursor = last_cursor + 1
         return Batch(sheet_rows, has_more)

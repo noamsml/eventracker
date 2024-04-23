@@ -28,14 +28,14 @@ def db_engine():
 
 
 def test_get_update_cursors(db_engine):
-    assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 50
+    assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 500
 
     with Session(db_engine) as session:
         db_access.update_cursors(session, {TOMORROWS_MORROW: 200})
         session.commit()
 
     assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 200
-    assert db_access.get_cursor(db_engine, NEXT_WEEK) == 50
+    assert db_access.get_cursor(db_engine, NEXT_WEEK) == 500
 
     with Session(db_engine) as session:
         db_access.update_cursors(session, {TOMORROWS_MORROW: 210, NEXT_WEEK: 400})
@@ -43,4 +43,4 @@ def test_get_update_cursors(db_engine):
 
     assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 210
     assert db_access.get_cursor(db_engine, NEXT_WEEK) == 400
-    assert db_access.get_cursor(db_engine, YESTERDAY) == 50
+    assert db_access.get_cursor(db_engine, YESTERDAY) == 500
