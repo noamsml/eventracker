@@ -7,8 +7,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-TOKENFILE = "googletoken.json"
-CLIENTSECRETFILE = "googleclientsecret.json"
+TOKENFILE = "config/googletoken.json"
+CLIENTSECRETFILE = "config/googleclientsecret.json"
 
 def retrieveCredentialsForUse() -> Credentials:
   creds = _retrieveOrRefreshCredentials()

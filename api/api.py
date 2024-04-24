@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends
 from typing import List, Annotated
-import api_models
-import db_connectivity
-import db_model
-import db_access
+import api.api_models as api_models
+import db.db_connectivity as db_connectivity
+import db.db_model as db_model
+import db.db_access as db_access
 from datetime import date
 from sqlalchemy import Engine
 

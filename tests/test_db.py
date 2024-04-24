@@ -1,6 +1,6 @@
-import db_access
-import db_model
-import db_connectivity
+import db.db_access as db_access
+import db.db_model as db_model
+import db.db_connectivity as db_connectivity
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine

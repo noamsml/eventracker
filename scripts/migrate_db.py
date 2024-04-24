@@ -2,10 +2,13 @@
 
 # Basic db creation script. To be improved upon.
 
+from script_context import script_init
+script_init()
+
 import sys
 
-import db_model
-import db_connectivity
+import db.db_model as db_model
+import db.db_connectivity as db_connectivity
 
 engine = db_connectivity.make_db_engine()
 

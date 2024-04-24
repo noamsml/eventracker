@@ -2,7 +2,7 @@ from sqlalchemy import Engine, select, delete
 from sqlalchemy.orm import Session
 from datetime import date, datetime
 from typing import List, Dict
-import db_model
+import db.db_model as db_model
 import config
 
 # Misc functions to talk with the db -- at some point I should reorg these to live in model-specific classes and

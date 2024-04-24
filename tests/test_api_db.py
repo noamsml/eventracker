@@ -1,6 +1,6 @@
-import api
-import db_model
-import db_connectivity
+from api import api
+import db.db_model as db_model
+import db.db_connectivity as db_connectivity
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine

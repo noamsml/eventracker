@@ -1,6 +1,9 @@
 #!/usr/local/env python
 
-import googleauth
+from script_context import script_init
+script_init()
+
+import spreadsheet.googleauth as googleauth
 
 def main():
   googleauth.initializeCredentials()

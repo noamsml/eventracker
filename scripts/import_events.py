@@ -1,8 +1,12 @@
 #!/usr/bin/env python
+
+from script_context import script_init
+script_init()
+
 from event_importer import EventImporter
-import googleauth
-from googlesheets import GoogleRetriever
-import db_connectivity
+import spreadsheet.googleauth as googleauth
+from spreadsheet.googlesheets import GoogleRetriever
+import db.db_connectivity as db_connectivity
 import config
 from datetime import date
 

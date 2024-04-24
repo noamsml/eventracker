@@ -1,14 +1,14 @@
-import db_model
-import db_connectivity
-import db_access
+import db.db_model as db_model
+import db.db_connectivity as db_connectivity
+import db.db_access as db_access
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
 from config import Env
 import config
-from decentered_spreadsheet import DecenteredSheetImporter
-from googlesheets import GoogleRetriever
+from spreadsheet.decentered_spreadsheet import DecenteredSheetImporter
+from spreadsheet.googlesheets import GoogleRetriever
 from unittest.mock import MagicMock
 from event_importer import EventImporter
 

@@ -1,5 +1,5 @@
 import event_importer
-from decentered_spreadsheet import SheetRow
+from spreadsheet.decentered_spreadsheet import SheetRow
 from datetime import date
 
 

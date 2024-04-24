@@ -2,7 +2,7 @@ from google.oauth2.credentials import Credentials
 from dataclasses import dataclass
 from typing import List
 
-import googlesheets
+import spreadsheet.googlesheets as googlesheets
 
 @dataclass
 class SheetRow:

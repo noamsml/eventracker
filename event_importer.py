@@ -1,7 +1,7 @@
-from decentered_spreadsheet import DecenteredSheetImporter, SheetRow
-from googlesheets import GoogleRetriever
-import db_access
-import db_model
+from spreadsheet.decentered_spreadsheet import DecenteredSheetImporter, SheetRow
+from spreadsheet.googlesheets import GoogleRetriever
+import db.db_access as db_access
+import db.db_model as db_model
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
 from datetime import date, datetime
