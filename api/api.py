@@ -6,8 +6,10 @@ import db.model as model
 import db.access as access
 from datetime import date
 from sqlalchemy import Engine
+import config
 
 app = FastAPI()
+
 
 @app.get("/v1/events")
 def get_events(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], start_date: date | None = None, end_date: date | None = None) -> api_models.EventList:
@@ -45,3 +47,9 @@ def to_api_time(time_seconds: int | None) -> api_models.TimeOfDay:
         minute=int((time_seconds % (60*60)) / 60),
         second=(time_seconds % (60))
     )
+
+# When running locally in development, fall back to proxying to the npm react server so we can keep editing
+if config.env() == config.Env.development:
+    print("Configuring static directory access!")
+    from .local_development_proxy import make_proxy
+    app.mount("/", make_proxy("http://localhost:3000/"))
