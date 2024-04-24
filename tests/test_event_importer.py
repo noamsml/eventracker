@@ -1,6 +1,6 @@
-import db.db_model as db_model
-import db.db_connectivity as db_connectivity
-import db.db_access as db_access
+import db.model as model
+import db.connectivity as connectivity
+import db.access as access
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine
@@ -16,13 +16,13 @@ config.force_override_env = Env.test
 
 
 def db_engine_for_test():
-    return db_connectivity.make_db_engine()
+    return connectivity.make_db_engine()
 
 @pytest.fixture
 def db_engine():
     engine = db_engine_for_test()
-    db_model.Base.metadata.drop_all(engine)
-    db_model.Base.metadata.create_all(engine)
+    model.Base.metadata.drop_all(engine)
+    model.Base.metadata.create_all(engine)
     return engine
 
 def test_retrieve_basic(db_engine):
@@ -39,10 +39,10 @@ def test_retrieve_basic(db_engine):
     event_importer.perform_import(date(2024, 4, 22))
     google_retriever_mock.retrieve_spreadsheet_range.assert_called_once_with((1,10), (490, 590))
 
-    assert 490 == db_access.get_cursor(db_engine, date(2024, 4, 22))
-    assert 491 == db_access.get_cursor(db_engine, date(2024, 4, 23))
+    assert 490 == access.get_cursor(db_engine, date(2024, 4, 22))
+    assert 491 == access.get_cursor(db_engine, date(2024, 4, 23))
 
-    stored_values = db_access.get_events(db_engine, (date(2024, 4, 20), date(2024, 4, 30)))
+    stored_values = access.get_events(db_engine, (date(2024, 4, 20), date(2024, 4, 30)))
 
     assert ["Decentered open mic", "Late night jams"] == [event.name for event in stored_values]
     assert ["Open Mic", "Party"] == [event.type for event in stored_values]
@@ -57,7 +57,7 @@ def test_retrieve_basic(db_engine):
 
 def test_retrieve_get_todays_cursor(db_engine):
     with Session(db_engine) as session:
-        db_access.update_cursors(session, {date(2024, 4, 20): 2000})
+        access.update_cursors(session, {date(2024, 4, 20): 2000})
         session.commit()
 
     # This is technically wrong typing -- maybe extract interface later?

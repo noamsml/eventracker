@@ -7,13 +7,13 @@ script_init()
 
 import sys
 
-import db.db_model as db_model
-import db.db_connectivity as db_connectivity
+import db.model as model
+import db.connectivity as connectivity
 
-engine = db_connectivity.make_db_engine()
+engine = connectivity.make_db_engine()
 
 if __name__ == "__main__":
     if "--drop" in sys.argv:
-        db_model.Base.metadata.drop_all(engine)
-    db_model.Base.metadata.create_all(engine)
+        model.Base.metadata.drop_all(engine)
+    model.Base.metadata.create_all(engine)
 

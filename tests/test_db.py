@@ -1,6 +1,6 @@
-import db.db_access as db_access
-import db.db_model as db_model
-import db.db_connectivity as db_connectivity
+import db.access as access
+import db.model as model
+import db.connectivity as connectivity
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine
@@ -16,31 +16,31 @@ config.force_override_env = Env.test
 
 
 def db_engine_for_test():
-    return db_connectivity.make_db_engine()
+    return connectivity.make_db_engine()
 
 
 @pytest.fixture
 def db_engine():
     engine = db_engine_for_test()
-    db_model.Base.metadata.drop_all(engine)
-    db_model.Base.metadata.create_all(engine)
+    model.Base.metadata.drop_all(engine)
+    model.Base.metadata.create_all(engine)
     return engine
 
 
 def test_get_update_cursors(db_engine):
-    assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 500
+    assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 500
 
     with Session(db_engine) as session:
-        db_access.update_cursors(session, {TOMORROWS_MORROW: 200})
+        access.update_cursors(session, {TOMORROWS_MORROW: 200})
         session.commit()
 
-    assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 200
-    assert db_access.get_cursor(db_engine, NEXT_WEEK) == 500
+    assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 200
+    assert access.get_cursor(db_engine, NEXT_WEEK) == 500
 
     with Session(db_engine) as session:
-        db_access.update_cursors(session, {TOMORROWS_MORROW: 210, NEXT_WEEK: 400})
+        access.update_cursors(session, {TOMORROWS_MORROW: 210, NEXT_WEEK: 400})
         session.commit()
 
-    assert db_access.get_cursor(db_engine, TOMORROWS_MORROW) == 210
-    assert db_access.get_cursor(db_engine, NEXT_WEEK) == 400
-    assert db_access.get_cursor(db_engine, YESTERDAY) == 500
+    assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 210
+    assert access.get_cursor(db_engine, NEXT_WEEK) == 400
+    assert access.get_cursor(db_engine, YESTERDAY) == 500

@@ -1,7 +1,7 @@
 from spreadsheet.decentered_spreadsheet import DecenteredSheetImporter, SheetRow
 from spreadsheet.googlesheets import GoogleRetriever
-import db.db_access as db_access
-import db.db_model as db_model
+import db.access as access
+import db.model as model
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
 from datetime import date, datetime
@@ -16,7 +16,7 @@ class EventImporter:
         self.db_engine = db_engine
     def perform_import(self, cursor_date: date | None = None):
         cursor_date = cursor_date or date.today()
-        cursor = db_access.get_cursor(self.db_engine, cursor_date)
+        cursor = access.get_cursor(self.db_engine, cursor_date)
 
         importer = DecenteredSheetImporter(self.google_client, cursor - CURSOR_FUZZ)
 
@@ -25,8 +25,8 @@ class EventImporter:
         cursor_updates = _cursor_updates(rows, cursor_date)
 
         with Session(self.db_engine) as session:
-            db_access.update_cursors(session, cursor_updates)
-            db_access.clear_events_table(session)
+            access.update_cursors(session, cursor_updates)
+            access.clear_events_table(session)
 
             for row in rows:
                 db_row = _create_db_row(row)
@@ -37,8 +37,8 @@ class EventImporter:
 
 def _create_db_row(row: SheetRow):
     start_seconds = _parse_time(row.start_time)
-    return db_model.LocalEvent(
-        id = db_model.make_id(),
+    return model.LocalEvent(
+        id = model.make_id(),
         sheet_row = row.row_number,
         date = _parse_date(row.date),
         name = row.name,

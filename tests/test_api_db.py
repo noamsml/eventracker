@@ -1,6 +1,6 @@
 from api import api
-import db.db_model as db_model
-import db.db_connectivity as db_connectivity
+import db.model as model
+import db.connectivity as connectivity
 from datetime import date, timedelta
 import pytest
 from sqlalchemy import Engine
@@ -26,9 +26,9 @@ EVENT_COST="$5"
 config.force_override_env = Env.test
 
 def create_sample_event(event_date: date, engine: Engine) -> str:
-    id = db_model.make_id()
+    id = model.make_id()
     with Session(engine) as session:
-        event = db_model.LocalEvent(
+        event = model.LocalEvent(
             id = id,
             sheet_row = SHEET_ROW,
             name = EVENT_NAME,
@@ -51,15 +51,15 @@ def api_tester():
     return TestClient(api.app)
 
 def db_engine_for_test():
-    return db_connectivity.make_db_engine()
+    return connectivity.make_db_engine()
 
-api.app.dependency_overrides[db_connectivity.make_db_engine] = db_engine_for_test 
+api.app.dependency_overrides[connectivity.make_db_engine] = db_engine_for_test 
 
 @pytest.fixture
 def db_engine():
     engine = db_engine_for_test()
-    db_model.Base.metadata.drop_all(engine)
-    db_model.Base.metadata.create_all(engine)
+    model.Base.metadata.drop_all(engine)
+    model.Base.metadata.create_all(engine)
     return engine
 
 def test_api_basic(db_engine, api_tester):

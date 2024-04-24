@@ -1,27 +1,27 @@
 from fastapi import FastAPI, HTTPException, Depends
 from typing import List, Annotated
 import api.api_models as api_models
-import db.db_connectivity as db_connectivity
-import db.db_model as db_model
-import db.db_access as db_access
+import db.connectivity as connectivity
+import db.model as model
+import db.access as access
 from datetime import date
 from sqlalchemy import Engine
 
 app = FastAPI()
 
 @app.get("/v1/events")
-def get_events(engine: Annotated[Engine, Depends(db_connectivity.make_db_engine)], start_date: date | None = None, end_date: date | None = None) -> api_models.EventList:
+def get_events(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], start_date: date | None = None, end_date: date | None = None) -> api_models.EventList:
     if (start_date == None) != (end_date == None):
         raise HTTPException(status_code=400, detail="Must specify either none or both of start_date, end_date")
     
     date_range = (start_date, end_date) if start_date else None
 
-    db_events = db_access.get_events(engine, date_range)
+    db_events = access.get_events(engine, date_range)
 
     return api_models.EventList(events = [to_api_event(db_event) for db_event in db_events])
 
 
-def to_api_event(db_event : db_model.LocalEvent) -> api_models.Event:
+def to_api_event(db_event : model.LocalEvent) -> api_models.Event:
     return api_models.Event(
         id = db_event.id,
         date = db_event.date,
