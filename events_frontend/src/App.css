@@ -1,21 +1,10 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  text-align: center;
+  background-color: #00849f;
+  min-height: 25vh;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +13,84 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.spreadsheetLink {
+  color: #9ae584;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eventList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventListDisplay, .filters {
+  max-width: 70em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.filters {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 0.5em;
+}
+
+.eventDisplay {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px #396080 solid;
+}
+
+.eventDisplay:first-child {
+  padding-top: 0;
+}
+
+.eventDisplay:last-child {
+  border-bottom: none;
+}
+
+.dateEventList {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  border-left: 1px #396080 solid;
+}
+
+.eventDisplay ul,p {
+  margin-left: 1em;
+}
+
+ul.eventInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  padding: 0;
+}
+
+ul.eventInfo li {
+  display: flex;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-right: 1px #396080 solid;
+}
+
+ul.eventInfo li:first-child {
+  padding-left: 0;
+}
+
+ul.eventInfo li:last-child {
+  border-right: none;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+.filters label {
+  margin-right: 1em;
+}
+
+.eventLink {
+  color: #00a7a9;
 }
