@@ -57,6 +57,8 @@ function EventList() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
+  const [selectRange, setSelectRange] = useState<boolean>(false);
+
   const [events, setEvents] = useState(Array<EventJson>())
   const [error, setError] = useState(false)
 
@@ -86,22 +88,46 @@ function EventList() {
     [startDate, endDate]
   )
 
-  const onDatePickerChange = (dates: [Date | null, Date | null]) => {
+  const onDatePickerRangeChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
 
-  return  <div className="eventList">
-  <div className="filters">
-  <label>Dates</label>
-    <DatePicker
+  const onDatePickerSingleChange = (date: Date | null) => {
+    setStartDate(date);
+    setEndDate(date);
+  };
+
+  const selectRangeChange = (value: boolean) => {
+    setSelectRange(value)
+
+    if (!value) {
+      setEndDate(startDate);
+    }
+  }
+
+
+  var datePickerComponent : JSX.Element;
+  if (selectRange) {
+    datePickerComponent = <DatePicker
       selected={startDate}
-      onChange={onDatePickerChange}
+      onChange={onDatePickerRangeChange}
       startDate={startDate}
       endDate={endDate}
       selectsRange
     />
+  } else {
+    datePickerComponent = <DatePicker
+      selected={startDate}
+      onChange={onDatePickerSingleChange}
+    />
+  }
+
+  return  <div className="eventList">
+  <div className="filters">
+  <label>{selectRange ? "Date range" : "Date"}</label>
+    {datePickerComponent} <div><input type="checkbox" checked={selectRange} onChange={(e) => selectRangeChange(e.target.checked)}/> Select multiple dates</div>
   </div>
   <EventListDisplay events={events} error={error} />
   </div>
@@ -177,10 +203,14 @@ function Event({ eventJson }: { eventJson: EventJson }) {
     }
 
     function amPm(hour: number) {
-      return (hour % 24) > 12 ? "PM" : "AM";
+      return (hour % 24) >= 12 ? "PM" : "AM";
     }
 
-    return `${time.hour % 12}:${displayTimePart(time.minute)}${maybeDisplaySeconds(time.second)} ${amPm(time.hour)}`
+    function formatHours(hours: number) {
+      return (hours % 12 == 0) ? 12 : hours % 12;
+    }
+
+    return `${formatHours(time.hour)}:${displayTimePart(time.minute)}${maybeDisplaySeconds(time.second)} ${amPm(time.hour)}`
   }
 
   function maybeLinkLi(link: string | null) {
@@ -205,7 +235,7 @@ function Event({ eventJson }: { eventJson: EventJson }) {
       <li><label>Location</label><span className={"location " + locationClassName(eventJson.location)}>{eventJson.location}</span></li>
       <li><label>Type</label><span className="type">{eventJson.type}</span></li>
       {maybeTimeLi(eventJson.start, "Start time")}
-      {maybeTimeLi(eventJson.start, "End time")}
+      {maybeTimeLi(eventJson.end, "End time")}
       <li><label>Cost</label><span className="type">{eventJson.cost}</span></li>
     </ul>
     <p className="EventDescription">{eventJson.description}</p>
