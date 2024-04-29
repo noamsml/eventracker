@@ -8,6 +8,7 @@ def test_parse_time():
     assert event_importer._parse_time("5:00:00 PM") == 17 * 60 * 60
     assert event_importer._parse_time("12:00:00 PM") == 12 * 60 * 60
     assert event_importer._parse_time("12:30:00 AM") == 30 * 60
+    assert event_importer._parse_time("20:30:00") == 20 * 60 * 60 + 30 * 60
     assert event_importer._parse_time("12:30:00 AM", event_importer._parse_time("5:00:00 PM")) == 24 * 60 * 60 + 30 * 60
     assert event_importer._parse_time("4:30:00 AM", event_importer._parse_time("5:00:00 PM")) == (24+4) * 60 * 60 + 30 * 60
 

@@ -52,7 +52,7 @@ def _create_db_row(row: SheetRow):
         link = row.link
     )
 
-TIME_REGEX = re.compile("(\\d{1,2}):(\\d{2}):(\\d{2}) (AM|PM)")
+TIME_REGEX = re.compile("(\\d{1,2}):(\\d{2}):(\\d{2})( AM| PM|)")
 def _parse_time(time_spec: str, start_time: int | None = None) -> int | None:
     if not time_spec or not time_spec.strip():
         return None
@@ -70,15 +70,17 @@ def _parse_time(time_spec: str, start_time: int | None = None) -> int | None:
     hours =  int(time_parsed.group(1))
     minutes = int(time_parsed.group(2))
     seconds = int(time_parsed.group(3))
-    is_am = time_parsed.group(4) == "AM"
+    is_am = time_parsed.group(4) == " AM"
+    is_pm = time_parsed.group(4) == " PM"
 
     if is_am and hours == 12:
         hours = 0
 
-    if is_am and hours < start_hours:
-        hours += 24
-    elif not is_am and hours != 12:
+    if is_pm and hours != 12:
         hours += 12
+
+    if hours < start_hours and hours < 12:
+        hours += 24
     
     return hours * (60*60) + minutes * 60 + seconds
     
