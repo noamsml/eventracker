@@ -1,11 +1,11 @@
 from pydantic import BaseModel, Field
-from enum import StrEnum, auto
+from enum import Enum, auto
 from functools import cache
 import os
 
 EVENTRACKER_ID="1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY"
 
-class Env(StrEnum):
+class Env(Enum):
     development = auto()
     test = auto()
     production=auto()
@@ -34,12 +34,12 @@ class Config(BaseModel):
 @cache
 def config(force_env: Env | None = None):
     e = force_env or env()
-    filename = os.path.join(os.path.dirname(__file__), "config", "{}.json".format(e))
+    filename = os.path.join(os.path.dirname(__file__), "config", "{}.json".format(e.name))
     with open(filename) as config_file:
         data = config_file.read()
     config = Config.model_validate_json(data)
 
     if not config.database.db_name:
-        config.database.db_name = "sheets_{}".format(e)
+        config.database.db_name = "sheets_{}".format(e.name)
 
     return config
