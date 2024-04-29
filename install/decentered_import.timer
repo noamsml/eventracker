@@ -1,0 +1,9 @@
+[Unit]
+Description=Import events into the decentered_events db
+
+[Timer]
+OnCalendar=*-*-* *:30
+Persistent=true
+
+[Install]
+WantedBy=timers.target

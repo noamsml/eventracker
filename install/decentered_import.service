@@ -1,0 +1,10 @@
+[Unit]
+Description=Import events into the decentered_events db
+
+[Service]
+Type=OneShot
+WorkingDirectory=/home/decentered/eventracker
+ExecStart=/home/decentered/eventracker/scripts/run_import.sh
+
+[Install]
+Wants=decentered_import.timer
