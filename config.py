@@ -8,6 +8,7 @@ EVENTRACKER_ID="1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY"
 class Env(StrEnum):
     development = auto()
     test = auto()
+    production=auto()
 
 # Absent a DI framework, using a global is the easiest way to force the env to "test" for tests
 force_override_env: Env | None = None
