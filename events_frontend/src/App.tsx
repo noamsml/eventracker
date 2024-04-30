@@ -9,6 +9,8 @@ import { format as dateFormat, parse as dateParse } from 'date-format-parse';
 import "react-datepicker/dist/react-datepicker.css";
 
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY/edit#gid=0"
+const SUBMIT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdFneR4syUmZ580W5Ics6IX_y2I4s5ajwZTpX4cCwltl-hcqw/viewform?usp=send_form"
+const DONATE_LINK = "https://givebutter.com/decentered"
 const ALL_LOCATION_VALUES = ["San Francisco", "Oakland", "Berkeley", "East Bay", "North Bay", "South Bay", "Out of Town", "Treasure Island", "Various Locations"]
 
 interface TimeJson {
@@ -46,6 +48,7 @@ function App() {
       <header className="App-header">
         <h1>Decentered Events Tracker</h1>
         <div className="linkAndExplanation">Events lovingly imported from the <a className="spreadsheetLink" href={SPREADSHEET_URL}>Decentered Eventracker Spreadsheet</a></div>
+        <div className="linkAndExplanation"> <a className="spreadsheetLink" href={SUBMIT_URL}>Submit an event</a> | <a className="spreadsheetLink" href={DONATE_LINK}>Consider donating</a> | <a className="spreadsheetLink" href="https://decenteredarts.org">Decentered arts</a></div>
       </header>
 
       <EventList />
@@ -62,6 +65,8 @@ function EventList() {
   const [events, setEvents] = useState(Array<EventJson>())
   const [error, setError] = useState(false)
 
+  const [isLoading, setIsLoading] = useState(false);
+
   function formatDateForUrl(date: Date) {
     return dateFormat(date, "YYYY-MM-DD");
   }
@@ -74,15 +79,20 @@ function EventList() {
       if (startDate && endDate) {
         url = url + `?start_date=${formatDateForUrl(startDate)}&end_date=${formatDateForUrl(endDate)}`
       }
+
+      setIsLoading(true);
       
       fetch(url)
         .then((response) => response.json())
         .then((responseJson) => {
           setEvents(responseJson.events)
+          setIsLoading(false);
+          setError(false);
         })
         .catch((e) => {
           console.log(e);
           setError(true)
+          setIsLoading(false);
         })
     },
     [startDate, endDate]
@@ -129,11 +139,11 @@ function EventList() {
   <label>{selectRange ? "Date range" : "Date"}</label>
     {datePickerComponent} <div><input type="checkbox" checked={selectRange} onChange={(e) => selectRangeChange(e.target.checked)}/> Select multiple dates</div>
   </div>
-  <EventListDisplay events={events} error={error} />
+  <EventListDisplay events={events} error={error} isLoading={isLoading} />
   </div>
 }
 
-function EventListDisplay({events, error} : {events: Array<EventJson>, error: boolean}) {
+function EventListDisplay({events, error, isLoading} : {events: Array<EventJson>, error: boolean, isLoading: boolean}) {
   function formatDate(date: Date) {
     // TODO more flexible formatting
     return dateFormat(date, "dddd, MMM D YYYY");
@@ -159,8 +169,12 @@ function EventListDisplay({events, error} : {events: Array<EventJson>, error: bo
     return <div className="eventListDisplay">Failed to load events!</div>
   }
 
-  if (events.length == 0) {
+  if (isLoading) {
     return <div className="eventListDisplay">Loading...</div>
+  }
+
+  if (events.length == 0) {
+    return <div className="eventListDisplay">No events to display. If the selected date is in the past we might've not imported events for it.</div>
   }
 
 

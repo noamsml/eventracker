@@ -4,6 +4,7 @@
   text-align: center;
   background-color: #00849f;
   min-height: 25vh;
+  padding-bottom: 1em;
   margin-bottom: 2em;
   display: flex;
   flex-direction: column;
@@ -11,6 +12,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .spreadsheetLink {
@@ -64,6 +67,7 @@ ul.eventInfo {
   display: flex;
   flex-direction: row;
   align-items: start;
+  flex-wrap: wrap;
   padding: 0;
 }
 
