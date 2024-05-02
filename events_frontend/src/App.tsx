@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import DatePicker from "react-datepicker";
 import { format as dateFormat, parse as dateParse } from 'date-format-parse';
 
-
-import "react-datepicker/dist/react-datepicker.css";
 
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY/edit#gid=0"
 const SUBMIT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdFneR4syUmZ580W5Ics6IX_y2I4s5ajwZTpX4cCwltl-hcqw/viewform?usp=send_form"
@@ -60,8 +57,6 @@ function EventList() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
-  const [selectRange, setSelectRange] = useState<boolean>(false);
-
   const [events, setEvents] = useState(Array<EventJson>())
   const [error, setError] = useState(false)
 
@@ -73,15 +68,19 @@ function EventList() {
 
   useEffect(
     () => {
-      console.log("Effect called " + events.length)
-      var url : string = "/v1/events";
-      
+      if (startDate && !endDate) {
+        console.log("Skipping effect due to in-progress range");
+        return;
+      }
+
+      var url: string = "/v1/events";
+
       if (startDate && endDate) {
         url = url + `?start_date=${formatDateForUrl(startDate)}&end_date=${formatDateForUrl(endDate)}`
       }
 
       setIsLoading(true);
-      
+
       fetch(url)
         .then((response) => response.json())
         .then((responseJson) => {
@@ -98,52 +97,84 @@ function EventList() {
     [startDate, endDate]
   )
 
-  const onDatePickerRangeChange = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
+
+  function onDateFilterChange(start: Date | null, end: Date | null) {
     setStartDate(start);
     setEndDate(end);
+  }
+
+  return <div className="eventList">
+    <div className="filters">
+      <DateFilterPanel startDate={startDate} endDate={endDate} onChange={onDateFilterChange} />
+    </div>
+    <EventListDisplay events={events} error={error} isLoading={isLoading} />
+  </div>
+}
+
+function DateFilterPanel({ startDate, endDate, onChange }: { startDate: Date | null, endDate: Date | null, onChange: (start: Date | null, end: Date | null) => void }) {
+  const [selectRange, setSelectRange] = useState<boolean>(false);
+
+  const onDatePickerRangeChange = (dates: [Date | null, Date | null]) => {
+    const [start, end] = dates;
+    onChange(start, end);
   };
 
-  const onDatePickerSingleChange = (date: Date | null) => {
-    setStartDate(date);
-    setEndDate(date);
+  const onDatePickerSingleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const date = event.target.valueAsDate;
+    onChange(date, date);
   };
+
+  const onDatePickerStartChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newStart = event.target.valueAsDate;
+
+    if (!newStart || (endDate && newStart > endDate)) {
+      onChange(newStart, null);
+    } else {
+      onChange(newStart, endDate);
+    }
+  }
+
+  const onDatePickerEndChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newEnd = event.target.valueAsDate;
+
+    onChange(startDate, newEnd)
+  }
+
+  var datePickerComponent: JSX.Element;
+  if (selectRange) {
+    datePickerComponent = <>
+      <input type="date"
+        value={startDate ? dateFormat(startDate, "YYYY-MM-DD") : undefined}
+        min={dateFormat(new Date(), "YYYY-MM-DD")}
+        onChange={onDatePickerStartChange}
+      />
+      <input type="date"
+        value={endDate ? dateFormat(endDate, "YYYY-MM-DD") : undefined}
+        min={startDate ? dateFormat(startDate, "YYYY-MM-DD") : undefined}
+        onChange={onDatePickerEndChange}
+        disabled={!startDate}
+      />
+    </>
+  } else {
+    datePickerComponent = <input type="date"
+      value={startDate ? dateFormat(startDate, "YYYY-MM-DD") : undefined}
+      min={dateFormat(new Date(), "YYYY-MM-DD")}
+      onChange={onDatePickerSingleChange}
+    ></input>
+  }
 
   const selectRangeChange = (value: boolean) => {
     setSelectRange(value)
 
     if (!value) {
-      setEndDate(startDate);
+      onChange(startDate, startDate);
     }
   }
 
-
-  var datePickerComponent : JSX.Element;
-  if (selectRange) {
-    datePickerComponent = <DatePicker
-      selected={startDate}
-      onChange={onDatePickerRangeChange}
-      startDate={startDate}
-      endDate={endDate}
-      selectsRange
-    />
-  } else {
-    datePickerComponent = <DatePicker
-      selected={startDate}
-      onChange={onDatePickerSingleChange}
-    />
-  }
-
-  return  <div className="eventList">
-  <div className="filters">
-  <label>{selectRange ? "Date range" : "Date"}</label>
-    {datePickerComponent} <div><input type="checkbox" checked={selectRange} onChange={(e) => selectRangeChange(e.target.checked)}/> Select multiple dates</div>
-  </div>
-  <EventListDisplay events={events} error={error} isLoading={isLoading} />
-  </div>
+  return <><label>{selectRange ? "Date range" : "Date"}</label> {datePickerComponent} <div><input type="checkbox" checked={selectRange} onChange={(e) => selectRangeChange(e.target.checked)} /> Select multiple dates</div></>
 }
 
-function EventListDisplay({events, error, isLoading} : {events: Array<EventJson>, error: boolean, isLoading: boolean}) {
+function EventListDisplay({ events, error, isLoading }: { events: Array<EventJson>, error: boolean, isLoading: boolean }) {
   function formatDate(date: Date) {
     // TODO more flexible formatting
     return dateFormat(date, "dddd, MMM D YYYY");
