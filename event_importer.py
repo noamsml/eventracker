@@ -36,23 +36,26 @@ class EventImporter:
         return len(rows)
 
 def _create_db_row(row: SheetRow):
-    start_seconds = _parse_time(row.start_time)
-    return model.LocalEvent(
-        id = model.make_id(),
-        sheet_row = row.row_number,
-        date = _parse_date(row.date),
-        name = row.name,
-        type = row.type,
-        location = row.location,
-        start_seconds = start_seconds,
-        end_seconds = _parse_time(row.end_time, start_seconds),
-        address = row.address,
-        description = row.description,
-        cost = row.cost,
-        link = row.link
-    )
+    try:
+        start_seconds = _parse_time(row.start_time)
+        return model.LocalEvent(
+            id = model.make_id(),
+            sheet_row = row.row_number,
+            date = _parse_date(row.date),
+            name = row.name,
+            type = row.type,
+            location = row.location,
+            start_seconds = start_seconds,
+            end_seconds = _parse_time(row.end_time, start_seconds),
+            address = row.address,
+            description = row.description,
+            cost = row.cost,
+            link = row.link
+        )
+    except Exception as e:
+        raise Exception("Row {}: Could not parse".format(row.row_number)) from e
 
-TIME_REGEX = re.compile("(\\d{1,2}):(\\d{2}):(\\d{2})( AM| PM|)")
+TIME_REGEX = re.compile("(\\d{1,2})(:(\\d{2})(:(\\d{2}))?)?( AM| PM|)")
 def _parse_time(time_spec: str, start_time: int | None = None) -> int | None:
     if not time_spec or not time_spec.strip():
         return None
@@ -68,10 +71,10 @@ def _parse_time(time_spec: str, start_time: int | None = None) -> int | None:
         start_hours = 0
     
     hours =  int(time_parsed.group(1))
-    minutes = int(time_parsed.group(2))
-    seconds = int(time_parsed.group(3))
-    is_am = time_parsed.group(4) == " AM"
-    is_pm = time_parsed.group(4) == " PM"
+    minutes = int(time_parsed.group(3)) if time_parsed.group(3) else 0
+    seconds = int(time_parsed.group(5)) if time_parsed.group(4) else 0
+    is_am = time_parsed.group(6) == " AM"
+    is_pm = time_parsed.group(6) == " PM"
 
     if is_am and hours == 12:
         hours = 0

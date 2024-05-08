@@ -3,5 +3,6 @@ config/development.json
 config/production.json
 googleclientsecret.json
 googletoken.json
+config/credentials
 __pycache__
 .vscode

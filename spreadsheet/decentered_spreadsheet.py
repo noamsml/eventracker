@@ -15,7 +15,7 @@ class SheetRow:
     location: str
     address: str
     description: str
-    cost: str
+    cost: str = ""
     link: str = ""
 
 @dataclass

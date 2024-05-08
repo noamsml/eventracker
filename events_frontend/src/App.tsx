@@ -114,18 +114,21 @@ function EventList() {
 function DateFilterPanel({ startDate, endDate, onChange }: { startDate: Date | null, endDate: Date | null, onChange: (start: Date | null, end: Date | null) => void }) {
   const [selectRange, setSelectRange] = useState<boolean>(false);
 
-  const onDatePickerRangeChange = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
-    onChange(start, end);
-  };
+  function valueAsDate(value: string | null) {
+    if (!value) {
+      return null;
+    }
+
+    return dateParse(value, "YYYY-MM-DD");
+  }
 
   const onDatePickerSingleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const date = event.target.valueAsDate;
+    const date = valueAsDate(event.target.value);
     onChange(date, date);
   };
 
   const onDatePickerStartChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newStart = event.target.valueAsDate;
+    const newStart = valueAsDate(event.target.value);
 
     if (!newStart || (endDate && newStart > endDate)) {
       onChange(newStart, null);
@@ -135,7 +138,11 @@ function DateFilterPanel({ startDate, endDate, onChange }: { startDate: Date | n
   }
 
   const onDatePickerEndChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newEnd = event.target.valueAsDate;
+    var newEnd = valueAsDate(event.target.value);
+
+    if (!startDate || (newEnd && newEnd < startDate))  {
+      newEnd = startDate;
+    }
 
     onChange(startDate, newEnd)
   }
@@ -150,7 +157,7 @@ function DateFilterPanel({ startDate, endDate, onChange }: { startDate: Date | n
       />
       <input type="date"
         value={endDate ? dateFormat(endDate, "YYYY-MM-DD") : undefined}
-        min={startDate ? dateFormat(startDate, "YYYY-MM-DD") : undefined}
+        min={startDate ? dateFormat(startDate, "YYYY-MM-DD") : dateFormat(new Date(), "YYYY-MM-DD")}
         onChange={onDatePickerEndChange}
         disabled={!startDate}
       />

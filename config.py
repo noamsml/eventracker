@@ -30,6 +30,7 @@ class Config(BaseModel):
     # Configure on new install to avoid importing random junk from 
     # early 2024
     base_row: int = 700
+    google_token: str | None = None
 
 @cache
 def config(force_env: Env | None = None):
