@@ -9,6 +9,7 @@ class Env(Enum):
     development = auto()
     test = auto()
     production=auto()
+    containerized=auto()
 
 # Absent a DI framework, using a global is the easiest way to force the env to "test" for tests
 force_override_env: Env | None = None
@@ -35,7 +36,14 @@ class Config(BaseModel):
 @cache
 def config(force_env: Env | None = None):
     e = force_env or env()
-    filename = os.path.join(os.path.dirname(__file__), "config", "{}.json".format(e.name))
+
+    filename_injected = os.path.join(os.path.dirname(__file__), "config", "injected", "{}.json".format(e.name))
+    filename_native = os.path.join(os.path.dirname(__file__), "config", "{}.json".format(e.name))
+
+    filename = filename_injected if os.path.exists(filename_injected) else filename_native
+
+    print("Using config file {}".format(filename))
+
     with open(filename) as config_file:
         data = config_file.read()
     config = Config.model_validate_json(data)

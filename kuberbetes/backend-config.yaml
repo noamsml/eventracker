@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config.events
+data:
+ containerized.json: |
+  {
+    "database": {
+        "username": "sheets",
+        "password": "sheets",
+        "host": "mysql"
+    },
+    "google_token": "config/credentials/serviceaccount.json",
+    "base_row": 700
+  }
