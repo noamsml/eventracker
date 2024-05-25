@@ -1,7 +1,4 @@
 {
-    "database": {
-        "username": "sheets",
-        "password": "sheets"
-    },
+    "database": "memory",
     "base_row": 500
 }

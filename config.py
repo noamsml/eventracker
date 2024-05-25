@@ -11,6 +11,9 @@ class Env(Enum):
     production=auto()
     containerized=auto()
 
+class SpecialDatabase(str, Enum):
+    memory = 'memory'
+
 # Absent a DI framework, using a global is the easiest way to force the env to "test" for tests
 force_override_env: Env | None = None
 
@@ -26,7 +29,7 @@ class DatabaseConfig(BaseModel):
     password: str
 
 class Config(BaseModel):
-    database: DatabaseConfig
+    database: DatabaseConfig | SpecialDatabase
     sheet_id: str = EVENTRACKER_ID
     # Configure on new install to avoid importing random junk from 
     # early 2024
@@ -48,7 +51,7 @@ def config(force_env: Env | None = None):
         data = config_file.read()
     config = Config.model_validate_json(data)
 
-    if not config.database.db_name:
+    if isinstance(config.database, DatabaseConfig) and not config.database.db_name:
         config.database.db_name = "sheets_{}".format(e.name)
 
     return config

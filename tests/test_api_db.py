@@ -63,7 +63,7 @@ def db_engine():
     return engine
 
 def test_api_basic(db_engine, api_tester):
-    id = create_sample_event(TOMORROWS_MORROW, db_engine)
+    event_id = create_sample_event(TOMORROWS_MORROW, db_engine)
     response = api_tester.get("/v1/events")
     assert response.status_code == 200
 
@@ -71,7 +71,7 @@ def test_api_basic(db_engine, api_tester):
 
     assert len(response_json['events']) == 1
 
-    assert response_json['events'][0]['id'] == id
+    assert response_json['events'][0]['id'] == event_id
     assert response_json['events'][0]['name'] == EVENT_NAME
     assert response_json['events'][0]['date'] == TOMORROWS_MORROW.isoformat()
     assert response_json['events'][0]['start']['hour'] == 16
