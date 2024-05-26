@@ -26,8 +26,8 @@ def make_db_engine(force_env: config.Env | None = None) -> Engine:
 
     url = URL.create(
         "mysql",
-        username=db_config.username,
-        password=db_config.password,
+        username=db_config.get_username(),
+        password=db_config.get_password(),
         host=db_config.host,
         port=db_config.port,
         database=db_config.db_name,

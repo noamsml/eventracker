@@ -6,8 +6,8 @@ data:
  containerized.json: |
   {
     "database": {
-        "username": "sheets",
-        "password": "sheets",
+        "username": {"env": "DATABASE_USERNAME"},
+        "password": {"env": "DATABASE_PASSWORD"},
         "host": "mysql"
     },
     "google_token": "config/credentials/serviceaccount.json",

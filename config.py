@@ -20,13 +20,28 @@ force_override_env: Env | None = None
 def env() -> Env:
    return force_override_env or Env[os.environ.get('ENV', "development")]
 
+class EnvVariable(BaseModel):
+    env: str
+
 class DatabaseConfig(BaseModel):
     db_name: str | None = None
     host: str = "localhost"
     port: int = 3306
-    username: str
+    username: str | EnvVariable
     # Obvi down the line this should live in something like confidant
-    password: str
+    password: str | EnvVariable
+
+    def get_username(self):
+        if isinstance(self.username, EnvVariable):
+            return os.environ[self.username.env]
+
+        return self.username
+
+    def get_password(self):
+        if isinstance(self.password, EnvVariable):
+            return os.environ[self.password.env]
+
+        return self.password
 
 class Config(BaseModel):
     database: DatabaseConfig | SpecialDatabase
@@ -51,7 +66,8 @@ def config(force_env: Env | None = None):
         data = config_file.read()
     config = Config.model_validate_json(data)
 
-    if isinstance(config.database, DatabaseConfig) and not config.database.db_name:
-        config.database.db_name = "sheets_{}".format(e.name)
+    if isinstance(config.database, DatabaseConfig):
+        if not config.database.db_name:
+            config.database.db_name = "sheets_{}".format(e.name) 
 
     return config

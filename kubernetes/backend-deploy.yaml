@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decentered-events
+  labels:
+    app: decentered-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: decentered-backend
+  template:
+    metadata:
+      labels:
+        app: decentered-backend
+    spec:
+      containers:
+      - name: python-backend
+        image: noamsml/decentered-events:latest
+        env:
+          - name: ENV
+            value: containerized
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: decentered-database-user-pw
+                key: user
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: decentered-database-user-pw
+                key: password
+        volumeMounts:
+          - name: config
+            mountPath: "/app/config/injected"
+            readOnly: true
+          - name: credentials
+            mountPath: "/app/config/credentials"
+            readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: backend-config.events
+            items:
+            - key: "containerized.json"
+              path: "containerized.json"
+        - name: credentials
+          secret:
+            secretName: decentered-backend-credentials
+            items: 
+              - key: serviceaccount.json
+                path: serviceaccount.json
