@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: decentered-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /v1
+            pathType: Prefix
+            backend:
+              service:
+                name: decentered-backend
+                port:
+                  number: 80
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: decentered-frontend
+                port:
+                  number: 80

@@ -50,3 +50,13 @@ spec:
             items: 
               - key: serviceaccount.json
                 path: serviceaccount.json
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: decentered-backend
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: decentered-backend

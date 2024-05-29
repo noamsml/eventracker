@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: decentered-events-updater
+spec:
+  schedule: "50 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: python-backend
+            image: noamsml/decentered-events:latest
+            command: ["python", "/app/scripts/import_events.py"]
+            env:
+              - name: ENV
+                value: containerized
+              - name: DATABASE_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: decentered-database-user-pw
+                    key: user
+              - name: DATABASE_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: decentered-database-user-pw
+                    key: password
+            volumeMounts:
+              - name: config
+                mountPath: "/app/config/injected"
+                readOnly: true
+              - name: credentials
+                mountPath: "/app/config/credentials"
+                readOnly: true
+          volumes:
+            - name: config
+              configMap:
+                name: backend-config.events
+                items:
+                - key: "containerized.json"
+                  path: "containerized.json"
+            - name: credentials
+              secret:
+                secretName: decentered-backend-credentials
+                items: 
+                  - key: serviceaccount.json
+                    path: serviceaccount.json
+          

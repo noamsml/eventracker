@@ -12,9 +12,9 @@ class SheetRow:
     type: str
     start_time: str
     end_time: str
-    location: str
-    address: str
-    description: str
+    location: str = ""
+    address: str = ""
+    description: str = ""
     cost: str = ""
     link: str = ""
 

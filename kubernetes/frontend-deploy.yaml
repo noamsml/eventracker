@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decentered-frontend
+  labels:
+    app: decentered-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: decentered-frontend
+  template:
+    metadata:
+      labels:
+        app: decentered-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: noamsml/decentered-frontend:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: decentered-frontend
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: decentered-frontend
