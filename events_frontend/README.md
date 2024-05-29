@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To add static test data for aesthetic development
+
+```
+mkdir public/v1 && curl https://events.noamsml.com/v1/events > public/v1/events
+```
+
+Note that `public/v1` is ignored in gitignore, meaning it won't be added in commits.
+
 ## Available Scripts
 
 In the project directory, you can run:

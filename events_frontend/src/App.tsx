@@ -42,10 +42,10 @@ class EventsAndDate {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Decentered Events Tracker</h1>
+      <header className="App-header">      
+        <h1><img src="/logo/decentered.png" /> Decentered Events Tracker</h1>
         <div className="linkAndExplanation">Events lovingly imported from the <a className="spreadsheetLink" href={SPREADSHEET_URL}>Decentered Eventracker Spreadsheet</a></div>
-        <div className="linkAndExplanation"> <a className="spreadsheetLink" href={SUBMIT_URL}>Submit an event</a> | <a className="spreadsheetLink" href={DONATE_LINK}>Consider donating</a> | <a className="spreadsheetLink" href="https://decenteredarts.org">Decentered arts</a></div>
+        <div className="linkAndExplanation"> <a className="spreadsheetLink" href={SUBMIT_URL} target="_blank">Submit an event</a> | <a className="spreadsheetLink" href={DONATE_LINK} target="_blank">Consider donating</a> | <a className="spreadsheetLink" href="https://decenteredarts.org" target="_blank">Decentered arts</a></div>
       </header>
 
       <EventList />
@@ -270,7 +270,7 @@ function Event({ eventJson }: { eventJson: EventJson }) {
       return <></>
     }
 
-    return <li><a href={link} className="eventLink">Website&gt;&gt;</a></li>
+    return <li><a href={link} className="eventLink" target="_blank">Website&gt;&gt;</a></li>
   }
 
   function maybeTimeLi(time: TimeJson | null, label: string) {

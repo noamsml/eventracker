@@ -45,7 +45,7 @@ You can check that mysql login works by attempting a login
 
 ```
 POD=$(kubectl get pods --selector=app=mysql --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
-kubectl exec $POD -- mysql -u decentered -p$(cat /tmp/sheets_userpw)
+kubectl exec --tty --stdin $POD -- mysql -u decentered -p$(cat /tmp/sheets_userpw)
 ```
 
 4. Create the deployment for the app itself
@@ -85,3 +85,9 @@ kubectl exec $POD -- curl http://localhost/v1/events
 ```
 
 UPCOMING: Containerize or otherwise deploy the frontend -- idea is to create a composite image that contains nginx and the static files. Gonna research how to do tomorrow.
+
+7. Apply the cronjob config
+
+```
+kubectl apply -f kubernetes/backend-cronjob.yaml
+```

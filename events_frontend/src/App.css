@@ -2,7 +2,6 @@
 
 .App-header {
   text-align: center;
-  background-color: #00849f;
   min-height: 25vh;
   padding-bottom: 1em;
   margin-bottom: 2em;
@@ -14,10 +13,20 @@
   color: white;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  background: #D46060;
+}
+
+.App-header h1 img {
+  height: 2em;
+}
+
+.App-header h1 {
+  display: flex;
+  align-items: center;
 }
 
 .spreadsheetLink {
-  color: #9ae584;
+  color: #60D4D4;
 }
 
 .eventList {
@@ -96,5 +105,5 @@ label {
 }
 
 .eventLink {
-  color: #00a7a9;
+  color: #16BB71;
 }
