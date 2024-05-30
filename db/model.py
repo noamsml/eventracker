@@ -31,7 +31,7 @@ class LocalEvent(Base):
     id: Mapped[medium_str] = mapped_column(primary_key=True)
     date: Mapped[date]
     sheet_row: Mapped[int]
-    name: Mapped[medium_str]
+    name: Mapped[long_str]
     # After some thought -- best to keep design simple/dumb by persisting strings for now
     # can revisit/re-ingest by turning values to enumerated numbers, but realistically
     # there is no server side logic that needs to touch the event type or location,
@@ -41,7 +41,7 @@ class LocalEvent(Base):
     # Should I store these as full dates?
     start_seconds: Mapped[int | None] # Seconds in the day (from 0 for 12 AM to 60 * 60 * 24 - 1 for 11:59 PM)
     end_seconds: Mapped[int | None] # Seconds in the day (from 0 for 12 AM to 60 * 60 * 48 - 1 for 11:59 PM the next day)
-    address: Mapped[medium_str]
+    address: Mapped[long_str]
     description: Mapped[longest_str]
     cost: Mapped[medium_str]
     link: Mapped[long_str]
