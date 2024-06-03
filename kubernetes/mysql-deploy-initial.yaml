@@ -45,11 +45,16 @@ spec:
         - name: MYSQL_DATABASE
           value: sheets_containerized
         ports:
-        - containerPort: 3306
-          name: mysql
+          - containerPort: 3306
+            name: mysql
         volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+        resources:
+          requests:
+            memory: 500Mi
+          limits:
+            memory: 750Mi
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:

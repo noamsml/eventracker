@@ -46,4 +46,8 @@ spec:
                 items: 
                   - key: serviceaccount.json
                     path: serviceaccount.json
-          
+          resources:
+            requests:
+              memory: 100Mi
+            limits:
+              memory: 120Mi

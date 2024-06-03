@@ -37,6 +37,11 @@ spec:
           - name: credentials
             mountPath: "/app/config/credentials"
             readOnly: true
+        resources:
+          requests:
+            memory: 70Mi
+          limits:
+            memory: 120Mi
       volumes:
         - name: config
           configMap:

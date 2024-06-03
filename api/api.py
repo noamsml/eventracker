@@ -8,8 +8,11 @@ from datetime import date
 from sqlalchemy import Engine
 import config
 
+from prometheus_fastapi_instrumentator import Instrumentator
+
 app = FastAPI()
 
+Instrumentator().instrument(app).expose(app)
 
 @app.get("/v1/events")
 def get_events(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], start_date: date | None = None, end_date: date | None = None) -> api_models.EventList:
