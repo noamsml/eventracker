@@ -1,6 +1,7 @@
 from sqlalchemy import Engine, select, delete
 from sqlalchemy.orm import Session
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
+from dateutil.tz import gettz
 from typing import List, Dict
 import db.model as model
 import config
@@ -8,25 +9,23 @@ import config
 # Misc functions to talk with the db -- at some point I should reorg these to live in model-specific classes and
 # all take a Session but I'm trying to get this whole thing done first
 
+CALIFORNIA_TIME = gettz("America/Los Angeles")
+
 def get_events(
     engine: Engine, date_range: tuple[date, date] | None
 ) -> List[model.LocalEvent]:
+    date_range = date_range or get_now_range()
     with Session(engine) as session:
-        if date_range:
-            return session.scalars(
-                select(model.LocalEvent).where(
-                    (model.LocalEvent.date >= date_range[0])
-                    & (model.LocalEvent.date <= date_range[1])
-                ).order_by(model.LocalEvent.date.asc())
-            ).all()
-        else:
-            values = session.scalars(
-                select(model.LocalEvent).where(
-                    model.LocalEvent.date >= date.today()
-                ).order_by(model.LocalEvent.date.asc())
-            ).all()
-            return values
+        return session.scalars(
+            select(model.LocalEvent).where(
+                (model.LocalEvent.date >= date_range[0])
+                & (model.LocalEvent.date <= date_range[1])
+            ).order_by(model.LocalEvent.date.asc())
+        ).all()
 
+def get_now_range() -> tuple[date, date]:
+    today = datetime.now(CALIFORNIA_TIME).date()
+    return [today, today + timedelta(days=7)]
 
 def get_cursor(engine: Engine, cursor_date: date) -> int:
     with Session(engine) as session:

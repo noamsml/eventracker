@@ -8,3 +8,4 @@ google-auth-httplib2
 google-auth-oauthlib
 asgiproxy
 prometheus_fastapi_instrumentator
+python-dateutil
