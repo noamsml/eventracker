@@ -10,8 +10,8 @@ class SheetRow:
     date: str
     name: str
     type: str
-    start_time: str
-    end_time: str
+    start_time: str = "12:00:00 AM"
+    end_time: str = "11:59:59 PM"
     location: str = ""
     address: str = ""
     description: str = ""
