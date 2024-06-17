@@ -35,6 +35,15 @@ class EventImporter:
         
         return len(rows)
 
+LOCATION_RE = re.compile("([A-Za-z ]+[A-Za-z])( ?\\(.*\\))?")
+
+def _process_location(location: str) -> str:
+    match = LOCATION_RE.match(location)
+    if match:
+        return match[1]
+
+    return location
+
 def _create_db_row(row: SheetRow):
     try:
         start_seconds = _parse_time(row.start_time)
@@ -44,7 +53,7 @@ def _create_db_row(row: SheetRow):
             date = _parse_date(row.date),
             name = row.name,
             type = row.type,
-            location = row.location,
+            location = _process_location(row.location),
             start_seconds = start_seconds,
             end_seconds = _parse_time(row.end_time, start_seconds),
             address = row.address,
