@@ -1,25 +1,40 @@
-import { Box, Heading, Stack, StackItem } from "@chakra-ui/react";
-import { useAtomValue } from "jotai";
-import { eventDaysAtom, eventsAtom, eventsByDateAtom } from "../data/events";
-import { DateTime } from "luxon";
+import { Box, Heading, Stack } from "@chakra-ui/react";
+import { useAtomValue, useSetAtom } from "jotai";
+import {
+  eventDaysAtom,
+  eventsAtom,
+  eventsByDateAtom,
+  fetchEvents,
+} from "../data/events";
 import { Fragment } from "react/jsx-runtime";
+import { EventCard } from "./EventCard";
+import { DateTime } from "luxon";
+import { useEffect } from "react";
+import { formatDate } from "../data/dateFormats";
 
 export const EventList = () => {
+  const setEvents = useSetAtom(eventsAtom);
   const eventsByDate = useAtomValue(eventsByDateAtom);
   const eventDays = useAtomValue(eventDaysAtom);
+
+  // This loads the data an puts it in the eventsAtom. The remaining atoms are all
+  // automatically derived from that atom. Nice!
+  useEffect(() => {
+    fetchEvents().then((events) => setEvents(events));
+  }, [setEvents]);
 
   return (
     <Stack direction="column">
       {eventDays.map((date) => (
         <Fragment key={date}>
-          <Box position="sticky" top="0" bg="white" zIndex="1">
-            <Heading size="lg">{formatDate(date)}</Heading>
+          <Box position="sticky" top="0" bg="red.300" zIndex="1" py={3} px={4}>
+            <Heading size="sm" color="white">
+              {formatDate(date, DateTime.DATE_HUGE)}
+            </Heading>
           </Box>
           <ul>
             {eventsByDate[date].map((event) => (
-              <li key={event.id}>
-                <div>{event.name}</div>
-              </li>
+              <EventCard key={event.id} event={event} />
             ))}
           </ul>
         </Fragment>
@@ -27,6 +42,3 @@ export const EventList = () => {
     </Stack>
   );
 };
-
-const formatDate = (date: string) =>
-  DateTime.fromFormat(date, "yyyy-MM-dd").toLocaleString(DateTime.DATE_HUGE);

@@ -101,7 +101,7 @@ footer {
   border-left: 1px #396080 solid;
 }
 
-.eventDisplay ul,p {
+.eventDisplay ul, .eventDisplay p {
   margin-left: 1em;
 }
 
