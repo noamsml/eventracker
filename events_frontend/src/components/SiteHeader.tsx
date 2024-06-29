@@ -9,7 +9,7 @@ import {
   selectedEventTypeAtom,
   locationOptionsAtom,
   eventTypeOptionsAtom,
-  selectedDateRangeAtom,
+  selectedDateRangeOptionAtom,
 } from "../data/events";
 import { SelectSomething } from "./SelectSomething";
 
@@ -74,7 +74,7 @@ const SelectEventType = () => {
 };
 
 const SelectDateRange = () => {
-  const [selection, setSelection] = useAtom(selectedDateRangeAtom);
+  const [selection, setSelection] = useAtom(selectedDateRangeOptionAtom);
   return (
     <SelectSomething
       options={DATE_RANGE_OPTIONS}

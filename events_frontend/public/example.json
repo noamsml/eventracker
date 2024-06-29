@@ -1,553 +1,28 @@
 {
   "events": [
     {
-      "id": "bb75cf26-c811-4fd3-943c-4289a4bf7e77",
-      "date": "2024-06-26",
-      "name": "SF Neo-Futurists: INFINITE PRIDE",
-      "type": "Theater",
-      "start": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "El Rio SF 3158 Mission St, San Francisco, CA 94110, USA",
-      "description": "OMG!!!!! It’s freaking INFINITE PRIDE!!!!!!! The sexiest, nastiest, wettest, wildest, homo-est SF Neo-Futurist show of the year!!! 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
-      "cost": "$20-$50",
-      "link": "https://www.eventbrite.com/e/the-sf-neo-futurists-present-infinite-pride-el-rio-tickets-914826208817?aff=oddtdtcreator"
-    },
-    {
-      "id": "b5670962-8265-4418-a848-8585c96dc2c3",
-      "date": "2024-06-26",
-      "name": "CREATIVE RE-USE WORKSHOP",
-      "type": "Workshop",
-      "start": {
-        "hour": 13,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 15,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Ruth's Table 3160 21st Street",
-      "description": "Open to everyone, this free weekly program provides a welcoming and inspiring environment to engage with the arts, with a focus on creative re-use and paper-based projects. ",
-      "cost": "Free",
-      "link": "https://www.ruthstable.org/creative-reuse-workshop"
-    },
-    {
-      "id": "9544ac74-1b97-42cb-b6a1-fac0e500d7b9",
-      "date": "2024-06-26",
-      "name": "CATS: Sharing Tea Open Mic",
-      "type": "Open Mic",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Private location",
-      "description": "This event is a love letter to the creatives in our community. Join us for a cup of tea, informal performances, and show-and-tell.\r",
-      "cost": "Free",
-      "link": "https://partiful.com/e/0tu2hAtXxGRWamVC8Tts"
-    },
-    {
-      "id": "30744b1b-e0e7-40b1-90e6-ab151703d364",
-      "date": "2024-06-26",
-      "name": "Indian Classical Sessions",
-      "type": "Music",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Medicine for Nightmares 3036 24th Street",
-      "description": "The Indian Classical Sessions are an informal gathering dedicated to sharing the meditative beauty, ecstatic energy, and sheer majesty of South Asian music. Hosted by percussionist, drumset and tabla player Sameer Gupta and Carnatic vocalist/violinist Krishna Parthasarathy, this gathering focuses on curating 4 short live sets that represent different influences and traditions. Our goal is to connect, build our raga music loving community and share South Asian classical music in an impromptu, casual and attentive setting.  This month’s guest musicians are Nishanth Chari, Arjun Ravi Shankar, Sruti Sarathy, and Jeff Whittier.",
-      "cost": "$10",
-      "link": "https://medicinefornightmares.com/events/wgtg26fj8ns93yael8xxz33hd65hs9"
-    },
-    {
-      "id": "8692d60d-0074-45df-aa1f-d07bec67bd8a",
-      "date": "2024-06-26",
-      "name": "Pride at the Pulpit",
-      "type": "Party",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Saint Joseph's Art Foundation - 1401 Howard St, San Francisco, CA",
-      "description": "Dance in the divine light of acceptance - even the saints would blush with approval!",
-      "cost": "Various Pricing",
-      "link": "https://thethirdplace.is/event/pride-at-the-pulpit"
-    },
-    {
-      "id": "5e0ab57f-fb28-456a-994b-e4869c94beae",
-      "date": "2024-06-26",
-      "name": "The Comedy Party @Madrone",
-      "type": "Comedy",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Madrone Art Bar - 500 Divisadero St",
-      "description": "Comedy Show with Musical Guest ",
-      "cost": "$20",
-      "link": "https://www.eventbrite.com/e/the-comedy-party-madrone-tickets-914298390097?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=wsa&aff=ebdsshwebmobile&fbclid=PAZXh0bgNhZW0CMTEAAabuW_WmdD-5m1Fz8WIyOfvzt6ouLG7W4fllECC3QpYEfkWbWf1ZM0_DXzQ_aem_OnyjwwLK1zjuSDTcIhQJjg"
-    },
-    {
-      "id": "18c700cd-a23d-42df-920e-f4ba84dedbd9",
-      "date": "2024-06-27",
-      "name": "Pride at Ruth's Table - Performances by Grant Avenue Follies, Donna Persona, Grace Towers, and more",
-      "type": "Party",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Ruth's Table 3160 21st Street",
-      "description": "Performances by Grant Avenue Follies, Donna Persona, Grace Towers, Jocquese Whitfield, and Shane Zal-Diva. Come dance and groove to DJ LAKEVERETT and take a spin on the SPACE EGG created by Joel Milliken, a large-scale mountable sculpture designed to dazzle and inspire!",
-      "cost": "Free",
-      "link": "https://www.ruthstable.org/pride-party"
-    },
-    {
-      "id": "fd86f6c1-bedf-4b7e-9b6f-51dbbff35c68",
-      "date": "2024-06-27",
-      "name": "Fungitopia Art Opening: Sonifying Mycelium",
-      "type": "Multi Media",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Four Chicken Gallery, 432 Courtland Ave. Bernal Heights",
-      "description": "Do mycelium have their own language? A recent study by renowned scientist, Andrew Adamatzky reports that some mycelia species communicate through electrical signals, similar to that of the human brain with 50 unique “words”. Although his work needs further development, what this discover could be in a possible a “fungal intelligence” with distributed signals and no central brain.",
-      "cost": "Free",
-      "link": "https://www.facebook.com/events/1012514840397191/"
-    },
-    {
-      "id": "ce4c483e-53b0-4569-a185-ad61a975785c",
-      "date": "2024-06-27",
-      "name": "MAPP Community Meeting",
-      "type": "Meetup",
-      "start": {
-        "hour": 19,
-        "minute": 30,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Red Poppy Art House 23rd and Folsom",
-      "description": "Come workshop plans for the next MAPP",
-      "cost": "Free",
-      "link": "https://mappsf.com/"
-    },
-    {
-      "id": "931f0262-a93a-432e-aa03-a1e26542816e",
-      "date": "2024-06-27",
-      "name": "AI Grantwriting Networking and mixer",
-      "type": "Meetup",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "DG717",
-      "description": "Join us for an evening of connection and collaboration at the AI & Grant Writing Networking Mixer, hosted by the New Community Leadership Foundation (NCLF). This event brings together a diverse group of professionals from the tech, AI, grant writing, government, and community sectors, creating a unique opportunity for networking and knowledge sharing.",
-      "cost": "Free",
-      "link": "https://lu.ma/8tvkq0a8"
-    },
-    {
-      "id": "7fa22d21-29aa-497f-8556-a5214dc70a5b",
-      "date": "2024-06-27",
-      "name": "16th and Mission Poetry Corner",
-      "type": "Poetry/Lit",
-      "start": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "16th St. Mission Bart Plaza",
-      "description": "Weekly open mic, every THURSDAY @ 10pm",
-      "cost": "Free",
-      "link": "https://www.instagram.com/16thmission/"
-    },
-    {
-      "id": "156066f5-f460-4dd4-97a3-7da3464e0d6a",
-      "date": "2024-06-27",
-      "name": "Sequoia Presents: Tools in the 21st Century ",
-      "type": "Film",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1736 18th St, San Francisco, CA",
-      "description": "This is the first event in a series exploring film documenting crafts and industry throughout history. We are kicking it off with a collection of WWII era instructional films made to educate workers on the proper usage of hand tools.A compilation of videos will be screened for approximately one hour. There will be some time after the screening to optionally socialize and discuss the footage. This event is free, but we still ask that you book a ticket to guarantee a seat.",
-      "cost": "Free, Donations Welcome",
-      "link": "https://bookwhen.com/sequoiafabrica/e/ev-sed3-20240627190000"
-    },
-    {
-      "id": "3d48a05a-4d97-458a-adfd-e315a4564f27",
-      "date": "2024-06-27",
-      "name": "Gene Beery Memorial Exhibition",
-      "type": "Visual Art",
-      "start": {
-        "hour": 17,
-        "minute": 30,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Cushion Works, 3320 18th Street",
-      "description": "Gene Beery was an iconoclastic artist who commingled mystic truths with mortal reflections. In painting, artist books, photography, and video, he molded language, as common as clay, into something just as tactile, slippery, and malleable.",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8c5RxbycyX/"
-    },
-    {
-      "id": "5552d4a2-6fcd-4417-a79a-d906a1aa8b8e",
-      "date": "2024-06-27",
-      "name": "Disco Supply Co",
-      "type": "Music",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 23,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "2120 Greenwich Street",
-      "description": "Get ready to boogie down @fortherecordsf! See you this Thursday from 7-11pm 🪩",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8r5adgJhtM/"
-    },
-    {
-      "id": "28ac32a9-dc20-491f-9219-ac2c45b5ddd6",
-      "date": "2024-06-27",
-      "name": "Free Portrait Popup",
-      "type": "Something Else",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "663 Haight Street",
-      "description": "Come check out the fun art from our current show Hardly Softer, sample wines from queer winemakers, and pose for your best profile picture with a portrait photographer.",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8r8bjtpSS6/"
-    },
-    {
-      "id": "ae860cc7-3a24-4000-a886-61fbef01c745",
-      "date": "2024-06-28",
-      "name": "THE FUNCTION - Soft Opening Weekend",
-      "type": "Comedy",
-      "start": {
-        "hour": 20,
-        "minute": 45,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 45,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1414 Market Street San Francisco, CA 94102",
-      "description": "San Francisco's newest comedy club & cocktail lounge brings comedy and nightlife back to Market Street. Co-owned by comedian Stroy Moyd",
-      "cost": "Various",
-      "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
-    },
-    {
-      "id": "eec4f1d4-3018-41ae-9804-954c3692b3b6",
-      "date": "2024-06-28",
-      "name": "Home In The Present: Nathan Foxton - Closing Party",
-      "type": "Visual Art",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Moth Belly Gallery 912 Larkin Street. ",
-      "description": "This Friday please join us for the closing reception of \"Home In The Present\", a solo exhibition by Nathan Foxton (@psychic_chroma) that has been on view for the month of June. This colorful and complex body of work has been a huge pleasure to spend these past few weeks with and we're sad to goodbye",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8piV-mPJ1s/?hl=en"
-    },
-    {
-      "id": "e28c2f99-adb1-4cef-ad1e-7a65100a7a61",
-      "date": "2024-06-28",
-      "name": "Fantastic Negrito",
-      "type": "Music",
-      "start": {
-        "hour": 17,
-        "minute": 30,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "East Bay",
-      "address": "Park Place and Washington Ave in Historic Downtown Point Richmond, Richmond, CA, United States, California 94801",
-      "description": "On Friday, June 28th, our season opens with Fantastic Negrito! Winner of three consecutive GRAMMYs for Best Contemporary Blues Album, Fantastic Negrito is an internationally known musical artist who has toured with everyone from Sturgill Simpson to Chris Cornell, collaborated with the likes of Sting and E-40, and performed at nearly every major festival on the map, but never before for Point Richmond Music 🙂, until now!",
-      "cost": "Free",
-      "link": "https://www.facebook.com/events/410286018564878/"
-    },
-    {
-      "id": "cca6e771-b10a-4538-bcb4-c1ce4cdf50a7",
-      "date": "2024-06-28",
-      "name": "MAGIC SCHOOL BUSK Allstar Throwdown! + Savage Birrthday Bash",
-      "type": "Music",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 26,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Boom Boom Room",
-      "description": "One of the best up and coming SF bands",
-      "cost": "$12",
-      "link": "https://wl.seetickets.us/event/magic-school-busk-allstar-throwdown-savage-birrthday-bash/609867?afflky=BoomBoomRoom&utm_medium=paid&utm_source=fb&utm_id=120213157696750029&utm_content=120213157696850029&utm_term=120213157696810029&utm_campaign=120213157696750029&fbclid=IwZXh0bgNhZW0BMAABHVdwTmoBgk5h3kx6v75WqYINU4k67i2Rg6EW3PcPglUoIgfEwSK4EhgzTw_aem_DY4M9mv9H0Ij38zH8tt9Qw"
-    },
-    {
-      "id": "cc236d3a-b3f7-4e9a-92e2-3d07de9bb27a",
-      "date": "2024-06-28",
-      "name": "Water Before Wine Olly Thompson at Uzay feat. Romz",
-      "type": "Visual Art",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Uzay Gallery, 199 Capp",
-      "description": "Uzay welcomes you into the world of Oliver Thompson (Olly) for an evening of art, wine and a surprise musical guest.",
-      "cost": "$15-$20",
-      "link": "https://partiful.com/e/MOOuS620Jsozwt18jfvm"
-    },
-    {
-      "id": "1b8dcb50-2cfe-4d86-919b-a01ad6f72574",
-      "date": "2024-06-28",
-      "name": "Pride Ride with the Bike Coalition",
-      "type": "Meetup",
-      "start": {
-        "hour": 16,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Hellman Hollow Picnic Area",
-      "description": "Get ready to ride with the rainbow as we celebrate Pride! Join us on Friday, Jun 28, 2024 at 4:00 PM at the Hellman Hollow Picnic Area in Golden Gate Park for a fun and relaxed ride that will tour sites with historic significance to the LGBTQ+ movement. Our ride will start in Golden Gate Park and end in Dolores where we hope to meet up with the Trans March departing at 6pm! This ride is open to all. That means SF Bicycle Coalition members and members alike. However, if you would like to join today, please select RSVP + Membership!",
-      "cost": "Free",
-      "link": "https://sfbike.org/event/pride-ride-2024/"
-    },
-    {
-      "id": "b1ed4e48-33b7-40ef-a0cf-784c6e0cc206",
-      "date": "2024-06-28",
-      "name": "Mansion Party and Jam",
-      "type": "Party",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 27,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "North Bay",
-      "address": " Underdog Estate in San Rafael",
-      "description": "​A group of stellar professional musicians will be jamming all night right here at Underdog Estate accompanying the supreme Bay views from the spa including pool, hot tub, sauna, and a cold plunge.",
-      "cost": "$35+",
-      "link": "https://lu.ma/underdogjam2?fbclid=IwZXh0bgNhZW0CMTAAAR3a0TbpUKwTi9Ad_PTmpPYrxL9YnJtjKq-cyLMtFkS-x6Kyooi_DSkDgf8_aem_wN9tTUuoz3XVSNfvMITCLw"
-    },
-    {
-      "id": "9546de46-0f1c-48d5-8cfa-eb587ddd3d93",
-      "date": "2024-06-28",
-      "name": "The Painted Ladies",
-      "type": "Visual Art",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Adobe Books, 3130 24th St",
-      "description": "Hey everyone ❤️I'm having my solo art show \"The Painted Ladies\" ",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8LWD17PJ28/"
-    },
-    {
-      "id": "87ff58bf-45a4-4496-aae9-a34a2076ab8f",
-      "date": "2024-06-28",
-      "name": "Ten Fold Pysique",
-      "type": "Festival",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
-      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
-      "cost": "$20-$40",
-      "link": "https://www.churchofclown.org/events/tenfoldphysique"
-    },
-    {
-      "id": "32900946-542d-4cd1-b4dc-2989811fd405",
-      "date": "2024-06-28",
-      "name": "THE FUNCTION - Soft Opening Weekend",
-      "type": "Comedy",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1414 Market Street San Francisco, CA 94102",
-      "description": "San Francisco's newest comedy club & cocktail lounge brings comedy and nightlife back to Market Street. Co-owned by comedian Stroy Moyd",
-      "cost": "Various",
-      "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
-    },
-    {
-      "id": "9ca968e2-0b85-4118-b5c2-c409d765145a",
+      "id": "0b640be3-d678-44e2-9d02-cfaf814c3c18",
       "date": "2024-06-29",
-      "name": "Up, Down, and Around the Crosstown and Double Cross Trails",
-      "type": "Meetup",
+      "name": "A PRIDE SATURDAY AFTERX (aka La Ñapita Sexxual aka The Cherry on Top)",
+      "type": "Party",
       "start": {
-        "hour": 10,
+        "hour": 1,
         "minute": 0,
         "second": 0
       },
       "end": {
-        "hour": 16,
+        "hour": 6,
         "minute": 0,
         "second": 0
       },
       "location": "San Francisco",
-      "address": "Glen Park BART Station",
-      "description": "On this approx. 6 mile walk, we’ll trek up and down and around San Francisco’s famous peaks on the Crosstown and Double Cross Trails. Explore different habitats, discover secret stairs, and take in the stunning views–while catching our breath! Expect hills and walking on sidewalks and dirt or rocky trails. Suggest long pants and long-sleeved shirts in case of poison oak, wild blackberry, wind, and fog; walking poles helpful. Route includes Glen Canyon, Twin Peaks, Mt. Davidson, and Edgehill - about 1,500 feet elevation gain. Meet at 10 a.m. at Glen Park BART Station, finish around 4 p.m. at West Portal Muni Station - or join us at the Philosopher’s Club next door for a celebratory toast!",
-      "cost": "$10 suggested but Free",
-      "link": "https://www.eventbrite.com/e/up-down-and-around-the-crosstown-and-double-cross-trails-tickets-898930133227?aff=odcleoeventsincollection&_gl=1*1uwy2th*_up*MQ..*_ga*NzM2NDgzOTY5LjE3MTgyMjg1MTk.*_ga_TQVES5V6SH*MTcxODIyODUxOS4xLjAuMTcxODIyODUxOS4wLjAuMA.."
+      "address": "CHANDELIERS, 33 Norfolk, San Francisco",
+      "description": "All the way from Mexico City & Puerto Rico, joining our local bay DJs, this raunchy bunch will deliver a night full of all sort of electronics, brazilian funk, and PERREO INTENSO. Big emphasis on PERREO INTENSO.",
+      "cost": "$20",
+      "link": "https://www.xxxplaysf.com/event-details/x-batcave-present-the-pride-saturday-afterx"
     },
     {
-      "id": "5631c9e9-96a3-4496-b40a-2863268af153",
+      "id": "e1403647-9f16-4c89-9af2-d4d97e9fb212",
       "date": "2024-06-29",
       "name": "Tea Circus Jam",
       "type": "Meetup",
@@ -568,7 +43,49 @@
       "link": "https://www.facebook.com/events/2665004073667374/?ref=newsfeed"
     },
     {
-      "id": "eabfa22f-a912-4308-a999-fb4aeced1a55",
+      "id": "d8d71fe8-2332-4004-bf72-3a8de3c9cc01",
+      "date": "2024-06-29",
+      "name": "Last Afters on Earth with Space Yacht",
+      "type": "Music",
+      "start": {
+        "hour": 12,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 31,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Secret location",
+      "description": "Proud to be hosting our first pop-up event with Space Yacht June 29th 🚀🚀",
+      "cost": "Unknown",
+      "link": "Text \"afters\" to 323-364-6336"
+    },
+    {
+      "id": "d03e477a-c65b-4fa9-bac4-bd04de3cbf5c",
+      "date": "2024-06-29",
+      "name": "Up, Down, and Around the Crosstown and Double Cross Trails",
+      "type": "Meetup",
+      "start": {
+        "hour": 10,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 16,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Glen Park BART Station",
+      "description": "On this approx. 6 mile walk, we’ll trek up and down and around San Francisco’s famous peaks on the Crosstown and Double Cross Trails. Explore different habitats, discover secret stairs, and take in the stunning views–while catching our breath! Expect hills and walking on sidewalks and dirt or rocky trails. Suggest long pants and long-sleeved shirts in case of poison oak, wild blackberry, wind, and fog; walking poles helpful. Route includes Glen Canyon, Twin Peaks, Mt. Davidson, and Edgehill - about 1,500 feet elevation gain. Meet at 10 a.m. at Glen Park BART Station, finish around 4 p.m. at West Portal Muni Station - or join us at the Philosopher’s Club next door for a celebratory toast!",
+      "cost": "$10 suggested but Free",
+      "link": "https://www.eventbrite.com/e/up-down-and-around-the-crosstown-and-double-cross-trails-tickets-898930133227?aff=odcleoeventsincollection&_gl=1*1uwy2th*_up*MQ..*_ga*NzM2NDgzOTY5LjE3MTgyMjg1MTk.*_ga_TQVES5V6SH*MTcxODIyODUxOS4xLjAuMTcxODIyODUxOS4wLjAuMA.."
+    },
+    {
+      "id": "c4bc14cd-3cf1-4666-8e9c-072b1445307c",
       "date": "2024-06-29",
       "name": "Poetry Nap",
       "type": "Poetry/Lit",
@@ -589,7 +106,28 @@
       "link": "https://poetrynap.com/"
     },
     {
-      "id": "66a55b46-44b7-4faf-a256-da2705914f81",
+      "id": "b453e216-ad66-469e-8c4e-be644db71f03",
+      "date": "2024-06-29",
+      "name": "Ten Fold Pysique",
+      "type": "Festival",
+      "start": {
+        "hour": 20,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 24,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
+      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
+      "cost": "$20-$40",
+      "link": "https://www.churchofclown.org/events/tenfoldphysique"
+    },
+    {
+      "id": "a632e07b-54a9-4506-a1af-3e7e64674aac",
       "date": "2024-06-29",
       "name": "THE FUNCTION - Soft Opening Weekend",
       "type": "Comedy",
@@ -610,7 +148,7 @@
       "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
     },
     {
-      "id": "c4c19bf2-8b7d-4e33-8964-31de16da193b",
+      "id": "8cd892d8-9c8f-4ea6-9b80-32ecb97d2528",
       "date": "2024-06-29",
       "name": "Decoupage Oyster Shell Art",
       "type": "Workshop",
@@ -631,7 +169,7 @@
       "link": "https://www.eventbrite.com/e/decoupage-oyster-shell-art-tickets-911000736727?aff=ebdssbdestsearch&_gl=1*1f6q2ba*_up*MQ..*_ga*MTU5OTQyMzI2MS4xNzE5Mzg1NDU5*_ga_TQVES5V6SH*MTcxOTM4NTQ1OC4xLjAuMTcxOTM4NTQ1OC4wLjAuMA.."
     },
     {
-      "id": "b94c5db4-56e7-49cb-9b09-6f7f8e5db876",
+      "id": "237a12f9-e7a5-41c8-a1b9-1a95e3b1524b",
       "date": "2024-06-29",
       "name": "Trout Club, Mitch Rocket",
       "type": "Music",
@@ -652,28 +190,7 @@
       "link": "https://www.songkick.com/concerts/41985558-mitch-rocket-at-winters-tavern"
     },
     {
-      "id": "1c142a7d-b047-4564-96aa-73b7129bc666",
-      "date": "2024-06-29",
-      "name": "Ten Fold Pysique",
-      "type": "Festival",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
-      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
-      "cost": "$20-$40",
-      "link": "https://www.churchofclown.org/events/tenfoldphysique"
-    },
-    {
-      "id": "27f1b712-2e10-491b-80ec-bdcdbfd683af",
+      "id": "3f79e4ce-f62e-45a2-ae1e-f4a53a3a5597",
       "date": "2024-06-29",
       "name": "THE FUNCTION - Soft Opening Weekend",
       "type": "Comedy",
@@ -694,49 +211,7 @@
       "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
     },
     {
-      "id": "6dce8df7-6e33-4fb6-b5da-822f2d1150a4",
-      "date": "2024-06-30",
-      "name": "Vox Solo Music and Spoken Word",
-      "type": "Multi Media",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "10 Cargo Way",
-      "description": "The New Farm welcomes you to their new indoor space for a free muisc and spoken word event",
-      "cost": "Free",
-      "link": "https://www.facebook.com/subterranean.shakespeare"
-    },
-    {
-      "id": "c69cb701-24f0-40af-8eb2-73dcdfccfd81",
-      "date": "2024-06-30",
-      "name": "Ten Fold Pysique",
-      "type": "Festival",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
-      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
-      "cost": "$20-$40",
-      "link": "https://www.churchofclown.org/events/tenfoldphysique"
-    },
-    {
-      "id": "65c6ea8b-a0b1-4e38-8d49-3a181358d074",
+      "id": "73c1a4c7-145d-469d-aca9-213423e6c0e1",
       "date": "2024-06-30",
       "name": "THE FUNCTION - Soft Opening Weekend",
       "type": "Comedy",
@@ -757,28 +232,7 @@
       "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
     },
     {
-      "id": "63a64a65-8cec-45c9-b5a9-f031bc5e154d",
-      "date": "2024-06-30",
-      "name": "Block Party Good Mother x Snail Bar",
-      "type": "Party",
-      "start": {
-        "hour": 12,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 23,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "Oakland",
-      "address": "1955 Broadway, Oakland and Snail Bar 4935 Shattuck",
-      "description": "Stoked to announce a two-part event with our friends at Snail Bar!! The second installment of our collaborative event ‘BLOCK PARTY’ and the celebrations of Snail Bar’s 3 YEAR ANNIVERSARY!!!!",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8Ds4_pJGIh/"
-    },
-    {
-      "id": "473b1ba2-742f-4a1f-9db5-de58bbde9d42",
+      "id": "d991199a-5cd3-4653-8474-f82bbec0b4ff",
       "date": "2024-06-30",
       "name": "Decentered Open Mic",
       "type": "Open Mic",
@@ -799,7 +253,49 @@
       "link": "decentered.org"
     },
     {
-      "id": "f18e78b4-84c4-4277-adf6-926786c38799",
+      "id": "574d2785-c4fd-4dc2-ac8c-40e7c83c7aec",
+      "date": "2024-06-30",
+      "name": "Vox Solo Music and Spoken Word",
+      "type": "Multi Media",
+      "start": {
+        "hour": 17,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 19,
+        "minute": 30,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "10 Cargo Way",
+      "description": "The New Farm welcomes you to their new indoor space for a free muisc and spoken word event",
+      "cost": "Free",
+      "link": "https://www.facebook.com/subterranean.shakespeare"
+    },
+    {
+      "id": "787c4498-2636-49b6-9764-5bf6d042efc0",
+      "date": "2024-06-30",
+      "name": "Ten Fold Pysique",
+      "type": "Festival",
+      "start": {
+        "hour": 20,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 24,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
+      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
+      "cost": "$20-$40",
+      "link": "https://www.churchofclown.org/events/tenfoldphysique"
+    },
+    {
+      "id": "74fe6d41-0b0f-499f-8d0f-6def5b416930",
       "date": "2024-06-30",
       "name": "Beep! Beep! - Heavy Petting Zoo Pride After Party",
       "type": "Festival",
@@ -820,7 +316,28 @@
       "link": "https://www.instagram.com/p/C7mrtLkyLU6/?img_index=2"
     },
     {
-      "id": "1b754745-e20c-4c2d-ab33-5ccc9dac32b9",
+      "id": "62d62ad1-acd9-4f78-a8ca-b1f7d602a1f7",
+      "date": "2024-06-30",
+      "name": "Block Party Good Mother x Snail Bar",
+      "type": "Party",
+      "start": {
+        "hour": 12,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 23,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "Oakland",
+      "address": "1955 Broadway, Oakland and Snail Bar 4935 Shattuck",
+      "description": "Stoked to announce a two-part event with our friends at Snail Bar!! The second installment of our collaborative event ‘BLOCK PARTY’ and the celebrations of Snail Bar’s 3 YEAR ANNIVERSARY!!!!",
+      "cost": "Free",
+      "link": "https://www.instagram.com/p/C8Ds4_pJGIh/"
+    },
+    {
+      "id": "c1318938-db7d-4d0d-b980-58539a57a44c",
       "date": "2024-07-01",
       "name": "SF Rock Paper Scissors Tournament",
       "type": "Meetup",
@@ -839,6 +356,174 @@
       "description": "Here’s the premise: Sign up via the link to join the bracket by July 1. (Yes, you have to make an account with challonge, and I’m sorry) On July 1 at noon, you will be randomly matched with someone who you will have to plan a meet up with within 1 week in SF. You will play Rock, Paper, Scissors for a minimum of 3 rounds. Winner is best out of 3 rounds. You will BOTH submit who the winner is on the bracket\r",
       "cost": "Free",
       "link": "https://partiful.com/e/1g2iUbxDSUUgiBw5e1gE"
+    },
+    {
+      "id": "57620d19-a0cf-4dcc-bbe2-df2d62f03057",
+      "date": "2024-07-04",
+      "name": "A Great Big Clothing Swap and a Little BBQ Potluck",
+      "type": "Clothing Swap",
+      "start": {
+        "hour": 16,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 22,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "Oakland",
+      "address": "Spire the Church 825 Athens Ave, Oakland ",
+      "description": "Go home with great new stuff! Come hang out with your Spire family! Join us for a casual evening of new traditions, favorite music, and lighthearted fun.",
+      "cost": "$5",
+      "link": "https://www.instagram.com/p/C8xQYKeP8Xu/?hl=en"
+    },
+    {
+      "id": "d7e795ba-f2a8-44f8-be9a-d30ae7e5fba7",
+      "date": "2024-07-04",
+      "name": "Candy Crush",
+      "type": "Visual Art",
+      "start": {
+        "hour": 19,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 22,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Moth Belly Gallery 912 Larkin Street. ",
+      "description": "Coming up!!! Please join us Thursday, July 4th, for our next group exhibit \"Candy Crush\", guest curated by the one & only @ladyhenze",
+      "cost": "Free",
+      "link": "https://www.instagram.com/p/C8iDjLqSC5r/?hl=en"
+    },
+    {
+      "id": "1d789d27-330b-459b-a8af-1cee17d7c292",
+      "date": "2024-07-04",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": {
+        "hour": 22,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 24,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "84cfb8b8-a9b6-40fd-b5ef-1ab7b5a607d5",
+      "date": "2024-07-05",
+      "name": "Summer Vice",
+      "type": "Party",
+      "start": {
+        "hour": 21,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 26,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Bergerac, 316 11th St San Francisco",
+      "description": "Join us this july 4th weekend to kick off SUMMER VICE, our SHCKLDBYLUST X THE GOOD FUN summer residency at BERGERAC SF",
+      "cost": "$15+",
+      "link": "https://ra.co/events/1942087"
+    },
+    {
+      "id": "7cbc749c-cfff-4398-ae50-ab6777961fd4",
+      "date": "2024-07-05",
+      "name": "Blushing Psyched Radio's 3rd Birhtday",
+      "type": "Party",
+      "start": {
+        "hour": 20,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 24,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Kilowatt 3160 16th St, San Francisco, CA 94103",
+      "description": "Presented by Psyched! Radio, it’s a night you won’t want to miss! Secure your spot now at psychedradiosf.com. Let’s celebrate three years of music, community, and unforgettable moments together!",
+      "cost": "$15 - 20",
+      "link": "https://dice.fm/partner/dice/event/lmv2p-blushing-pink-breath-of-heaven-and-rachel-travers-5th-jul-kilowatt-san-francisco-tickets?dice_id=2532867&dice_channel=web&dice_tags=organic&dice_campaign=DICE&dice_feature=mio_marketing&_branch_match_id=1271955145566786797&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1a%2BwTLVMMkw2MzY0MwMAs%2BEhMiEAAAA%3D"
+    },
+    {
+      "id": "c293dce5-3685-4fa7-a4ce-fb19210ba348",
+      "date": "2024-07-05",
+      "name": "Poetry at the Golden Sardine",
+      "type": "Poetry/Lit",
+      "start": {
+        "hour": 18,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 19,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Golden Sardine 362 Columbus Ave",
+      "description": "celebrating their new books Emily Lee Luan - Return, Nightboat Adrienne Chung - Organs of Little Importance, Penguin Leigh Lucas - Landsickness, Tupelo",
+      "cost": "Free",
+      "link": "https://www.instagram.com/p/C8xC2sIptz1/?hl=en"
+    },
+    {
+      "id": "01105018-f594-49c4-b741-ec6560a42272",
+      "date": "2024-07-05",
+      "name": "North Beach First Friday",
+      "type": "Festival",
+      "start": {
+        "hour": 17,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 22,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Various Locations North Beach",
+      "description": "",
+      "cost": "Free",
+      "link": ""
+    },
+    {
+      "id": "5d288088-6dc0-48a5-9574-18180d8d4fd4",
+      "date": "2024-07-06",
+      "name": "Women in Waveform",
+      "type": "Party",
+      "start": {
+        "hour": 14,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "hour": 20,
+        "minute": 0,
+        "second": 0
+      },
+      "location": "San Francisco",
+      "address": "Wave Collective, 663 Haight Street",
+      "description": "welcome to ✨Women in Waveform ✨ a new music event championing local female-identifying DJs 🎶 we’re kicking off with a fundraiser for 🇵🇸 freedom 🕊️ peace and 🍉 solidarity at Wave Collective on July 6, from 2–8pm,",
+      "cost": "$15 ADV",
+      "link": "https://thethirdplace.is/event/hQviF3CBReaYTsf21Zinaw"
     }
   ]
 }

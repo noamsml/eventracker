@@ -31,15 +31,15 @@ export function getDateRange(
       to = from.endOf("week");
       break;
     case "thisWeekend":
-      from = today.startOf("week").plus({ days: 5 }); // Friday
+      from = today.startOf("week").plus({ days: 4 }); // Friday
       to = from.plus({ days: 2 }); // Sunday
       break;
     case "nextWeekend":
-      from = today.startOf("week").plus({ weeks: 1 }).plus({ days: 5 }); // Next Friday
+      from = today.startOf("week").plus({ weeks: 1 }).plus({ days: 4 }); // Next Friday
       to = from.plus({ days: 2 }); // Next Sunday
       break;
     default:
-      return undefined;
+      return;
   }
   const fromIso = from.toISODate();
   const toIso = to.toISODate();

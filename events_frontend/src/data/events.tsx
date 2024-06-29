@@ -3,6 +3,7 @@ import { groupBy, uniqBy } from "lodash";
 import { FilterOption } from "../components/SelectSomething";
 import { EVENT_TYPE_COLORS, WHENEVER } from "./constants";
 import { formatDate, formatEventTime, formatRelativeTime } from "./dateFormats";
+import { DateRange, getDateRange } from "./dateRanges";
 
 // Here's how the API returns info about the events. Some of these
 // like startTimeFormatted are derived when we load in the data to simplify
@@ -10,7 +11,7 @@ import { formatDate, formatEventTime, formatRelativeTime } from "./dateFormats";
 export interface Event {
   id: string;
   name: string;
-  date: string;
+  date: string; // 8601 formatted date string, pacific time assumed
   type: string;
   start: EventTime | null;
   end: EventTime | null;
@@ -64,22 +65,39 @@ export const eventsAtom = atom<Event[]>([]);
 // The event and location the user has selected
 export const selectedEventTypeAtom = atom<FilterOption>({ value: "Anything" });
 export const selectedLocationAtom = atom<FilterOption>({ value: "Anywhere" });
+
 // The date range option the user has selected. This just holds the options like
 // "today" or "this weekend" options rather than the actual date ranges. Easier
 // for the dropdown that way.
-export const selectedDateRangeAtom = atom<FilterOption>(WHENEVER);
+export const selectedDateRangeOptionAtom = atom<FilterOption>(WHENEVER);
+
+// Store the user's custom date range if they've seleted one
+export const customDateRangeAtom = atom<DateRange | undefined>(undefined);
+
+// Final date range to filter with. It's the range for the selected option, the
+// user's custom range or undefined if nothing was selected
+export const selectedDateRangeAtom = atom<DateRange | undefined>((get) => {
+  const selectedDateRangeOption = get(selectedDateRangeOptionAtom);
+  return selectedDateRangeOption
+    ? getDateRange(selectedDateRangeOption.value)
+    : get(customDateRangeAtom);
+});
 
 // Filter the events by the selections
 // TODO: Add date filtering
 export const filteredEventsAtom = atom((get) => {
   const type = get(selectedEventTypeAtom).value;
   const location = get(selectedLocationAtom).value;
-
+  const dateRange = get(selectedDateRangeAtom);
+  const { from, to } = dateRange || { from: undefined, to: undefined };
+  console.log(dateRange);
   // const selectedLocation = get(selectedEventTypeAtom);
   return get(eventsAtom).filter(
     (event) =>
       (type === "Anything" || event.type === type) &&
-      (location === "Anywhere" || event.location === location),
+      (location === "Anywhere" || event.location === location) &&
+      (from === undefined || event.date >= from) &&
+      (to === undefined || event.date <= to),
   );
 });
 

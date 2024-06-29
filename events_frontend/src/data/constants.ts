@@ -24,8 +24,8 @@ export const DATE_RANGE_OPTIONS: FilterOption[] = [
   { value: "today", label: "Today" },
   { value: "tomorrow", label: "Tomorrow" },
   { value: "thisWeek", label: "This week" },
-  { value: "nextWeek", label: "Next week" },
   { value: "thisWeekend", label: "This weekend" },
+  { value: "nextWeek", label: "Next week" },
   { value: "nextWeekend", label: "Next weekend" },
 ];
 export type DateRangeOptionValues =
