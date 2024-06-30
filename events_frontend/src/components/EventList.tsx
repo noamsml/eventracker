@@ -14,7 +14,7 @@ import { EventCard } from "./EventCard";
 import { DateTime } from "luxon";
 import { useEffect } from "react";
 import { formatDate } from "../data/dateFormats";
-import { RESET, useResetAtom } from "jotai/utils";
+import { useResetAtom } from "jotai/utils";
 
 export const EventList = () => {
   const setEvents = useSetAtom(eventsAtom);
@@ -46,19 +46,21 @@ export const EventList = () => {
           </ul>
         </Fragment>
       ))}
+
+      {/* When there's no events, help people reset their filters */}
       {eventDays.length === 0 && (
         <Flex minHeight="40vh" alignItems="center" justifyContent="center">
           <Stack alignItems="center" spacing={3}>
             <Text color="gray.500" maxWidth="30ch" textAlign="center">
               Those selections are kinda specific. Maybe find events that are:
             </Text>
-            <Button onClick={resetWhen} variant="outline">
+            <Button onClick={resetWhen} variant="dcOutline">
               Whenever
             </Button>
-            <Button onClick={resetWhere} variant="outline">
+            <Button onClick={resetWhere} variant="dcOutline">
               Anywhere
             </Button>
-            <Button onClick={resetWhat} variant="outline">
+            <Button onClick={resetWhat} variant="dcOutline">
               Anything
             </Button>
           </Stack>

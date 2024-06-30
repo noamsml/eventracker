@@ -1,12 +1,28 @@
-import { Heading, Link, Spacer, Stack, Tag, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  HStack,
+  Icon,
+  Link,
+  Spacer,
+  Stack,
+  Tag,
+  Text,
+} from "@chakra-ui/react";
 import { FC } from "react";
 import {
+  BiCalendar,
+  BiCalendarPlus,
   BiLinkExternal,
-  BiTime,
   BiMap,
   BiMoney,
-  BiCalendar,
+  BiTime,
 } from "react-icons/bi";
+import {
+  downloadIcsFn,
+  googleCalendarUrl,
+  outlookCalendarUrl,
+} from "../data/calendarLinks";
 import { EVENT_TYPE_COLORS } from "../data/constants";
 import { Event } from "../data/events";
 import { IconWithText } from "./IconWithText";
@@ -16,6 +32,9 @@ export interface EventCardProps {
 }
 
 export const EventCard: FC<EventCardProps> = ({ event }) => {
+  const googleUrl = googleCalendarUrl(event);
+  const outlookUrl = outlookCalendarUrl(event);
+  const onDownloadIcs = downloadIcsFn(event);
   return (
     <Stack borderBottomWidth={1} p={4} fontSize="sm">
       <Stack direction="row">
@@ -56,18 +75,69 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
       </IconWithText>
       <IconWithText icon={BiMoney}>{event.cost}</IconWithText>
 
-      {event.link && (
-        <Link
-          variant=""
-          href={event.link}
-          color="blue.500"
-          isExternal
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IconWithText icon={BiLinkExternal}>Website</IconWithText>
-        </Link>
-      )}
+      <HStack>
+        {event.link && (
+          <Link
+            href={event.link}
+            isExternal
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              leftIcon={<Icon as={BiLinkExternal} color="red.300" />}
+              size="xs"
+              variant="dcOutline"
+            >
+              Website
+            </Button>
+          </Link>
+        )}
+
+        {googleUrl && (
+          <Link
+            href={googleUrl}
+            isExternal
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
+              size="xs"
+              variant="dcOutline"
+            >
+              Google
+            </Button>
+          </Link>
+        )}
+
+        {outlookUrl && (
+          <Link
+            href={outlookUrl}
+            isExternal
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
+              size="xs"
+              variant="dcOutline"
+            >
+              Outlook
+            </Button>
+          </Link>
+        )}
+
+        {onDownloadIcs && (
+          <Button
+            leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
+            size="xs"
+            variant="dcOutline"
+            onClick={onDownloadIcs}
+          >
+            ICS
+          </Button>
+        )}
+      </HStack>
     </Stack>
   );
 };

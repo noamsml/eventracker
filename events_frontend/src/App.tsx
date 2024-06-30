@@ -7,6 +7,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { EventList } from "./components/EventList";
+import decenteredTheme from "./theme";
 
 const SPREADSHEET_URL =
   "https://docs.google.com/spreadsheets/d/1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY/edit#gid=0";
@@ -168,7 +169,7 @@ function SocialLinks() {
 function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={decenteredTheme}>
       <SiteHeader />
       <Suspense>
         <EventList />
