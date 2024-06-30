@@ -5,7 +5,7 @@ import {
   OutlookCalendar,
 } from "datebook";
 import { DateTime } from "luxon";
-import { Event } from "./events";
+import { Event } from "./api";
 
 // Most of this file was written by ChatGPT:
 // https://chatgpt.com/share/abe133c3-d306-4081-a793-c3af923605b5

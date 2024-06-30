@@ -4,17 +4,17 @@ import {
   eventDaysAtom,
   eventsAtom,
   eventsByDateAtom,
-  fetchEvents,
   selectedDateRangeOptionAtom,
   selectedEventTypeAtom,
   selectedLocationAtom,
-} from "../data/events";
+} from "../data/atoms";
 import { Fragment } from "react/jsx-runtime";
 import { EventCard } from "./EventCard";
 import { DateTime } from "luxon";
 import { useEffect } from "react";
 import { formatDate } from "../data/dateFormats";
 import { useResetAtom } from "jotai/utils";
+import { fetchEvents } from "../data/api";
 
 export const EventList = () => {
   const setEvents = useSetAtom(eventsAtom);

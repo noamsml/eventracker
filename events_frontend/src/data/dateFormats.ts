@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import { EventTime } from "./events";
+import { EventTime } from "./api";
 
 // Format the date into a locale aware string like "Sat, Apr 20, 2030"
 export const formatDate = (

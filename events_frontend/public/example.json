@@ -1,356 +1,12 @@
 {
   "events": [
     {
-      "id": "0b640be3-d678-44e2-9d02-cfaf814c3c18",
-      "date": "2024-06-29",
-      "name": "A PRIDE SATURDAY AFTERX (aka La Ñapita Sexxual aka The Cherry on Top)",
-      "type": "Party",
-      "start": {
-        "hour": 1,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 6,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "CHANDELIERS, 33 Norfolk, San Francisco",
-      "description": "All the way from Mexico City & Puerto Rico, joining our local bay DJs, this raunchy bunch will deliver a night full of all sort of electronics, brazilian funk, and PERREO INTENSO. Big emphasis on PERREO INTENSO.",
-      "cost": "$20",
-      "link": "https://www.xxxplaysf.com/event-details/x-batcave-present-the-pride-saturday-afterx"
-    },
-    {
-      "id": "e1403647-9f16-4c89-9af2-d4d97e9fb212",
-      "date": "2024-06-29",
-      "name": "Tea Circus Jam",
-      "type": "Meetup",
-      "start": {
-        "hour": 13,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 15,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Lake Merritt, Sandy area by Edoff Memorial Bandstand at Lake Merritt",
-      "description": "Come practice and display your arts at the lake AND we're recruiting for The Tea Circus.",
-      "cost": "Free",
-      "link": "https://www.facebook.com/events/2665004073667374/?ref=newsfeed"
-    },
-    {
-      "id": "d8d71fe8-2332-4004-bf72-3a8de3c9cc01",
-      "date": "2024-06-29",
-      "name": "Last Afters on Earth with Space Yacht",
-      "type": "Music",
-      "start": {
-        "hour": 12,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 31,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Secret location",
-      "description": "Proud to be hosting our first pop-up event with Space Yacht June 29th 🚀🚀",
-      "cost": "Unknown",
-      "link": "Text \"afters\" to 323-364-6336"
-    },
-    {
-      "id": "d03e477a-c65b-4fa9-bac4-bd04de3cbf5c",
-      "date": "2024-06-29",
-      "name": "Up, Down, and Around the Crosstown and Double Cross Trails",
-      "type": "Meetup",
-      "start": {
-        "hour": 10,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 16,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Glen Park BART Station",
-      "description": "On this approx. 6 mile walk, we’ll trek up and down and around San Francisco’s famous peaks on the Crosstown and Double Cross Trails. Explore different habitats, discover secret stairs, and take in the stunning views–while catching our breath! Expect hills and walking on sidewalks and dirt or rocky trails. Suggest long pants and long-sleeved shirts in case of poison oak, wild blackberry, wind, and fog; walking poles helpful. Route includes Glen Canyon, Twin Peaks, Mt. Davidson, and Edgehill - about 1,500 feet elevation gain. Meet at 10 a.m. at Glen Park BART Station, finish around 4 p.m. at West Portal Muni Station - or join us at the Philosopher’s Club next door for a celebratory toast!",
-      "cost": "$10 suggested but Free",
-      "link": "https://www.eventbrite.com/e/up-down-and-around-the-crosstown-and-double-cross-trails-tickets-898930133227?aff=odcleoeventsincollection&_gl=1*1uwy2th*_up*MQ..*_ga*NzM2NDgzOTY5LjE3MTgyMjg1MTk.*_ga_TQVES5V6SH*MTcxODIyODUxOS4xLjAuMTcxODIyODUxOS4wLjAuMA.."
-    },
-    {
-      "id": "c4bc14cd-3cf1-4666-8e9c-072b1445307c",
-      "date": "2024-06-29",
-      "name": "Poetry Nap",
-      "type": "Poetry/Lit",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "Oakland",
-      "address": "Chabot Space and Science Center, 10000 Skyline Blvd Oakland, CA",
-      "description": "Delight in a cozy, world-expanding Poetry Nap indoors under the celestial marvels of the Chabot Space & Science Center’s full-dome Planetarium in Oakland with the world premiere of a brand new Poetry Nap voyage—The Enchanting Secret of the Opalescent Moon. We promise you are in for an otherworldly treat!",
-      "cost": "$35",
-      "link": "https://poetrynap.com/"
-    },
-    {
-      "id": "b453e216-ad66-469e-8c4e-be644db71f03",
-      "date": "2024-06-29",
-      "name": "Ten Fold Pysique",
-      "type": "Festival",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
-      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
-      "cost": "$20-$40",
-      "link": "https://www.churchofclown.org/events/tenfoldphysique"
-    },
-    {
-      "id": "a632e07b-54a9-4506-a1af-3e7e64674aac",
-      "date": "2024-06-29",
-      "name": "THE FUNCTION - Soft Opening Weekend",
-      "type": "Comedy",
-      "start": {
-        "hour": 20,
-        "minute": 45,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 45,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1414 Market Street San Francisco, CA 94102",
-      "description": "San Francisco's newest comedy club & cocktail lounge brings comedy and nightlife back to Market Street. Co-owned by comedian Stroy Moyd",
-      "cost": "Various",
-      "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
-    },
-    {
-      "id": "8cd892d8-9c8f-4ea6-9b80-32ecb97d2528",
-      "date": "2024-06-29",
-      "name": "Decoupage Oyster Shell Art",
-      "type": "Workshop",
-      "start": {
-        "hour": 16,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "South Bay",
-      "address": "Jiaren Cafe 1171 Homestead Road #140b Santa Clara, CA 95050",
-      "description": "In this class, you will be making 2 types of decoupage oyster shell art, a dish (can be used as a plant dish or jewelry dish) and a charm.",
-      "cost": "$40",
-      "link": "https://www.eventbrite.com/e/decoupage-oyster-shell-art-tickets-911000736727?aff=ebdssbdestsearch&_gl=1*1f6q2ba*_up*MQ..*_ga*MTU5OTQyMzI2MS4xNzE5Mzg1NDU5*_ga_TQVES5V6SH*MTcxOTM4NTQ1OC4xLjAuMTcxOTM4NTQ1OC4wLjAuMA.."
-    },
-    {
-      "id": "237a12f9-e7a5-41c8-a1b9-1a95e3b1524b",
-      "date": "2024-06-29",
-      "name": "Trout Club, Mitch Rocket",
-      "type": "Music",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 23,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "Peninsula",
-      "address": "Winters Tavern, 1522 Francisco Blvd, Pacifica",
-      "description": "An evening of theatrical psych rock at Pacifica's finest dive bar and music establishment",
-      "cost": "Free",
-      "link": "https://www.songkick.com/concerts/41985558-mitch-rocket-at-winters-tavern"
-    },
-    {
-      "id": "3f79e4ce-f62e-45a2-ae1e-f4a53a3a5597",
-      "date": "2024-06-29",
-      "name": "THE FUNCTION - Soft Opening Weekend",
-      "type": "Comedy",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1414 Market Street San Francisco, CA 94102",
-      "description": "San Francisco's newest comedy club & cocktail lounge brings comedy and nightlife back to Market Street. Co-owned by comedian Stroy Moyd",
-      "cost": "Various",
-      "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
-    },
-    {
-      "id": "73c1a4c7-145d-469d-aca9-213423e6c0e1",
-      "date": "2024-06-30",
-      "name": "THE FUNCTION - Soft Opening Weekend",
-      "type": "Comedy",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "1414 Market Street San Francisco, CA 94102",
-      "description": "San Francisco's newest comedy club & cocktail lounge brings comedy and nightlife back to Market Street. Co-owned by comedian Stroy Moyd",
-      "cost": "Various",
-      "link": "https://www.eventbrite.com/e/sfs-brand-new-comedy-club-the-function-soft-opening-weekend-tickets-933599269547?discount=ONMYMAMA"
-    },
-    {
-      "id": "d991199a-5cd3-4653-8474-f82bbec0b4ff",
-      "date": "2024-06-30",
-      "name": "Decentered Open Mic",
-      "type": "Open Mic",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "The Center SF 548 Fillmore St. ",
-      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
-      "cost": "Free",
-      "link": "decentered.org"
-    },
-    {
-      "id": "574d2785-c4fd-4dc2-ac8c-40e7c83c7aec",
-      "date": "2024-06-30",
-      "name": "Vox Solo Music and Spoken Word",
-      "type": "Multi Media",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 30,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "10 Cargo Way",
-      "description": "The New Farm welcomes you to their new indoor space for a free muisc and spoken word event",
-      "cost": "Free",
-      "link": "https://www.facebook.com/subterranean.shakespeare"
-    },
-    {
-      "id": "787c4498-2636-49b6-9764-5bf6d042efc0",
-      "date": "2024-06-30",
-      "name": "Ten Fold Pysique",
-      "type": "Festival",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Church of Clown, 2400 Bayshore Blvd, San Francisco",
-      "description": "What’s more scintillating than a freshly created piece of art? Nothing! This weekend-long celebration brings together ten physical theater artists, each presenting delightfully new performances. See clown, mime, dance, and so much more; join us for \"Ten Fold Physique: A Festival of New Works in Physical Theater.\"",
-      "cost": "$20-$40",
-      "link": "https://www.churchofclown.org/events/tenfoldphysique"
-    },
-    {
-      "id": "74fe6d41-0b0f-499f-8d0f-6def5b416930",
-      "date": "2024-06-30",
-      "name": "Beep! Beep! - Heavy Petting Zoo Pride After Party",
-      "type": "Festival",
-      "start": {
-        "hour": 14,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 26,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "The Great Northern",
-      "description": "BEEP! BEEP! features a full street closure, two full stages and free entry all day! We’re going 2pm-late 🥳\r",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C7mrtLkyLU6/?img_index=2"
-    },
-    {
-      "id": "62d62ad1-acd9-4f78-a8ca-b1f7d602a1f7",
-      "date": "2024-06-30",
-      "name": "Block Party Good Mother x Snail Bar",
-      "type": "Party",
-      "start": {
-        "hour": 12,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 23,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "Oakland",
-      "address": "1955 Broadway, Oakland and Snail Bar 4935 Shattuck",
-      "description": "Stoked to announce a two-part event with our friends at Snail Bar!! The second installment of our collaborative event ‘BLOCK PARTY’ and the celebrations of Snail Bar’s 3 YEAR ANNIVERSARY!!!!",
-      "cost": "Free",
-      "link": "https://www.instagram.com/p/C8Ds4_pJGIh/"
-    },
-    {
-      "id": "c1318938-db7d-4d0d-b980-58539a57a44c",
+      "id": "401c728e-abae-4260-b659-9d7b81de93eb",
       "date": "2024-07-01",
       "name": "SF Rock Paper Scissors Tournament",
       "type": "Meetup",
-      "start": {
-        "hour": 12,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 13,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 13, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Various Locations SF",
       "description": "Here’s the premise: Sign up via the link to join the bracket by July 1. (Yes, you have to make an account with challonge, and I’m sorry) On July 1 at noon, you will be randomly matched with someone who you will have to plan a meet up with within 1 week in SF. You will play Rock, Paper, Scissors for a minimum of 3 rounds. Winner is best out of 3 rounds. You will BOTH submit who the winner is on the bracket\r",
@@ -358,20 +14,12 @@
       "link": "https://partiful.com/e/1g2iUbxDSUUgiBw5e1gE"
     },
     {
-      "id": "57620d19-a0cf-4dcc-bbe2-df2d62f03057",
+      "id": "eb1d6b45-bc89-4f76-a507-035f7dd8590d",
       "date": "2024-07-04",
       "name": "A Great Big Clothing Swap and a Little BBQ Potluck",
       "type": "Clothing Swap",
-      "start": {
-        "hour": 16,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 16, "minute": 0, "second": 0 },
+      "end": { "hour": 22, "minute": 0, "second": 0 },
       "location": "Oakland",
       "address": "Spire the Church 825 Athens Ave, Oakland ",
       "description": "Go home with great new stuff! Come hang out with your Spire family! Join us for a casual evening of new traditions, favorite music, and lighthearted fun.",
@@ -379,20 +27,12 @@
       "link": "https://www.instagram.com/p/C8xQYKeP8Xu/?hl=en"
     },
     {
-      "id": "d7e795ba-f2a8-44f8-be9a-d30ae7e5fba7",
+      "id": "914c9096-7836-4021-828f-1e3f7a58a35e",
       "date": "2024-07-04",
       "name": "Candy Crush",
       "type": "Visual Art",
-      "start": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 22, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Moth Belly Gallery 912 Larkin Street. ",
       "description": "Coming up!!! Please join us Thursday, July 4th, for our next group exhibit \"Candy Crush\", guest curated by the one & only @ladyhenze",
@@ -400,20 +40,12 @@
       "link": "https://www.instagram.com/p/C8iDjLqSC5r/?hl=en"
     },
     {
-      "id": "1d789d27-330b-459b-a8af-1cee17d7c292",
+      "id": "5a7bad6b-3d7f-439e-8198-127473995089",
       "date": "2024-07-04",
       "name": "16th and Mission Poetry Corner",
       "type": "Poetry/Lit",
-      "start": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "16th St. Mission Bart Plaza",
       "description": "Weekly open mic, every THURSDAY @ 10pm",
@@ -421,41 +53,12 @@
       "link": "https://www.instagram.com/16thmission/"
     },
     {
-      "id": "84cfb8b8-a9b6-40fd-b5ef-1ab7b5a607d5",
-      "date": "2024-07-05",
-      "name": "Summer Vice",
-      "type": "Party",
-      "start": {
-        "hour": 21,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 26,
-        "minute": 0,
-        "second": 0
-      },
-      "location": "San Francisco",
-      "address": "Bergerac, 316 11th St San Francisco",
-      "description": "Join us this july 4th weekend to kick off SUMMER VICE, our SHCKLDBYLUST X THE GOOD FUN summer residency at BERGERAC SF",
-      "cost": "$15+",
-      "link": "https://ra.co/events/1942087"
-    },
-    {
-      "id": "7cbc749c-cfff-4398-ae50-ab6777961fd4",
+      "id": "305bf64a-2edc-444f-a780-5c957d4554c0",
       "date": "2024-07-05",
       "name": "Blushing Psyched Radio's 3rd Birhtday",
       "type": "Party",
-      "start": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 24,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 20, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Kilowatt 3160 16th St, San Francisco, CA 94103",
       "description": "Presented by Psyched! Radio, it’s a night you won’t want to miss! Secure your spot now at psychedradiosf.com. Let’s celebrate three years of music, community, and unforgettable moments together!",
@@ -463,20 +66,12 @@
       "link": "https://dice.fm/partner/dice/event/lmv2p-blushing-pink-breath-of-heaven-and-rachel-travers-5th-jul-kilowatt-san-francisco-tickets?dice_id=2532867&dice_channel=web&dice_tags=organic&dice_campaign=DICE&dice_feature=mio_marketing&_branch_match_id=1271955145566786797&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1a%2BwTLVMMkw2MzY0MwMAs%2BEhMiEAAAA%3D"
     },
     {
-      "id": "c293dce5-3685-4fa7-a4ce-fb19210ba348",
+      "id": "8bd77fca-ee17-428d-a5d5-6866ee946690",
       "date": "2024-07-05",
       "name": "Poetry at the Golden Sardine",
       "type": "Poetry/Lit",
-      "start": {
-        "hour": 18,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 19,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 19, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Golden Sardine 362 Columbus Ave",
       "description": "celebrating their new books Emily Lee Luan - Return, Nightboat Adrienne Chung - Organs of Little Importance, Penguin Leigh Lucas - Landsickness, Tupelo",
@@ -484,20 +79,12 @@
       "link": "https://www.instagram.com/p/C8xC2sIptz1/?hl=en"
     },
     {
-      "id": "01105018-f594-49c4-b741-ec6560a42272",
+      "id": "21a5efb9-45e8-4ca7-a2b0-af71566cb53f",
       "date": "2024-07-05",
       "name": "North Beach First Friday",
       "type": "Festival",
-      "start": {
-        "hour": 17,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 22,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 17, "minute": 0, "second": 0 },
+      "end": { "hour": 22, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Various Locations North Beach",
       "description": "",
@@ -505,25 +92,745 @@
       "link": ""
     },
     {
-      "id": "5d288088-6dc0-48a5-9574-18180d8d4fd4",
+      "id": "0f5aa0be-71f6-42d2-bc97-67c9685d266e",
+      "date": "2024-07-05",
+      "name": "Summer Vice",
+      "type": "Party",
+      "start": { "hour": 21, "minute": 0, "second": 0 },
+      "end": { "hour": 26, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Bergerac, 316 11th St San Francisco",
+      "description": "Join us this july 4th weekend to kick off SUMMER VICE, our SHCKLDBYLUST X THE GOOD FUN summer residency at BERGERAC SF",
+      "cost": "$15+",
+      "link": "https://ra.co/events/1942087"
+    },
+    {
+      "id": "55fdb235-ea77-4a31-ad39-ab12b745b5b2",
       "date": "2024-07-06",
       "name": "Women in Waveform",
       "type": "Party",
-      "start": {
-        "hour": 14,
-        "minute": 0,
-        "second": 0
-      },
-      "end": {
-        "hour": 20,
-        "minute": 0,
-        "second": 0
-      },
+      "start": { "hour": 14, "minute": 0, "second": 0 },
+      "end": { "hour": 20, "minute": 0, "second": 0 },
       "location": "San Francisco",
       "address": "Wave Collective, 663 Haight Street",
       "description": "welcome to ✨Women in Waveform ✨ a new music event championing local female-identifying DJs 🎶 we’re kicking off with a fundraiser for 🇵🇸 freedom 🕊️ peace and 🍉 solidarity at Wave Collective on July 6, from 2–8pm,",
       "cost": "$15 ADV",
       "link": "https://thethirdplace.is/event/hQviF3CBReaYTsf21Zinaw"
+    },
+    {
+      "id": "2dea3b4a-4308-4983-9e88-5c1f1850198b",
+      "date": "2024-07-07",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "66073025-17a8-4381-afa1-5bf4458997d9",
+      "date": "2024-07-10",
+      "name": "Poetry & Pizza Open Mic #18",
+      "type": "Poetry/Lit",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 20, "minute": 0, "second": 0 },
+      "location": "East Bay",
+      "address": "Patxi's Pizza (Dublin) - 5130 Dublin Boulevard S1H, Dublin, CA 94568",
+      "description": "An evening of inspired poetry and delicious pizza at the 18th Poetry & Pizza Open Mic hosted by Patxi's Pizza (Dublin) and City of Dublin Poet Laureate James Morehead.",
+      "cost": "Free",
+      "link": "https://www.eventbrite.com/e/poetry-pizza-open-mic-18-at-patxis-pizza-dublin-tickets-926748548857"
+    },
+    {
+      "id": "7fa6866a-e2d9-4f68-a1f9-8d9989f70e10",
+      "date": "2024-07-10",
+      "name": "Gray Area Artist Showcase",
+      "type": "Multi Media",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 22, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "2665 Mission St, San Francisco, CA 94110",
+      "description": "PARTIFUL LINK: https://partiful.com/e/9abjsiCNjYIyzjSA8O7B?👾 🎨 Join Us for the Gray Area Artist Showcase - Summer 2024! 🎨 👾Hey friends, art lovers and tech enthusiasts! We — this year’s Gray Area resident Artists! — are excited to invite you to the Gray Area Artist Showcase! Immerse in an evening of cutting-edge digital art, mesmerizing installations, and inspiring performances.",
+      "cost": "Sliding scale 0 to 30",
+      "link": "https://grayarea.org/event/gray-area-artist-showcase-summer-2024/"
+    },
+    {
+      "id": "002b127f-fe7c-4415-9f87-4ce42304e314",
+      "date": "2024-07-11",
+      "name": "Summer of Sin The Ruckus Revivial",
+      "type": "Multi Media",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 23, "minute": 0, "second": 0 },
+      "location": "Oakland",
+      "address": "The Continental Club, 1658 12th StOakland, CA",
+      "description": "Circus. Comedy. Carnage. Battle Rap. Burlesque. Interactive mayhem. All of that and MORE!\r",
+      "cost": "$20-$30",
+      "link": "https://www.eventbrite.com/e/the-ruckus-revival-summer-of-sin-tickets-704719273317?aff=oddtdtcreator"
+    },
+    {
+      "id": "be537868-4723-4398-84eb-76934cf221c4",
+      "date": "2024-07-11",
+      "name": "Sticks with Words - Robert Geshlider",
+      "type": "Visual Art",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 20, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Four Chicken Gallery, 432 Courtland Ave. Bernal Heights",
+      "description": "https://www.allthelives.com/",
+      "cost": "Free",
+      "link": "https://www.facebook.com/photo/?fbid=10230203679809913&set=a.1105333107504"
+    },
+    {
+      "id": "8254f993-91c0-44b3-9b9e-3b4aa8c5dc1d",
+      "date": "2024-07-11",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "a85eac2a-bb2f-44b8-9eea-cd8b3bd7fc93",
+      "date": "2024-07-11",
+      "name": "Mitch Rocket, The Revelator, Briget Boyle",
+      "type": "Music",
+      "start": { "hour": 19, "minute": 30, "second": 0 },
+      "end": { "hour": 23, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Neck of the Woods, 406 Clement Street, San Francisco",
+      "description": "Folk, rock, and singer-songwriter night with three Bay Area bands",
+      "cost": "$15",
+      "link": "https://www.neckofthewoodssf.com/tm-event/mitch-rocket-the-revelator-briget-boyle/"
+    },
+    {
+      "id": "40cb87cf-7bf1-4990-87a5-da2f4501fda5",
+      "date": "2024-07-12",
+      "name": "HypeFest! Summer Sounds: A Live Dating Show + Concert by Oakadelic",
+      "type": "Party",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 23, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "906 World Cultural Center @ 906 Broadway, SF",
+      "description": "A dating show where friend groups hype up their bestie to the crowd! Followed by a concert by funk, soul, R&B, and hip hop band - Oakadelic.",
+      "cost": "$30-35 (Volunteer/Free Tix Available)",
+      "link": "https://www.eventbrite.com/e/hypefest-summer-sounds-a-live-dating-show-concert-by-oakadelic-tickets-936122115447?aff=oddtdtcreator"
+    },
+    {
+      "id": "6b136574-6bb3-4775-8812-bedd22043a26",
+      "date": "2024-07-12",
+      "name": "Bastille Day @ Paris 75",
+      "type": "Party",
+      "start": { "hour": 21, "minute": 0, "second": 0 },
+      "end": { "hour": 26, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Paris 75, 515 Broadway San Francisco, CA 94133",
+      "description": "We got a great show coming up @ Paris 75 for Bastille Day! Come party it up to some French House, Disco & more!",
+      "cost": "Free",
+      "link": "https://www.eventbrite.com/e/bastille-day-paris-75-tickets-919690046687?aff=ebdsshios"
+    },
+    {
+      "id": "4c77216f-6399-462a-9c91-13a02b23964a",
+      "date": "2024-07-13",
+      "name": "Fern Alley Music Series",
+      "type": "Music",
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 14, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Fern Street San Francisco",
+      "description": "Join Music City SF in association with the Lower Polk CBD, Polk Neighbors, OEWD & The Office of Small Business, in support of the Polk Corridor Community. Enjoy live music, craft vendors, local artists at the Fern Alley Music Series (Fern & Polk)",
+      "cost": "Free",
+      "link": "https://www.eventbrite.com/cc/music-city-sf-presents-the-fern-alley-music-series-1923429"
+    },
+    {
+      "id": "c12a4b0e-99a7-4ced-89c7-aef98d61d8b6",
+      "date": "2024-07-13",
+      "name": "Liberatory Self-Portrait Workshop",
+      "type": "Workshop",
+      "start": { "hour": 13, "minute": 0, "second": 0 },
+      "end": { "hour": 15, "minute": 0, "second": 0 },
+      "location": "Oakland",
+      "address": "RPS COLLECTIVE GALLERY 2120 Martin Luther King Jr Way",
+      "description": "Follow your joy to create a multi-media portrait of your beautiful self. You will be guided through a process to connect with yourself and uncover a meaningful way to draw/collage/build a self-portrait that reflects who you are inside and out.",
+      "cost": "$25 - $40",
+      "link": "https://www.eventbrite.com/e/liberatory-self-portrait-workshop-tickets-928101375197"
+    },
+    {
+      "id": "b9b902e5-a162-4cd3-ae40-19a42f46b230",
+      "date": "2024-07-13",
+      "name": "Immortal Clothes: Alterations for Everyone",
+      "type": "Workshop",
+      "start": { "hour": 11, "minute": 0, "second": 0 },
+      "end": { "hour": 13, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "SCRAP 2150 Newcomb Avenue San Francisco, CA 94124",
+      "description": "Have a pair of pants that are too long to comfortably wear? Or a shirt that just doesn't fit but you love too much to discard? Bring your clothes to SCRAP and Tria Connell will teach you how to alter your treasured garments to fit! We believe that clothes should fit our bodies, not the other way around. During this workshop, Tria will be focusing on hemming pants and using darts or adding fabric to change the shape of shirts. If your alteration doesn't meet those categories, don't worry! There will be plenty of time to work on any other garment woes. Come out and learn how to make your clothes last for years to come.",
+      "cost": "$30-$35",
+      "link": "https://www.eventbrite.com/e/immortal-clothes-alterations-for-everyone-with-tria-connell-tickets-921701151957?aff=oddtdtcreator"
+    },
+    {
+      "id": "1c8cb856-dfe7-4edc-8b65-c6f9cfd2d8f7",
+      "date": "2024-07-13",
+      "name": "International Skinny Dipping Day",
+      "type": "Meetup",
+      "start": { "hour": 10, "minute": 0, "second": 0 },
+      "end": { "hour": 13, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Baker Beach",
+      "description": "international skinny dip day is july 13th. we’re celebrating by hosting a fundraiser in support of the fistula foundation, an organization dedicated to treating and preventing obstetric fistulas, a devastating childbirth injury affecting women in developing countries. learn more about their impactful work at fistulafoundation.org and consider making a donation at givebutter.com/sdd-2024/sfskinnydipday. we’ll also have a donation jar + options to venmo/cashapp at the event!",
+      "cost": "Free but its a fundraiser",
+      "link": "https://partiful.com/e/2AtIIuGaydwoHXZJuD8H?source=openInvite"
+    },
+    {
+      "id": "1a17cbf6-127d-4cb1-9b58-90e286f62365",
+      "date": "2024-07-13",
+      "name": "Obscuria and Friends",
+      "type": "Music",
+      "start": { "hour": 14, "minute": 0, "second": 0 },
+      "end": { "hour": 20, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The New Farm 10 Cargo Way",
+      "description": "New show with these folks! @jefemachete @thenewfarmsf",
+      "cost": "$10 Donation",
+      "link": "https://www.instagram.com/p/C8qaCYiJyMU/?hl=en"
+    },
+    {
+      "id": "0760e33d-7069-46c9-b425-81a84e536ff8",
+      "date": "2024-07-13",
+      "name": "phosis vol. I",
+      "type": "Multi Media",
+      "start": { "hour": 17, "minute": 30, "second": 0 },
+      "end": { "hour": 23, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Secret Mission Location on 19th and Valencia DM them for Address",
+      "description": "phosis vol. I - summer: creates an intimate space for participants to experience summer; tapping into old memories, recontexualizing, and shaping new ones through exposure to incubated seasonal sound, taste, sight, smell, and touch. ",
+      "cost": "$75",
+      "link": "https://partiful.com/e/9cenGNmnKCdKpr3Tnc8J?fbclid=PAZXh0bgNhZW0CMTEAAaZyyDoNUrTvaBqasI52BZria0LkjgTXWgQtrqwfiwaPYI625xCT0x4hoqY_aem_4GvoLED8olu4CMAnxQtQow"
+    },
+    {
+      "id": "ecdc9d5f-b377-40be-b8ca-82809a098d7b",
+      "date": "2024-07-14",
+      "name": "Ethnobotany Class No.2",
+      "type": "Workshop",
+      "start": { "hour": 13, "minute": 0, "second": 0 },
+      "end": { "hour": 14, "minute": 30, "second": 0 },
+      "location": "San Francisco",
+      "address": "Wave Collective, 663 Haight Street",
+      "description": "In this class, we’ll explore a plant native to California through organoleptic method, mythology, mediation, and discussion. If you want to heal yourself and get closer to the Earth, this is the perfect class for you.",
+      "cost": "Varies by ticket Type",
+      "link": "https://thethirdplace.is/event/ethnobotany-wave-2"
+    },
+    {
+      "id": "dbc0f1fd-e2e4-4429-b38d-d2fe7b87d602",
+      "date": "2024-07-14",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "d6e0d63c-916b-4eb4-86bc-ceb4739cfc86",
+      "date": "2024-07-16",
+      "name": "Linocut/Printmaking Basics - Bookplates",
+      "type": "Visual Art",
+      "start": { "hour": 18, "minute": 30, "second": 0 },
+      "end": { "hour": 20, "minute": 30, "second": 0 },
+      "location": "San Francisco",
+      "address": "1736 18th St",
+      "description": "Come enjoy an evening making your own Bookplate and learning some of the basics of printmaking! Perfect for readers and makers alike! No prior experience is required.",
+      "cost": "25",
+      "link": "https://bookwhen.com/sequoiafabrica/e/ev-slk3-20240716183000"
+    },
+    {
+      "id": "63cda1e5-05e4-4fcf-8319-e14d52f8e794",
+      "date": "2024-07-18",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "0aa140d1-ad34-42e0-b51d-e27d66496d46",
+      "date": "2024-07-19",
+      "name": "PORTRAIT OIL PAINTING: 2 DAYS (FRIDAY/SAT)",
+      "type": "Workshop",
+      "start": { "hour": 18, "minute": 30, "second": 0 },
+      "end": { "hour": 21, "minute": 30, "second": 0 },
+      "location": "San Francisco",
+      "address": "395 South Van Ness Avenue, SF",
+      "description": "Two day intensive workshop on portrait oil painting. ",
+      "cost": "$250 (For both Days)",
+      "link": "https://sketchboard.as.me/wkrshp"
+    },
+    {
+      "id": "cdda2386-fdd8-4476-a8ba-29b3fb7b5859",
+      "date": "2024-07-21",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "ff548f9a-8e12-44c4-a5ec-8dda97ec22f9",
+      "date": "2024-07-23",
+      "name": "Queer Utopian Sci Fi Reading group ",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 20, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Radical Reading Room, 348 Haight Street",
+      "description": "Ecotopias: visions of harmony with the natural world",
+      "cost": "Free",
+      "link": "https://lu.ma/queerscifi?fbclid=IwAR0TfjaIq4Eua1nnK57u64Xh7NEJOTKZfv9klFUCOqolWGHJFSgn9TTqaQc"
+    },
+    {
+      "id": "5f5c5a37-7cdd-4a68-90de-083d098dbef3",
+      "date": "2024-07-25",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "e0848ad2-0912-4c58-9bc3-31b7c9f829e0",
+      "date": "2024-07-26",
+      "name": "Mild Universe, Healing Potpourri, Abracadabra",
+      "type": "Music",
+      "start": { "hour": 20, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Independant, 628 Divisadero St",
+      "description": "Local dreamy dance collective Mild Universe releases their debut album \"Everything Must Change\" at the Independent with support from Healing Potpourri and Abracadabra",
+      "cost": "",
+      "link": ""
+    },
+    {
+      "id": "47cf0652-4249-4d4a-9ed8-ca4749c3da0f",
+      "date": "2024-07-27",
+      "name": "Sudan Archives Free Concert",
+      "type": "Music",
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 15, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Crane Cove park",
+      "description": "Free concert sponsored by Noisepop",
+      "cost": "Free",
+      "link": "RSVP coming Soon"
+    },
+    {
+      "id": "bf0c9647-84c4-4d9d-bc83-48b9600fce5f",
+      "date": "2024-07-27",
+      "name": "Fern Alley Music Series",
+      "type": "Music",
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 14, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Fern Street San Francisco",
+      "description": "Join Music City SF in association with the Lower Polk CBD, Polk Neighbors, OEWD & The Office of Small Business, in support of the Polk Corridor Community. Enjoy live music, craft vendors, local artists at the Fern Alley Music Series (Fern & Polk)",
+      "cost": "Free",
+      "link": "https://www.eventbrite.com/cc/music-city-sf-presents-the-fern-alley-music-series-1923429"
+    },
+    {
+      "id": "320d9128-3cdc-405f-a563-7bf7c5a13497",
+      "date": "2024-07-28",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "38c3bb66-6e85-4f97-afa0-6f9e0368f1a9",
+      "date": "2024-08-01",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "464e8380-e197-49e2-809b-fffe1b5226e7",
+      "date": "2024-08-03",
+      "name": "TBL Show - Kill your Rapist, Queer Mom, HEX, Obscuria, FoxBox",
+      "type": "Multi Media",
+      "start": null,
+      "end": null,
+      "location": "",
+      "address": "Unknown",
+      "description": "Unknown",
+      "cost": "Unknown",
+      "link": "https://www.instagram.com/p/C8e7oxgJj9s/"
+    },
+    {
+      "id": "9cca2309-0e61-4ea6-8900-bcbc9061b27d",
+      "date": "2024-08-04",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "d733b23c-5078-476b-b0c5-9126d982bf60",
+      "date": "2024-08-06",
+      "name": "ODD SALON SF: ROAM",
+      "type": "Multi Media",
+      "start": { "hour": 18, "minute": 30, "second": 0 },
+      "end": { "hour": 22, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Public Works SF: 161 Erie St, San Francisco, CA\r",
+      "description": "Stories of the wayward wanderer, from globetrotting gadabouts to peregrinating perambulators, the seekers, the finders, and the inquisitive\r",
+      "cost": "$20-$45",
+      "link": "https://oddsalon.com/salon/odd-salon-sf-roam/"
+    },
+    {
+      "id": "927903cc-545e-4bbf-9fd9-0c7ebc3a2b25",
+      "date": "2024-08-08",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "3df3e5bc-2fcf-445e-ba79-c7b769cdfb4d",
+      "date": "2024-08-10",
+      "name": "Ethnobotany Class No.3",
+      "type": "Workshop",
+      "start": { "hour": 13, "minute": 0, "second": 0 },
+      "end": { "hour": 14, "minute": 30, "second": 0 },
+      "location": "San Francisco",
+      "address": "Wave Collective, 663 Haight Street",
+      "description": "In this class, we’ll explore a plant native to California through organoleptic method, mythology, mediation, and discussion. If you want to heal yourself and get closer to the Earth, this is the perfect class for you.",
+      "cost": "Varies by ticket Type",
+      "link": "https://thethirdplace.is/event/ethnobotany-wave-3"
+    },
+    {
+      "id": "a093271e-052d-40aa-a04d-39a6a8998fd1",
+      "date": "2024-08-11",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "aee75351-4feb-41b9-830a-d8ca91563d98",
+      "date": "2024-08-11",
+      "name": "USS Hornet Museum Arts and Craft Faire",
+      "type": "Market",
+      "start": { "hour": 10, "minute": 0, "second": 0 },
+      "end": { "hour": 16, "minute": 0, "second": 0 },
+      "location": "East Bay",
+      "address": "USS Hornet Museum 707 W Hornet Ave Alameda, CA 94501",
+      "description": "Join the USS Hornet for our first annual Arts and Craft Faire! There will be a juried Art Show, 50+ booths of artists and vendors, food and beverage vendors, FREE PARKING, and ship tours will be available.",
+      "cost": "$5-$20",
+      "link": "https://www.eventbrite.com/e/uss-hornet-museum-arts-and-craft-faire-tickets-907112185967?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl&fbclid=IwZXh0bgNhZW0CMTAAAR1kMeNkp8TL05HXIb03D1llsl8tATIgduW46hkxGe1S-BxlOSFkncH1dJY_aem_fA7W22q63VWKtULLT52gRQ"
+    },
+    {
+      "id": "861a30d0-cce4-47e9-95da-952cd134b744",
+      "date": "2024-08-15",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "848db8f7-216f-4344-bbca-f43db91be034",
+      "date": "2024-08-17",
+      "name": "San Francisco Sea Muisc Festival",
+      "type": "Festival",
+      "start": { "hour": 11, "minute": 0, "second": 0 },
+      "end": { "hour": 19, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "San Francisco Maritime National Historical Park",
+      "description": "The San Francisco Sea Music Festival will be a lively day of free sea music and festivities, bringing the whole waterfront to life. Set against the picturesque backdrop of San Francisco Maritime National Historical Park and Fisherman’s Wharf, this exciting event will feature multiple stages at Aquatic Park, the Crab Wheel Plaza, and more. We will be celebrating sea music traditions from around the world and offering a diverse lineup of music and dance performances. Join us for a music-filled day, honoring the spirit of the sea!",
+      "cost": "Free",
+      "link": "https://maritime.org/seamusic2024/?fbclid=IwZXh0bgNhZW0CMTAAAR0Oog8sbh9fQyDxT-raYVGKtREcHX_cK_4nk14JM_cTd3eEB0-eOLAq1cc_aem_ZmFrZWR1bW15MTZieXRlcw"
+    },
+    {
+      "id": "4d1e559c-5bf8-4d05-bcff-f16014ccb4cb",
+      "date": "2024-08-17",
+      "name": "Ramain in Light Free Concert",
+      "type": "Music",
+      "start": { "hour": 13, "minute": 0, "second": 0 },
+      "end": { "hour": 16, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "China Basin Park",
+      "description": "Free concert sponsored by Noisepop",
+      "cost": "Free",
+      "link": "RSVP coming Soon"
+    },
+    {
+      "id": "80548376-9343-41e0-a6e1-40f8729d4b9d",
+      "date": "2024-08-17",
+      "name": "j.ehren x Piles of SF FASHION SHOW + After Party",
+      "type": "Fashion Show",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 26, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "TBD",
+      "description": "Coming soon!",
+      "cost": "$25-$40",
+      "link": "https://partiful.com/e/XEJ8I4aYAKCxVvQxdEzL"
+    },
+    {
+      "id": "912153f0-06e4-4eaa-981f-fa499420177c",
+      "date": "2024-08-18",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "a498149e-b245-4021-bc40-d500cfa14eb5",
+      "date": "2024-08-22",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "91cfb1c1-bed0-412e-82bd-d35f05355001",
+      "date": "2024-08-23",
+      "name": "Living Room: Reading Series & Salon",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Syzygy 395 South Van Ness",
+      "description": "Join us in the living room on the Fourth Friday of each month for intimate performances of writing, ideas, and conversation on a central theme.",
+      "cost": "$0-$5",
+      "link": "https://www.eventbrite.com/e/living-room-reading-series-salon-2024-tickets-754741551297?aff=efbevent&fbclid=IwZXh0bgNhZW0CMTAAAR0NDakLwml0lWGEISPFMQSgvhJhxS3KclKf9CG5-KYePZU3Ba-tdBoVIFE_aem_4rRoc4fP5F9EHTqBizr9yQ"
+    },
+    {
+      "id": "f0195a3e-ee78-4fb8-b6e9-b74818d56f02",
+      "date": "2024-08-25",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "02c495a9-e6bc-4875-bc5d-b09f98d8035c",
+      "date": "2024-08-27",
+      "name": "Queer Utopian Sci Fi Reading group ",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 20, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Radical Reading Room, 348 Haight Street",
+      "description": "Utopian Cities: radically reimagining the built environment",
+      "cost": "Free",
+      "link": "https://lu.ma/queerscifi?fbclid=IwAR0TfjaIq4Eua1nnK57u64Xh7NEJOTKZfv9klFUCOqolWGHJFSgn9TTqaQc"
+    },
+    {
+      "id": "a4d7db61-2a59-48c1-97dc-a27453d235a1",
+      "date": "2024-08-29",
+      "name": "16th and Mission Poetry Corner",
+      "type": "Poetry/Lit",
+      "start": { "hour": 22, "minute": 0, "second": 0 },
+      "end": { "hour": 24, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "16th St. Mission Bart Plaza",
+      "description": "Weekly open mic, every THURSDAY @ 10pm",
+      "cost": "Free",
+      "link": "https://www.instagram.com/16thmission/"
+    },
+    {
+      "id": "4d9380ed-3b62-4de6-a7bd-8102dc965abd",
+      "date": "2024-08-31",
+      "name": "Burning Man in SF",
+      "type": "Party",
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 12, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Ocean Beach Fire Pits",
+      "description": "It’s on. Stay tuned. And we’re building the Man.",
+      "cost": "Free",
+      "link": "https://www.facebook.com/events/866756591952556/"
+    },
+    {
+      "id": "6f287edc-c06e-4537-9eb0-923dba118e52",
+      "date": "2024-09-01",
+      "name": "Decentered Open Mic",
+      "type": "Open Mic",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Center SF 548 Fillmore St. ",
+      "description": "Free, multigenre open mic, we welcome all forms of expression and experience levels to our stage. ",
+      "cost": "Free",
+      "link": "decentered.org"
+    },
+    {
+      "id": "cdfe2d78-e6ad-453d-b191-abff4a2a6784",
+      "date": "2024-09-07",
+      "name": "Eagles of Death Metal",
+      "type": "Music",
+      "start": { "hour": 13, "minute": 0, "second": 0 },
+      "end": { "hour": 18, "minute": 30, "second": 0 },
+      "location": "San Francisco",
+      "address": "Potrero Del Sol Park",
+      "description": "Free concert sponsored by Noisepop",
+      "cost": "Free",
+      "link": "RSVP coming Soon"
+    },
+    {
+      "id": "bba7d024-dc16-438e-9ff2-47aa3b5a4c87",
+      "date": "2024-09-15",
+      "name": "Women's Work",
+      "type": "Theater",
+      "start": { "hour": 15, "minute": 0, "second": 0 },
+      "end": { "hour": 17, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Red Poppy Art House",
+      "description": "We're so excited to present a co-production with Red Poppy Art House and Aviva Arts - Women's Work in Troubled Times. Celebrate SWANA artist works in progress with us! What is the femme response in times of chaos and crisis? Join us September 15th for an inspiring lineup of live music, songs, poetry rants, and reflections of works in progress performance by Southwest Asian North African (SWANA) theater-makers emceed by Mama Ganuush, Palestinian Drag Artist and Social Justice Activist.This eclectic evening will feature nationally recognized artists including Amal Bisharat, Golden Thread’s artist-in-residence, Manaar Azreik of Holistic Solutions, Andrea Assaf of Art2Action, Debórah Eliezer of Aviva Arts, Zina Pozen, and surprise guests. This event is also offered in conjunction with Art2Action’s 11 Reflections: San Francisco project. Come for a special Sneak Peak at 11 Reflections in development!",
+      "cost": "Free!",
+      "link": "https://www.avivaarts.org/womens-work"
+    },
+    {
+      "id": "37a037a6-034b-4b38-a30e-7121eaf9b6d8",
+      "date": "2024-09-24",
+      "name": "Queer Utopian Sci Fi Reading group ",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 20, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Radical Reading Room, 348 Haight Street",
+      "description": "Techno-Utopia: fully-automated dreams and post-work society",
+      "cost": "Free",
+      "link": "https://lu.ma/queerscifi?fbclid=IwAR0TfjaIq4Eua1nnK57u64Xh7NEJOTKZfv9klFUCOqolWGHJFSgn9TTqaQc"
+    },
+    {
+      "id": "8cca20b0-9642-4d4f-b004-8b6e04463edd",
+      "date": "2024-09-28",
+      "name": "Fern Alley Music Series",
+      "type": "Music",
+      "start": { "hour": 12, "minute": 0, "second": 0 },
+      "end": { "hour": 14, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Fern Street San Francisco",
+      "description": "Join Music City SF in association with the Lower Polk CBD, Polk Neighbors, OEWD & The Office of Small Business, in support of the Polk Corridor Community. Enjoy live music, craft vendors, local artists at the Fern Alley Music Series (Fern & Polk)",
+      "cost": "Free",
+      "link": "https://www.eventbrite.com/cc/music-city-sf-presents-the-fern-alley-music-series-1923429"
+    },
+    {
+      "id": "7d0d47ae-437d-459b-a493-414b58263d0c",
+      "date": "2024-10-06",
+      "name": "Whiskerman",
+      "type": "Music",
+      "start": { "hour": 17, "minute": 0, "second": 0 },
+      "end": { "hour": 19, "minute": 0, "second": 0 },
+      "location": "Berkeley",
+      "address": "1 Pinnacle Path",
+      "description": "Whiskerman is a rock-and-roll overture to our great unraveling.Over the last 7 years the Oakland band has developed an underground reputation for tackling the sublime with their ambitious songwriting, thunderous stage show, and acute lyricism. They have since emerged as an engine of the Bay Area’s revitalized psychedelic and festival scenes. Frontman Graham Patzner, who will crow like a medicine show preacher, and then coo you into the arms of his lovesick eternity, might be a spitfire protege of the underworld himself, though, through and through he will remind you that there is no rapture without artistry. On the surface this is splendid rock-and-roll, rooted in the classic, psych and glam rock tradition, but the pageantry and chaos of Whiskerman’s performances will leave you describing an experience more than a sound.",
+      "cost": "$40 By Donation",
+      "link": "https://www.facebook.com/events/3705677123037015/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22calendar_tab_event%22%2C%22surface%22%3A%22bookmark_calendar%22%7D]%2C%22ref_notif_type%22%3Anull%7D"
+    },
+    {
+      "id": "b5e4b19c-49cf-418c-a730-5ca7332114b1",
+      "date": "2024-10-29",
+      "name": "Queer Utopian Sci Fi Reading group ",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 20, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Radical Reading Room, 348 Haight Street",
+      "description": "Heterotopias: alterity and difference in Delany and Foucault",
+      "cost": "Free",
+      "link": "https://lu.ma/queerscifi?fbclid=IwAR0TfjaIq4Eua1nnK57u64Xh7NEJOTKZfv9klFUCOqolWGHJFSgn9TTqaQc"
+    },
+    {
+      "id": "9f25416e-cfc3-4123-95f6-14c7b1624f8e",
+      "date": "2024-11-01",
+      "name": "StoryBody: Workshop of the Six Viewpoints",
+      "type": "Theater",
+      "start": { "hour": 18, "minute": 0, "second": 0 },
+      "end": { "hour": 20, "minute": 0, "second": 0 },
+      "location": "San Francisco",
+      "address": "Joe Goode Annex",
+      "description": "How do you show up? How do you take up space?This November, join Aviva Arts Artistic Director Debórah Eliezer live in person at the Joe Goode Annex for a 3-Day Viewpoints Intensive.Friday Nov 1st, 6-8pm Saturday Nov 2nd 10:30-1:30pm Sunday Nov 3rd 10:30-1:30pm Using the improvisation vocabulary called the “Viewpoints” as a portal to discover greater authenticity and self-confidence, this workshop will create a safe and supportive space for you to bravely take risks. Through ensemble theater exercises, journaling, improvisational singing, and composition tasks, we’ll rewire neural pathways to overcome self-imposed barriers about sharing who we are and the amount of space we take up.No experience is necessary, and all experience levels are welcome and encouraged. Please note this is a movement experience for all bodies. Please let us know your access needs when you register. Bring a water bottle, a snack, and dress comfortably.",
+      "cost": "Sliding Scale: $195-350",
+      "link": "https://www.avivaarts.org/storybody"
+    },
+    {
+      "id": "8aba1c4d-f259-4ae8-b9ac-7255b5d3fe6f",
+      "date": "2024-11-26",
+      "name": "Queer Utopian Sci Fi Reading group ",
+      "type": "Poetry/Lit",
+      "start": { "hour": 19, "minute": 0, "second": 0 },
+      "end": { "hour": 21, "minute": 20, "second": 0 },
+      "location": "San Francisco",
+      "address": "The Radical Reading Room, 348 Haight Street",
+      "description": "Xenofeminist Utopianism: technology and feminist transhumanism",
+      "cost": "Free",
+      "link": "https://lu.ma/queerscifi?fbclid=IwAR0TfjaIq4Eua1nnK57u64Xh7NEJOTKZfv9klFUCOqolWGHJFSgn9TTqaQc"
     }
   ]
 }

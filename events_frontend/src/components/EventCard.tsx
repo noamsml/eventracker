@@ -24,7 +24,7 @@ import {
   outlookCalendarUrl,
 } from "../data/calendarLinks";
 import { EVENT_TYPE_COLORS } from "../data/constants";
-import { Event } from "../data/events";
+import { Event } from "../data/api";
 import { IconWithText } from "./IconWithText";
 
 export interface EventCardProps {

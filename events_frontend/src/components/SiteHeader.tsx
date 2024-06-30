@@ -10,7 +10,7 @@ import {
   locationOptionsAtom,
   eventTypeOptionsAtom,
   selectedDateRangeOptionAtom,
-} from "../data/events";
+} from "../data/atoms";
 import { SelectSomething } from "./SelectSomething";
 
 export const SiteHeader = () => {
