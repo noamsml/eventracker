@@ -4,6 +4,7 @@ import { FilterOption } from "../components/SelectSomething";
 import { EVENT_TYPE_COLORS, WHENEVER } from "./constants";
 import { formatDate, formatEventTime, formatRelativeTime } from "./dateFormats";
 import { DateRange, getDateRange } from "./dateRanges";
+import { atomWithReset } from "jotai/utils";
 
 // Here's how the API returns info about the events. Some of these
 // like startTimeFormatted are derived when we load in the data to simplify
@@ -63,13 +64,18 @@ export const fetchEvents = async () => {
 export const eventsAtom = atom<Event[]>([]);
 
 // The event and location the user has selected
-export const selectedEventTypeAtom = atom<FilterOption>({ value: "Anything" });
-export const selectedLocationAtom = atom<FilterOption>({ value: "Anywhere" });
+export const selectedEventTypeAtom = atomWithReset<FilterOption>({
+  value: "Anything",
+});
+export const selectedLocationAtom = atomWithReset<FilterOption>({
+  value: "Anywhere",
+});
 
 // The date range option the user has selected. This just holds the options like
 // "today" or "this weekend" options rather than the actual date ranges. Easier
 // for the dropdown that way.
-export const selectedDateRangeOptionAtom = atom<FilterOption>(WHENEVER);
+export const selectedDateRangeOptionAtom =
+  atomWithReset<FilterOption>(WHENEVER);
 
 // Store the user's custom date range if they've seleted one
 export const customDateRangeAtom = atom<DateRange | undefined>(undefined);
@@ -84,14 +90,12 @@ export const selectedDateRangeAtom = atom<DateRange | undefined>((get) => {
 });
 
 // Filter the events by the selections
-// TODO: Add date filtering
 export const filteredEventsAtom = atom((get) => {
   const type = get(selectedEventTypeAtom).value;
   const location = get(selectedLocationAtom).value;
   const dateRange = get(selectedDateRangeAtom);
   const { from, to } = dateRange || { from: undefined, to: undefined };
-  console.log(dateRange);
-  // const selectedLocation = get(selectedEventTypeAtom);
+
   return get(eventsAtom).filter(
     (event) =>
       (type === "Anything" || event.type === type) &&

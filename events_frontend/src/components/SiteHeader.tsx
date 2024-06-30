@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, Stack, Text } from "@chakra-ui/react";
 import { useAtom, useAtomValue } from "jotai";
 import { DATE_RANGE_OPTIONS } from "../data/constants";
 
@@ -19,14 +19,19 @@ export const SiteHeader = () => {
   console.log(locations, eventTypes);
   return (
     <Stack spacing={0}>
-      <Stack direction="row" p={3} alignItems="start" background="red.100">
+      <Stack
+        direction="row"
+        padding={3}
+        alignItems="start"
+        background="red.100"
+      >
         <img
           src="/logo/decentered.png"
           height={60}
           width={60}
           alt="Decentered Logo"
         />
-        <Stack>
+        <Stack spacing={1}>
           <Heading size="sm">Decentered Eventracker</Heading>
           <Text fontSize="sm">
             A curated list of Bay Area events to create an interconnected art
@@ -34,17 +39,23 @@ export const SiteHeader = () => {
           </Text>
         </Stack>
       </Stack>
-      <Stack p={4} background="red.200" direction="row">
-        <Box>
-          When: <SelectDateRange />
-        </Box>
-        <Box>
-          Where: <SelectLocation />
-        </Box>
-        <Box>
-          What: <SelectEventType />
-        </Box>
-      </Stack>
+      <HStack
+        p={4}
+        spacing={3}
+        background="red.200"
+        direction="row"
+        overflowY="auto"
+      >
+        <HStack flexWrap="wrap" spacing={1}>
+          <Text fontSize="sm">When?&nbsp;</Text> <SelectDateRange />
+        </HStack>
+        <HStack flexWrap="wrap" spacing={1}>
+          <Text fontSize="sm">Where?&nbsp;</Text> <SelectLocation />
+        </HStack>
+        <HStack flexWrap="wrap" spacing={1}>
+          <Text fontSize="sm">What?&nbsp;</Text> <SelectEventType />
+        </HStack>
+      </HStack>
     </Stack>
   );
 };
