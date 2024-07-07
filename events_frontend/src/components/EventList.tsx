@@ -52,7 +52,8 @@ export const EventList = () => {
         <Flex minHeight="40vh" alignItems="center" justifyContent="center">
           <Stack alignItems="center" spacing={3}>
             <Text color="gray.500" maxWidth="30ch" textAlign="center">
-              Those selections are kinda specific. Maybe find events that are:
+              Nothing happening for those selections yet. Maybe find events that
+              are:
             </Text>
             <Button onClick={resetWhen} variant="dcOutline">
               Whenever

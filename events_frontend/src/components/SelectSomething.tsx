@@ -7,6 +7,9 @@ import {
   MenuItemOption,
   MenuList,
   MenuOptionGroup,
+  Spacer,
+  Tag,
+  Text,
   theme,
 } from "@chakra-ui/react";
 
@@ -54,17 +57,28 @@ export const SelectSomething: FC<SelectSomethingProps> = ({
           value={selection.value}
           onChange={handleChange}
         >
-          {options.map((option) => (
-            <MenuItemOption
-              key={option.value}
-              value={option.value}
-              fontSize="2xl"
-              fontWeight="semibold"
-              // color={theme.colors[EVENT_TYPE_COLORS[option.color]]?.["500"]}
-            >
-              {option.label ?? option.value}
-            </MenuItemOption>
-          ))}
+          {options.map((option) => {
+            console.log(option);
+            return (
+              <MenuItemOption
+                key={option.value}
+                value={option.value}
+                fontSize="xl"
+                fontWeight="semibold"
+                isDisabled={option.count === 0}
+              >
+                <HStack>
+                  <div>{option.label ?? option.value} </div>
+                  <Spacer />
+                  {option.count !== undefined && (
+                    <Tag size="sm" color="gray">
+                      {option.count}
+                    </Tag>
+                  )}
+                </HStack>
+              </MenuItemOption>
+            );
+          })}
         </MenuOptionGroup>
       </MenuList>
     </Menu>

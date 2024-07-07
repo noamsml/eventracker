@@ -1,10 +1,18 @@
 import { atom } from "jotai";
-import { groupBy, uniqBy } from "lodash";
+import { groupBy, omit, uniq, uniqBy } from "lodash";
 import { FilterOption } from "../components/SelectSomething";
-import { EVENT_TYPE_COLORS, WHENEVER } from "./constants";
-import { DateRange, getDateRange } from "./dateRanges";
-import { atomWithReset } from "jotai/utils";
+import { DATE_RANGE_OPTIONS, EVENT_TYPE_COLORS, WHENEVER } from "./constants";
+import { DateRange, getDateRange, getMonthRange } from "./dateRanges";
+import { atomFamily, atomWithReset } from "jotai/utils";
 import { Event } from "./api";
+import { DateTime } from "luxon";
+
+type EventFilter = {
+  type?: string;
+  location?: string;
+  from?: string;
+  to?: string;
+};
 
 // A note about Jotai Atoms:
 //
@@ -32,32 +40,67 @@ export const selectedLocationAtom = atomWithReset<FilterOption>({
 export const selectedDateRangeOptionAtom =
   atomWithReset<FilterOption>(WHENEVER);
 
-// Store the user's custom date range if they've seleted one
-export const customDateRangeAtom = atom<DateRange | undefined>(undefined);
-
 // Final date range to filter with. It's the range for the selected option, the
 // user's custom range or undefined if nothing was selected
 export const selectedDateRangeAtom = atom<DateRange | undefined>((get) => {
   const selectedDateRangeOption = get(selectedDateRangeOptionAtom);
-  return selectedDateRangeOption
-    ? getDateRange(selectedDateRangeOption.value)
-    : get(customDateRangeAtom);
+  return (
+    getDateRange(selectedDateRangeOption.value) ||
+    getMonthRange(selectedDateRangeOption.value)
+  );
 });
 
-// Filter the events by the selections
-export const filteredEventsAtom = atom((get) => {
+// Now take the user's selections and make an atom which we can use elsewhere
+export const eventFilterAtom = atom<EventFilter>((get) => {
   const type = get(selectedEventTypeAtom).value;
   const location = get(selectedLocationAtom).value;
   const dateRange = get(selectedDateRangeAtom);
   const { from, to } = dateRange || { from: undefined, to: undefined };
+  return { type, location, from, to };
+});
 
-  return get(eventsAtom).filter(
-    (event) =>
-      (type === "Anything" || event.type === type) &&
-      (location === "Anywhere" || event.location === location) &&
+const filterEvents = (
+  events: Event[],
+  filter: { type?: string; location?: string; from?: string; to?: string },
+): Event[] => {
+  const { type, location, from, to } = filter;
+  return events.filter((event) => {
+    const anyType = type === undefined || type === "Anything";
+    const anyLocation = location === undefined || location === "Anywhere";
+    return (
+      (anyType || event.type === type) &&
+      (anyLocation || event.location === location) &&
       (from === undefined || event.date >= from) &&
-      (to === undefined || event.date <= to),
-  );
+      (to === undefined || event.date <= to)
+    );
+  });
+};
+
+// Next to each option in the UI, we show an event count. These might get
+// expensive to calculate, so this atomFamily trick memoizes the results into
+// a lookup.
+// see https://jotai.org/docs/utilities/family
+const filteredEventCountAtomFamily = atomFamily(
+  (filter: {
+    type?: string;
+    location?: string;
+    from?: string;
+    to?: string;
+  }) => {
+    return atom((get) => {
+      const events = get(eventsAtom);
+      return filterEvents(events, filter).length;
+    });
+  },
+);
+
+export const filteredEventsAtom = atom((get) => {
+  const events = get(eventsAtom);
+  const type = get(selectedEventTypeAtom).value;
+  const location = get(selectedLocationAtom).value;
+  const dateRange = get(selectedDateRangeAtom);
+  const { from, to } = dateRange || { from: undefined, to: undefined };
+  return filterEvents(events, { type, location, from, to });
 });
 
 // Group the events by their date so we can render them by day
@@ -84,13 +127,25 @@ export const eventTypesAtom = atom((get) =>
     .sort(),
 );
 
+// A list of the months the events happen. We'll use this to filter far out events
+export const eventMonthsAtom = atom((get) => {
+  const events = get(eventsAtom);
+  const months = events
+    .map((event) => DateTime.fromISO(event.date).toFormat("yyyy-MM"))
+    .filter((value, index, self) => self.indexOf(value) === index)
+    .sort();
+  return months;
+});
+
 // Turn the event types options for the SelectSomething component.
-// It accepts colors and counts
+// Includes the count by re-filtering the events by each option.
 export const eventTypeOptionsAtom = atom((get) => {
   const allOption = { value: "Anything" };
-  const options = get(eventTypesAtom).map((eventType) => ({
-    value: eventType,
-    color: EVENT_TYPE_COLORS[eventType] || "gray",
+  const filter = get(eventFilterAtom);
+  const options = get(eventTypesAtom).map((value) => ({
+    value: value,
+    color: EVENT_TYPE_COLORS[value] || "gray",
+    count: get(filteredEventCountAtomFamily({ ...filter, type: value })),
   }));
   return [allOption, ...options];
 });
@@ -98,8 +153,55 @@ export const eventTypeOptionsAtom = atom((get) => {
 // Do the same for event locations
 export const locationOptionsAtom = atom((get) => {
   const allOption = { value: "Anywhere" };
-  const options = get(locationsAtom).map((value) => ({
-    value: value,
-  }));
+  const filter = get(eventFilterAtom);
+  const options = get(locationsAtom).map((value) => {
+    const count = get(
+      filteredEventCountAtomFamily({ ...filter, location: value }),
+    );
+    return { value, count };
+  });
   return [allOption, ...options];
+});
+
+// Create some options for months. We look at the data for these
+// and find the unique months, get their event counts and
+// return them as options. The
+const monthOptionsAtom = atom((get) => {
+  const events = get(eventsAtom);
+  const filter = get(eventFilterAtom);
+  // Extract unique months from events
+  const months = uniq(
+    events.map((event: any) =>
+      DateTime.fromISO(event.date).toFormat("yyyy-MM"),
+    ),
+  );
+  // Create filter options with formatted labels and counts
+  const options: FilterOption[] = months.map((month) => {
+    const date = DateTime.fromFormat(month, "yyyy-MM");
+    const label = date.toFormat("MMMM");
+    const dateRange: DateRange = {
+      from: date.toFormat("yyyy-MM-01"),
+      to: date.endOf("month").toFormat("yyyy-MM-dd"),
+    };
+    const count = get(
+      filteredEventCountAtomFamily({ ...filter, ...dateRange }),
+    );
+    return { value: month, label, count };
+  });
+
+  return options;
+});
+
+export const dateRangeOptionsAtom = atom((get) => {
+  const allOption = WHENEVER;
+  const filter = get(eventFilterAtom);
+  const monthOptions = get(monthOptionsAtom);
+  const options = DATE_RANGE_OPTIONS.map((option) => {
+    const dateRange = getDateRange(option.value);
+    const count = dateRange
+      ? get(filteredEventCountAtomFamily({ ...filter, ...dateRange }))
+      : 0;
+    return { ...option, count };
+  });
+  return [allOption, ...options, ...monthOptions];
 });

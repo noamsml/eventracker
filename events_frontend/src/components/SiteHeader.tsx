@@ -1,22 +1,18 @@
-import { Box, Heading, HStack, Stack, Text } from "@chakra-ui/react";
+import { Heading, HStack, Link, Stack, Text } from "@chakra-ui/react";
 import { useAtom, useAtomValue } from "jotai";
 import { DATE_RANGE_OPTIONS } from "../data/constants";
 
 import {
   selectedLocationAtom,
-  eventTypesAtom,
-  locationsAtom,
   selectedEventTypeAtom,
   locationOptionsAtom,
   eventTypeOptionsAtom,
   selectedDateRangeOptionAtom,
+  dateRangeOptionsAtom,
 } from "../data/atoms";
 import { SelectSomething } from "./SelectSomething";
 
 export const SiteHeader = () => {
-  const locations = useAtomValue(locationsAtom);
-  const eventTypes = useAtomValue(eventTypesAtom);
-  console.log(locations, eventTypes);
   return (
     <Stack spacing={0}>
       <Stack
@@ -35,7 +31,11 @@ export const SiteHeader = () => {
           <Heading size="sm">Decentered Eventracker</Heading>
           <Text fontSize="sm">
             A curated list of Bay Area events to create an interconnected art
-            scene By Decentered Arts
+            scene by{" "}
+            <Link href="https://decentered.org" color="red.400">
+              Decentered Arts
+            </Link>
+            .
           </Text>
         </Stack>
       </Stack>
@@ -85,10 +85,11 @@ const SelectEventType = () => {
 };
 
 const SelectDateRange = () => {
+  const options = useAtomValue(dateRangeOptionsAtom);
   const [selection, setSelection] = useAtom(selectedDateRangeOptionAtom);
   return (
     <SelectSomething
-      options={DATE_RANGE_OPTIONS}
+      options={options}
       selection={selection}
       onSelect={setSelection}
     />

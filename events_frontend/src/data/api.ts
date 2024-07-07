@@ -1,4 +1,5 @@
 import { formatDate, formatEventTime, formatRelativeTime } from "./dateFormats";
+import isUrl from "is-url";
 
 // Event Type
 //
@@ -38,13 +39,78 @@ export interface EventTime {
 export const fetchEvents = async () => {
   const url = "/example.json";
   const json = await fetch(url).then((res) => res.json());
-  return json.events.map((event: Event) => {
-    return {
-      ...event,
-      dateFormatted: formatDate(event.date),
-      startTimeFormatted: formatEventTime(event.start),
-      endTimeFormatted: formatEventTime(event.end),
-      relativeStartTime: formatRelativeTime(event.date, event.start),
-    };
-  });
+  return json.events
+    .map((event: Event) => {
+      const formattedTimes = {
+        dateFormatted: formatDate(event.date),
+        startTimeFormatted: formatEventTime(event.start),
+        endTimeFormatted: formatEventTime(event.end),
+        relativeStartTime: formatRelativeTime(event.date, event.start),
+      };
+      const validatedLink = isUrl(event.link || "") ? event.link : null;
+      return {
+        ...event,
+        ...formattedTimes,
+        link: validatedLink,
+      };
+    })
+    .filter(validateEvent);
 };
+
+// Basic data validation. Ideally this is done upstream of the UI but
+// this is fine for now.
+const requiredFields: (keyof Event)[] = [
+  "id",
+  "name",
+  "date",
+  "type",
+  "location",
+];
+
+export function validateEvent(event: Event): boolean {
+  const fieldsValid = requiredFields.every((field) => {
+    if (
+      event[field] === null ||
+      event[field] === undefined ||
+      event[field] === ""
+    ) {
+      console.error(
+        `Validation error in event "${event.name}" (ID: ${event.id}): ${field} is required and cannot be null, undefined, or an empty string.`,
+      );
+      return false;
+    }
+    return true;
+  });
+  const startValid = validateEventTime(event.start, event.name, event.id);
+  return fieldsValid && startValid;
+}
+
+function validateEventTime(
+  eventTime: EventTime | null,
+  eventName: string,
+  eventId: string,
+): boolean {
+  if (eventTime === null) {
+    console.error(
+      `Validation error in event "${eventName}" (ID: ${eventId}): start time is required and cannot be null.`,
+    );
+    return false;
+  }
+
+  const { hour, minute, second } = eventTime;
+  if (
+    hour < 0 ||
+    hour > 23 ||
+    minute < 0 ||
+    minute > 59 ||
+    second < 0 ||
+    second > 59
+  ) {
+    console.error(
+      `Validation error in event "${eventName}" (ID: ${eventId}): start time is invalid.`,
+    );
+    return false;
+  }
+
+  return true;
+}

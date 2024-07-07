@@ -43,9 +43,10 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
         </Tag>
         <Tag>{event.location}</Tag>
         <Spacer />
-        <Text color="gray.500">
-          {event.relativeStartTime && <Text>{event.relativeStartTime}</Text>}
-        </Text>
+
+        {event.relativeStartTime && (
+          <Text color="gray.500">{event.relativeStartTime}</Text>
+        )}
       </Stack>
       <Heading size="md">{event.name}</Heading>
 

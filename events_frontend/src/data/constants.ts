@@ -20,7 +20,6 @@ export const EVENT_TYPE_COLORS: Record<string, keyof typeof theme.colors> = {
 export const WHENEVER: FilterOption = { value: "whenever", label: "Whenever" };
 
 export const DATE_RANGE_OPTIONS: FilterOption[] = [
-  WHENEVER,
   { value: "today", label: "Today" },
   { value: "tomorrow", label: "Tomorrow" },
   { value: "thisWeek", label: "This week" },
