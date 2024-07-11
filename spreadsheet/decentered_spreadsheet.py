@@ -35,10 +35,20 @@ class DecenteredSheetImporter:
     
     def get_cursor(self) -> int:
         return self.cursor
+    
+    def is_known_skip(self, row: List) -> bool:
+        if len(row) < 4:
+            print("Skipping row {}".format(row))
+            return True
+
+        return False
+    
+    def filter_skips(self, rows: List[List]) -> List[List]:
+        return [row for row in rows if not self.is_known_skip(row)]
 
     def retrieve_batch(self) -> Batch:
         raw_batch = self.spreadsheet_retriever.retrieve_spreadsheet_range(COL_RANGE, (self.cursor, self.cursor+self.batch_size))
-        sheet_rows = [SheetRow(*row) for row in raw_batch]
+        sheet_rows = [SheetRow(*row) for row in self.filter_skips(raw_batch)]
         last_cursor = sheet_rows[-1].row_number if sheet_rows else (self.cursor - 1)
         has_more = last_cursor >= (self.cursor + self.batch_size - 1)
         self.cursor = last_cursor + 1

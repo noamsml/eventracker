@@ -29,7 +29,8 @@ def test_retrieve_basic(db_engine):
     retrieve_return = [
         [490, "04/22/2024", "Decentered open mic", "Open Mic", "06:00:00 PM", "09:00:00 PM", "San Francisco", "The Center SF", "It's open mic", "Free", "https://decentered.org"],
         [491, "04/23/2024", "Late night jams", "Party", "10:00:00 PM", "04:00:00 AM", "Oakland (but it's chill)", "Mother Tongue", "Come jam with us", "$15", "https://noam.horse"],
-        [491, "04/23/2024", "No info event", "Clothing Swap"]
+        [492, "04/23/2024", "No info event", "Clothing Swap"],
+        [493, "04/23/2024"]
     ]
     # This is technically wrong typing -- maybe extract interface later?
     google_retriever_mock = GoogleRetriever(None, None)
