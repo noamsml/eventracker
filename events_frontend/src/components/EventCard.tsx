@@ -36,7 +36,12 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
   const outlookUrl = outlookCalendarUrl(event);
   const onDownloadIcs = downloadIcsFn(event);
   return (
-    <Stack borderBottomWidth={1} p={4} fontSize="sm">
+    <Stack
+      _notLast={{ borderBottomWidth: 1 }}
+      paddingX={4}
+      paddingY={4}
+      fontSize="sm"
+    >
       <Stack direction="row">
         <Tag colorScheme={EVENT_TYPE_COLORS[event.type] ?? "gray"}>
           {event.type}
@@ -48,7 +53,9 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
           <Text color="gray.500">{event.relativeStartTime}</Text>
         )}
       </Stack>
-      <Heading size="md">{event.name}</Heading>
+      <Heading size="md" color="black">
+        {event.name}
+      </Heading>
 
       <Text mb={3}>{event.description}</Text>
 
@@ -88,6 +95,7 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
               leftIcon={<Icon as={BiLinkExternal} color="red.300" />}
               size="xs"
               variant="dcOutline"
+              iconSpacing={1}
             >
               Website
             </Button>
@@ -105,6 +113,7 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
               leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
               size="xs"
               variant="dcOutline"
+              iconSpacing={1}
             >
               Google
             </Button>
@@ -122,6 +131,7 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
               leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
               size="xs"
               variant="dcOutline"
+              iconSpacing={1}
             >
               Outlook
             </Button>
@@ -133,6 +143,7 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
             leftIcon={<Icon as={BiCalendarPlus} color="red.300" />}
             size="xs"
             variant="dcOutline"
+            iconSpacing={1}
             onClick={onDownloadIcs}
           >
             ICS

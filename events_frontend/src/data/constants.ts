@@ -1,6 +1,12 @@
 import { theme } from "@chakra-ui/react";
 import { FilterOption } from "../components/SelectSomething";
 
+export const SPREADSHEET_URL =
+  "https://docs.google.com/spreadsheets/d/1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY/edit#gid=0";
+export const SUBMIT_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdFneR4syUmZ580W5Ics6IX_y2I4s5ajwZTpX4cCwltl-hcqw/viewform?usp=send_form";
+export const DONATE_LINK = "https://givebutter.com/decentered";
+
 export const EVENT_TYPE_COLORS: Record<string, keyof typeof theme.colors> = {
   "Open Mic": "purple",
   Film: "teal",

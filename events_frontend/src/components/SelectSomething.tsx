@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   HStack,
   Menu,
@@ -9,7 +8,6 @@ import {
   MenuOptionGroup,
   Spacer,
   Tag,
-  Text,
   theme,
 } from "@chakra-ui/react";
 
@@ -32,12 +30,14 @@ export interface SelectSomethingProps {
   options: FilterOption[];
   selection: FilterOption;
   onSelect: (value: FilterOption) => void;
+  icon?: React.ReactElement; // Optional icon prop
 }
 
 export const SelectSomething: FC<SelectSomethingProps> = ({
   options,
   selection,
   onSelect,
+  icon,
 }) => {
   const handleChange = (value: String | String[]) => {
     if (typeof value === "string") {
@@ -48,7 +48,13 @@ export const SelectSomething: FC<SelectSomethingProps> = ({
 
   return (
     <Menu>
-      <MenuButton as={Button} size="sm" rightIcon={<BiChevronDown />}>
+      <MenuButton
+        as={Button}
+        size="sm"
+        leftIcon={icon}
+        rightIcon={<BiChevronDown />}
+        textAlign="left"
+      >
         {selection.label ?? selection.value}
       </MenuButton>
       <MenuList zIndex={100} boxShadow="2xl">
@@ -57,28 +63,25 @@ export const SelectSomething: FC<SelectSomethingProps> = ({
           value={selection.value}
           onChange={handleChange}
         >
-          {options.map((option) => {
-            console.log(option);
-            return (
-              <MenuItemOption
-                key={option.value}
-                value={option.value}
-                fontSize="xl"
-                fontWeight="semibold"
-                isDisabled={option.count === 0}
-              >
-                <HStack>
-                  <div>{option.label ?? option.value} </div>
-                  <Spacer />
-                  {option.count !== undefined && (
-                    <Tag size="sm" color="gray">
-                      {option.count}
-                    </Tag>
-                  )}
-                </HStack>
-              </MenuItemOption>
-            );
-          })}
+          {options.map((option) => (
+            <MenuItemOption
+              key={option.value}
+              value={option.value}
+              fontSize="xl"
+              fontWeight="semibold"
+              isDisabled={option.count === 0}
+            >
+              <HStack>
+                <div>{option.label ?? option.value} </div>
+                <Spacer />
+                {option.count !== undefined && (
+                  <Tag size="sm" color="gray">
+                    {option.count}
+                  </Tag>
+                )}
+              </HStack>
+            </MenuItemOption>
+          ))}
         </MenuOptionGroup>
       </MenuList>
     </Menu>

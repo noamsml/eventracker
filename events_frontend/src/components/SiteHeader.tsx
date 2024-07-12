@@ -1,35 +1,44 @@
-import { Heading, HStack, Link, Stack, Text } from "@chakra-ui/react";
-import { useAtom, useAtomValue } from "jotai";
-import { DATE_RANGE_OPTIONS } from "../data/constants";
-
 import {
-  selectedLocationAtom,
-  selectedEventTypeAtom,
-  locationOptionsAtom,
-  eventTypeOptionsAtom,
-  selectedDateRangeOptionAtom,
-  dateRangeOptionsAtom,
-} from "../data/atoms";
-import { SelectSomething } from "./SelectSomething";
+  Box,
+  Button,
+  Heading,
+  HStack,
+  Icon,
+  Image,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { BiPlus, BiSolidHeart } from "react-icons/bi";
+import { MobileFilters } from "./Filters";
+import { DONATE_LINK, SUBMIT_URL } from "../data/constants";
 
 export const SiteHeader = () => {
   return (
-    <Stack spacing={0}>
+    <Stack spacing={0} background="gray.200">
       <Stack
         direction="row"
-        padding={3}
-        alignItems="start"
-        background="red.100"
+        paddingX={3}
+        paddingY={8}
+        spacing={{ base: 3, md: 6 }}
+        alignItems="center"
+        width="100%"
+        maxWidth={{ base: "100%", lg: "1000px" }}
+        minHeight={{ lg: "200px" }}
+        marginX="auto"
+        // outline="4px solid black"
+        outlineColor={{ base: "yellow", sm: "orange", md: "blue", lg: "green" }}
       >
-        <img
+        <Image
           src="/logo/decentered.png"
-          height={60}
-          width={60}
+          boxSize={{ base: "80px", md: "100px" }}
+          objectFit="cover"
+          alignSelf={{ base: "flex-start", md: "center" }}
           alt="Decentered Logo"
         />
         <Stack spacing={1}>
-          <Heading size="sm">Decentered Eventracker</Heading>
-          <Text fontSize="sm">
+          <Heading size="lg">Decentered Eventracker</Heading>
+          <Text fontSize="md">
             A curated list of Bay Area events to create an interconnected art
             scene by{" "}
             <Link href="https://decentered.org" color="red.400">
@@ -37,61 +46,48 @@ export const SiteHeader = () => {
             </Link>
             .
           </Text>
+
+          {/* Add Event and Donation Links */}
+          <HStack>
+            <Link
+              href={SUBMIT_URL}
+              isExternal
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                leftIcon={<Icon as={BiPlus} color="red.300" />}
+                size="xs"
+                variant="dcOutline"
+                iconSpacing={1}
+                background="whiteAlpha.700"
+              >
+                Add an event
+              </Button>
+            </Link>
+            <Link
+              href={DONATE_LINK}
+              isExternal
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                leftIcon={<Icon as={BiSolidHeart} color="red.300" />}
+                size="xs"
+                variant="dcOutline"
+                iconSpacing={1}
+                background="whiteAlpha.700"
+              >
+                Donate
+              </Button>
+            </Link>
+          </HStack>
         </Stack>
       </Stack>
-      <HStack
-        p={4}
-        spacing={3}
-        background="red.200"
-        direction="row"
-        overflowY="auto"
-      >
-        <HStack flexWrap="wrap" spacing={1}>
-          <Text fontSize="sm">When?&nbsp;</Text> <SelectDateRange />
-        </HStack>
-        <HStack flexWrap="wrap" spacing={1}>
-          <Text fontSize="sm">Where?&nbsp;</Text> <SelectLocation />
-        </HStack>
-        <HStack flexWrap="wrap" spacing={1}>
-          <Text fontSize="sm">What?&nbsp;</Text> <SelectEventType />
-        </HStack>
-      </HStack>
+      {/* Show the filters on small devices but hide it on the medium breakpoint on up */}
+      <Box display={{ base: "block", sm: "block", md: "none" }}>
+        <MobileFilters />
+      </Box>
     </Stack>
-  );
-};
-
-const SelectLocation = () => {
-  const options = useAtomValue(locationOptionsAtom);
-  const [selection, setSelection] = useAtom(selectedLocationAtom);
-  return (
-    <SelectSomething
-      options={options}
-      selection={selection}
-      onSelect={setSelection}
-    />
-  );
-};
-
-const SelectEventType = () => {
-  const options = useAtomValue(eventTypeOptionsAtom);
-  const [selection, setSelection] = useAtom(selectedEventTypeAtom);
-  return (
-    <SelectSomething
-      options={options}
-      selection={selection}
-      onSelect={setSelection}
-    />
-  );
-};
-
-const SelectDateRange = () => {
-  const options = useAtomValue(dateRangeOptionsAtom);
-  const [selection, setSelection] = useAtom(selectedDateRangeOptionAtom);
-  return (
-    <SelectSomething
-      options={options}
-      selection={selection}
-      onSelect={setSelection}
-    />
   );
 };

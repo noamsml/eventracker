@@ -28,10 +28,10 @@ export const eventsAtom = atom<Event[]>([]);
 
 // The event and location the user has selected
 export const selectedEventTypeAtom = atomWithReset<FilterOption>({
-  value: "Anything",
+  value: "Whatever",
 });
 export const selectedLocationAtom = atomWithReset<FilterOption>({
-  value: "Anywhere",
+  value: "Wherever",
 });
 
 // The date range option the user has selected. This just holds the options like
@@ -65,8 +65,8 @@ const filterEvents = (
 ): Event[] => {
   const { type, location, from, to } = filter;
   return events.filter((event) => {
-    const anyType = type === undefined || type === "Anything";
-    const anyLocation = location === undefined || location === "Anywhere";
+    const anyType = type === undefined || type === "Whatever";
+    const anyLocation = location === undefined || location === "Wherever";
     return (
       (anyType || event.type === type) &&
       (anyLocation || event.location === location) &&
@@ -140,7 +140,7 @@ export const eventMonthsAtom = atom((get) => {
 // Turn the event types options for the SelectSomething component.
 // Includes the count by re-filtering the events by each option.
 export const eventTypeOptionsAtom = atom((get) => {
-  const allOption = { value: "Anything" };
+  const allOption = { value: "Whatever" };
   const filter = get(eventFilterAtom);
   const options = get(eventTypesAtom).map((value) => ({
     value: value,
@@ -152,7 +152,7 @@ export const eventTypeOptionsAtom = atom((get) => {
 
 // Do the same for event locations
 export const locationOptionsAtom = atom((get) => {
-  const allOption = { value: "Anywhere" };
+  const allOption = { value: "Wherever" };
   const filter = get(eventFilterAtom);
   const options = get(locationsAtom).map((value) => {
     const count = get(

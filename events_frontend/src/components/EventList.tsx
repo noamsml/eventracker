@@ -34,7 +34,15 @@ export const EventList = () => {
     <Stack direction="column">
       {eventDays.map((date) => (
         <Fragment key={date}>
-          <Box position="sticky" top="0" bg="red.300" zIndex="1" py={3} px={4}>
+          <Box
+            position="sticky"
+            top="0"
+            bg="red.300"
+            zIndex="1"
+            py={3}
+            px={4}
+            // borderRadius={{ md: "xl" }}
+          >
             <Heading size="sm" color="white">
               {formatDate(date, DateTime.DATE_HUGE)}
             </Heading>
@@ -59,10 +67,10 @@ export const EventList = () => {
               Whenever
             </Button>
             <Button onClick={resetWhere} variant="dcOutline">
-              Anywhere
+              Wherever
             </Button>
             <Button onClick={resetWhat} variant="dcOutline">
-              Anything
+              Whatever
             </Button>
           </Stack>
         </Flex>
