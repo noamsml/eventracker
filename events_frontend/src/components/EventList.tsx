@@ -11,12 +11,13 @@ import {
 import { Fragment } from "react/jsx-runtime";
 import { EventCard } from "./EventCard";
 import { DateTime } from "luxon";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { formatDate } from "../data/dateFormats";
 import { useResetAtom } from "jotai/utils";
 import { fetchEvents } from "../data/api";
 
 export const EventList = () => {
+  const [loading, setLoading] = useState(true);
   const setEvents = useSetAtom(eventsAtom);
   const eventsByDate = useAtomValue(eventsByDateAtom);
   const eventDays = useAtomValue(eventDaysAtom);
@@ -27,7 +28,19 @@ export const EventList = () => {
   // This loads the data an puts it in the eventsAtom. The remaining atoms are all
   // automatically derived from that atom. Nice!
   useEffect(() => {
-    fetchEvents().then((events) => setEvents(events));
+    const fetchAndSetEvents = async () => {
+      setLoading(true);
+      try {
+        const events = await fetchEvents();
+        setEvents(events);
+      } catch (error) {
+        console.error("Failed to fetch events", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAndSetEvents();
   }, [setEvents]);
 
   return (
@@ -56,7 +69,7 @@ export const EventList = () => {
       ))}
 
       {/* When there's no events, help people reset their filters */}
-      {eventDays.length === 0 && (
+      {eventDays.length === 0 && !loading && (
         <Flex minHeight="40vh" alignItems="center" justifyContent="center">
           <Stack alignItems="center" spacing={3}>
             <Text color="gray.500" maxWidth="30ch" textAlign="center">
