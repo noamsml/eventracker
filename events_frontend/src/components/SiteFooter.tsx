@@ -1,9 +1,6 @@
 import { Box, HStack, Link, Spacer, Stack } from "@chakra-ui/react";
 import {
-  BiLogoFacebook,
   BiLogoFacebookCircle,
-  BiLogoFacebookSquare,
-  BiLogoInstagram,
   BiLogoInstagramAlt,
   BiLogoLinkedinSquare,
   BiLogoYoutube,
@@ -11,7 +8,7 @@ import {
 import { SPREADSHEET_URL } from "../data/constants";
 
 export const SiteFooter = () => (
-  <Stack p={8} borderTopWidth={1}>
+  <Stack p={8} mt={14} borderTopWidth={1}>
     <HStack
       maxWidth={{ base: "100%", lg: "1000px" }}
       marginX="auto"
