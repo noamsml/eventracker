@@ -40,6 +40,9 @@ export const formatRelativeTime = (
     if (diffInHours <= -1) {
       return `${Math.abs(Math.floor(diffInHours))} hours ago`;
     }
+    if (Math.floor(diffInHours) === 1) {
+      return `in ${Math.floor(diffInHours)} hour`;
+    }
     if (diffInHours >= 1) {
       return `in ${Math.floor(diffInHours)} hours`;
     }

@@ -14,13 +14,12 @@ export const EventListPage = () => (
         maxWidth={{ base: "100%", lg: "1000px" }}
         marginX="auto"
         paddingTop={8}
+        minHeight="80vh"
       >
         <Box display={{ base: "none", sm: "none", md: "block" }}>
           <DesktopFilters />
         </Box>
-        {/* <Box maxWidth="container.sm"> */}
         <EventList />
-        {/* </Box> */}
       </HStack>
     </Suspense>
     <SiteFooter />

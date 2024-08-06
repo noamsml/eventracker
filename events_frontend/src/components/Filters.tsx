@@ -9,16 +9,17 @@ import {
   selectedLocationAtom,
 } from "../data/atoms";
 import { SelectSomething } from "./SelectSomething";
-import { BiCalendar, BiMap, BiMapPin, BiParty } from "react-icons/bi";
+import { BiCalendar, BiMap, BiParty } from "react-icons/bi";
 
 export const MobileFilters = () => {
   return (
     <HStack
       p={4}
       spacing={3}
-      background="red.200"
+      background="white"
       direction="row"
       overflowY="auto"
+      flexWrap="wrap"
     >
       <SelectDateRange />
       <SelectLocation />
@@ -30,7 +31,7 @@ export const MobileFilters = () => {
 export const DesktopFilters = () => {
   return (
     <VStack
-      p={4}
+      px={4}
       spacing={3}
       direction="row"
       alignItems="top"

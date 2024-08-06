@@ -54,6 +54,11 @@ export const SelectSomething: FC<SelectSomethingProps> = ({
         leftIcon={icon}
         rightIcon={<BiChevronDown />}
         textAlign="left"
+        boxShadow="md"
+        background="gray.600"
+        color="white"
+        _hover={{ background: "gray.800" }}
+        _active={{ background: "gray.800" }}
       >
         {selection.label ?? selection.value}
       </MenuButton>

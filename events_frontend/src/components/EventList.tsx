@@ -47,15 +47,7 @@ export const EventList = () => {
     <Stack direction="column">
       {eventDays.map((date) => (
         <Fragment key={date}>
-          <Box
-            position="sticky"
-            top="0"
-            bg="red.300"
-            zIndex="1"
-            py={3}
-            px={4}
-            // borderRadius={{ md: "xl" }}
-          >
+          <Box position="sticky" top="0" bg="red.300" zIndex="1" py={3} px={4}>
             <Heading size="sm" color="white">
               {formatDate(date, DateTime.DATE_HUGE)}
             </Heading>

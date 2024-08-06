@@ -15,7 +15,7 @@ import { DONATE_LINK, SUBMIT_URL } from "../data/constants";
 
 export const SiteHeader = () => {
   return (
-    <Stack spacing={0} background="gray.200">
+    <Stack spacing={0} background="red.300">
       <Stack
         direction="row"
         paddingX={3}
@@ -26,7 +26,6 @@ export const SiteHeader = () => {
         maxWidth={{ base: "100%", lg: "1000px" }}
         minHeight={{ lg: "200px" }}
         marginX="auto"
-        // outline="4px solid black"
         outlineColor={{ base: "yellow", sm: "orange", md: "blue", lg: "green" }}
       >
         <Image
@@ -41,7 +40,7 @@ export const SiteHeader = () => {
           <Text fontSize="md">
             A curated list of Bay Area events to create an interconnected art
             scene by{" "}
-            <Link href="https://decentered.org" color="red.400">
+            <Link href="https://decentered.org" color="white">
               Decentered Arts
             </Link>
             .
@@ -61,6 +60,7 @@ export const SiteHeader = () => {
                 variant="dcOutline"
                 iconSpacing={1}
                 background="whiteAlpha.700"
+                border="none"
               >
                 Add an event
               </Button>
@@ -77,6 +77,7 @@ export const SiteHeader = () => {
                 variant="dcOutline"
                 iconSpacing={1}
                 background="whiteAlpha.700"
+                border="none"
               >
                 Donate
               </Button>
