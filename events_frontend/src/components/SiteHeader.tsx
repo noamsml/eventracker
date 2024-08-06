@@ -15,7 +15,7 @@ import { DONATE_LINK, SUBMIT_URL } from "../data/constants";
 
 export const SiteHeader = () => {
   return (
-    <Stack spacing={0} background="red.300">
+    <Stack spacing={0} background="red.300" color="white">
       <Stack
         direction="row"
         paddingX={3}

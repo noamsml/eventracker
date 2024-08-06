@@ -37,7 +37,7 @@ export const DesktopFilters = () => {
       alignItems="top"
       width="15rem"
       position="sticky"
-      top="0"
+      top={4}
       zIndex={10}
     >
       <SelectDateRange />
