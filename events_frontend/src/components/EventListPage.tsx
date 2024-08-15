@@ -13,7 +13,7 @@ export const EventListPage = () => (
         alignItems="top"
         maxWidth={{ base: "100%", lg: "1000px" }}
         marginX="auto"
-        paddingTop={8}
+        paddingTop={{ base: 0, md: 8 }}
         minHeight="80vh"
       >
         <Box display={{ base: "none", sm: "none", md: "block" }}>
