@@ -74,6 +74,7 @@ export const SelectSomething: FC<SelectSomethingProps> = ({
               value={option.value}
               fontSize="xl"
               fontWeight="semibold"
+              color="black"
               isDisabled={option.count === 0}
             >
               <HStack>
