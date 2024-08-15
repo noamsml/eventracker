@@ -38,8 +38,8 @@ export interface EventTime {
 
 // Fetch events and add some fields for easy display
 export const fetchEvents = async () => {
-  const startDate = DateTime.now().toISODate();
-  const endDate = DateTime.now().minus({ months: 3 }).toISODate();
+  const startDate = DateTime.now().minus({ days: 1 }).toISODate();
+  const endDate = DateTime.now().plus({ months: 3 }).toISODate();
   const prodUrl = `/v1/events?start_date=${startDate}&end_date=${endDate}`;
   const localUrl = "/example.json";
   const url = process.env.NODE_ENV === "development" ? localUrl : prodUrl;
