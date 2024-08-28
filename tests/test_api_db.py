@@ -1,7 +1,7 @@
 from api import api
 import db.model as model
 import db.connectivity as connectivity
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import pytest
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
@@ -11,8 +11,10 @@ import config
 from fastapi.testclient import TestClient
 
 TOMORROWS_MORROW = date.today() + timedelta(days=2)
+PAST_EVENT = date.today() + timedelta(days=-2)
 YESTERDAY = date.today() + timedelta(days=-1)
 NEXT_WEEK = date.today() + timedelta(days=7)
+TWO_WEEKS_HENCE = date.today() + timedelta(days=14)
 
 SHEET_ROW = 5
 EVENT_NAME = "Name"
@@ -25,7 +27,7 @@ EVENT_COST="$5"
 
 config.force_override_env = Env.test
 
-def create_sample_event(event_date: date, engine: Engine) -> str:
+def create_sample_event(event_date: date, engine: Engine, end_seconds: int = 60*60*26 + 30*60) -> str:
     id = model.make_id()
     with Session(engine) as session:
         event = model.LocalEvent(
@@ -34,7 +36,7 @@ def create_sample_event(event_date: date, engine: Engine) -> str:
             name = EVENT_NAME,
             date = event_date,
             start_seconds = 60*60*16,
-            end_seconds = 60*60*26 + 30*60,
+            end_seconds = end_seconds,
             type = TYPE,
             location = LOCATION,
             address=EVENT_ADDRESS,
@@ -53,7 +55,12 @@ def api_tester():
 def db_engine_for_test():
     return connectivity.make_db_engine()
 
+def time_for_test():
+    d = date.today()
+    return datetime(d.year, d.month, d.day, 1, 30)
+
 api.app.dependency_overrides[connectivity.make_db_engine] = db_engine_for_test 
+api.app.dependency_overrides[api.now_timestamp] = time_for_test 
 
 @pytest.fixture
 def db_engine():
@@ -88,7 +95,7 @@ def test_api_basic(db_engine, api_tester):
     assert response_json['events'][0]['link'] == LINK
 
 def test_api_hide_expired(db_engine, api_tester):
-    id = create_sample_event(YESTERDAY, db_engine)
+    id = create_sample_event(PAST_EVENT, db_engine, end)
     response = api_tester.get("/v1/events")
     assert response.status_code == 200
 
@@ -106,14 +113,38 @@ def test_api_show_today(db_engine, api_tester):
     assert len(response_json['events']) == 1
     assert set([ev['id'] for ev in response_json['events']]) == {id}
 
+def test_api_show_yesterday_spillover(db_engine, api_tester):
+    id_nosplillover = create_sample_event(YESTERDAY, db_engine, end_seconds=17 * 60 * 60)
+    id_notquitespillover = create_sample_event(YESTERDAY, db_engine, end_seconds=25 * 60 * 60)
+    id_spillover = create_sample_event(YESTERDAY, db_engine, end_seconds=28 * 60 * 60)
+    response = api_tester.get("/v1/events")
+    assert response.status_code == 200
+
+    response_json = response.json()
+
+    assert len(response_json['events']) == 1
+    assert set([ev['id'] for ev in response_json['events']]) == {id_spillover}
+
 def test_api_custom_time_range(db_engine, api_tester):
-    id_yesterday = create_sample_event(YESTERDAY, db_engine)
+    id_yesterday = create_sample_event(PAST_EVENT, db_engine)
     id_tomorrowsmorrow = create_sample_event(TOMORROWS_MORROW, db_engine)
     id_next_week = create_sample_event(NEXT_WEEK, db_engine)
-    response = api_tester.get("/v1/events?start_date={}&end_date={}".format(YESTERDAY.isoformat(), TOMORROWS_MORROW.isoformat()))
+    response = api_tester.get("/v1/events?start_date={}&end_date={}".format(PAST_EVENT.isoformat(), TOMORROWS_MORROW.isoformat()))
     assert response.status_code == 200
 
     response_json = response.json()
 
     assert len(response_json['events']) == 2
     assert set([ev['id'] for ev in response_json['events']]) == {id_yesterday, id_tomorrowsmorrow}
+
+def test_api_only_end_date(db_engine, api_tester):
+    id_yesterday = create_sample_event(YESTERDAY, db_engine, end_seconds=28*60*60)
+    id_two_weeks_hence = create_sample_event(TOMORROWS_MORROW, db_engine)
+    id_past = create_sample_event(PAST_EVENT, db_engine)
+    response = api_tester.get("/v1/events?end_date={}".format(TWO_WEEKS_HENCE.isoformat()))
+    assert response.status_code == 200
+
+    response_json = response.json()
+
+    assert len(response_json['events']) == 2
+    assert set([ev['id'] for ev in response_json['events']]) == {id_yesterday, id_two_weeks_hence}

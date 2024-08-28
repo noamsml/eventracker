@@ -38,9 +38,8 @@ export interface EventTime {
 
 // Fetch events and add some fields for easy display
 export const fetchEvents = async () => {
-  const startDate = DateTime.now().toISODate();
   const endDate = DateTime.now().plus({ months: 3 }).toISODate();
-  const prodUrl = `/v1/events?start_date=${startDate}&end_date=${endDate}`;
+  const prodUrl = `/v1/events?end_date=${endDate}`;
   const localUrl = "/example.json";
   const url = process.env.NODE_ENV === "development" ? localUrl : prodUrl;
   const json = await fetch(url).then((res) => res.json());

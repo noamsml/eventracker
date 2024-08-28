@@ -9,12 +9,10 @@ import config
 # Misc functions to talk with the db -- at some point I should reorg these to live in model-specific classes and
 # all take a Session but I'm trying to get this whole thing done first
 
-CALIFORNIA_TIME = gettz("America/Los Angeles")
 
 def get_events(
     engine: Engine, date_range: tuple[date, date] | None
 ) -> List[model.LocalEvent]:
-    date_range = date_range or get_now_range()
     with Session(engine) as session:
         return session.scalars(
             select(model.LocalEvent).where(
@@ -23,9 +21,6 @@ def get_events(
             ).order_by(model.LocalEvent.date.asc())
         ).all()
 
-def get_now_range() -> tuple[date, date]:
-    today = datetime.now(CALIFORNIA_TIME).date()
-    return [today, today + timedelta(days=7)]
 
 def get_cursor(engine: Engine, cursor_date: date) -> int:
     with Session(engine) as session:
