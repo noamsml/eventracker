@@ -108,4 +108,7 @@ def _cursor_updates(rows: List[SheetRow], cursor_date: date):
     return updates
 
 def _parse_date(sheet_date: str):
-    return datetime.strptime(sheet_date, "%m/%d/%Y").date()
+    try: 
+        return datetime.strptime(sheet_date, "%m/%d/%Y").date()
+    except ValueError:
+        return datetime.strptime(sheet_date, "%m/%d/%y").date()
