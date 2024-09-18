@@ -18,7 +18,7 @@ Instrumentator().instrument(app).expose(app)
 CALIFORNIA_TIME = gettz("America/Los Angeles")
 
 def now_timestamp():
-    datetime.now(CALIFORNIA_TIME)
+    return datetime.now(CALIFORNIA_TIME)
 
 @app.get("/v1/events")
 def get_events(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], now_timestamp: Annotated[datetime, Depends(now_timestamp)], start_date: date | None = None, end_date: date | None = None) -> api_models.EventList:
@@ -41,7 +41,7 @@ def filter_events_today(db_events, now):
     return [
         db_event 
         for db_event in db_events
-        if db_event.date != yester_date or db_event.end_seconds - 24 * 60 * 60 > now_dayseconds   
+        if db_event.date != yester_date or (db_event.end_seconds and db_event.end_seconds - 24 * 60 * 60 > now_dayseconds)   
     ]
 
 def get_query_date_range(start_date, end_date, now_timestamp) -> tuple[date,date]:

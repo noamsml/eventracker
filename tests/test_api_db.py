@@ -27,7 +27,7 @@ EVENT_COST="$5"
 
 config.force_override_env = Env.test
 
-def create_sample_event(event_date: date, engine: Engine, end_seconds: int = 60*60*26 + 30*60) -> str:
+def create_sample_event(event_date: date, engine: Engine, start_seconds: int =  60*60*16, end_seconds: int = 60*60*26 + 30*60) -> str:
     id = model.make_id()
     with Session(engine) as session:
         event = model.LocalEvent(
@@ -35,7 +35,7 @@ def create_sample_event(event_date: date, engine: Engine, end_seconds: int = 60*
             sheet_row = SHEET_ROW,
             name = EVENT_NAME,
             date = event_date,
-            start_seconds = 60*60*16,
+            start_seconds = start_seconds,
             end_seconds = end_seconds,
             type = TYPE,
             location = LOCATION,
@@ -148,3 +148,15 @@ def test_api_only_end_date(db_engine, api_tester):
 
     assert len(response_json['events']) == 2
     assert set([ev['id'] for ev in response_json['events']]) == {id_yesterday, id_two_weeks_hence}
+
+def test_api_only_end_date_no_times(db_engine, api_tester):
+    id_yesterday = create_sample_event(YESTERDAY, db_engine, start_seconds=None, end_seconds=None)
+    id_two_weeks_hence = create_sample_event(TOMORROWS_MORROW, db_engine)
+    id_past = create_sample_event(PAST_EVENT, db_engine)
+    response = api_tester.get("/v1/events?end_date={}".format(TWO_WEEKS_HENCE.isoformat()))
+    assert response.status_code == 200
+
+    response_json = response.json()
+
+    assert len(response_json['events']) == 1
+    assert set([ev['id'] for ev in response_json['events']]) == {id_two_weeks_hence}
