@@ -43,7 +43,26 @@ class LocalEvent(Base):
     end_seconds: Mapped[int | None] # Seconds in the day (from 0 for 12 AM to 60 * 60 * 48 - 1 for 11:59 PM the next day)
     address: Mapped[long_str]
     description: Mapped[longest_str]
-    cost: Mapped[medium_str]
+    cost: Mapped[long_str]
+    link: Mapped[long_str]
+
+class EventSubmission(Base):
+    __tablename__ = "submissions"
+
+    # Use uuid for now -- figure out best id schema later
+    id: Mapped[medium_str] = mapped_column(primary_key=True)
+    date_submitted: Mapped[date]
+    submitter_name: Mapped[long_str]
+    name: Mapped[long_str]
+    # Trying to decide if we should do something fancier here for the event side
+    type: Mapped[short_str]
+    location: Mapped[short_str]
+    # Dates/times expressed in terms of JSON structure
+    # to allow mass approval of events
+    dates_and_times: Mapped[longest_str]
+    address: Mapped[long_str]
+    description: Mapped[longest_str]
+    cost: Mapped[long_str]
     link: Mapped[long_str]
 
 # Technically this is most likely a unary value, but storing it in a file or whatever is bad practice

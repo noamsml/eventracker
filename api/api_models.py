@@ -20,5 +20,24 @@ class Event(BaseModel):
     cost: str
     link: str | None
 
+class EventDateTime(BaseModel):
+    date: date
+    start: TimeOfDay | None
+    end: TimeOfDay | None
+
+class EventSubmission(BaseModel):
+    id: str | None = None
+    date_submitted: date
+    submitter_name: str
+    name: str
+    type: str
+    dates_times: List[EventDateTime]
+    location: str
+    address: str
+    description: str
+    cost: str
+    link: str | None
+
+
 class EventList(BaseModel):
     events: List[Event]

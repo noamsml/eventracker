@@ -34,6 +34,9 @@ def get_events(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], 
 
     return api_models.EventList(events = [to_api_event(db_event) for db_event in db_events])
 
+
+
+
 def filter_events_today(db_events, now):
     now_dayseconds = now.hour * 3600 + now.minute * 60 + now.second
     yester_date = now.date() + timedelta(days = -1)
