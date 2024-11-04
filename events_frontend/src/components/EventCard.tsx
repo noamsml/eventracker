@@ -26,6 +26,7 @@ import {
 import { EVENT_TYPE_COLORS } from "../data/constants";
 import { Event } from "../data/api";
 import { IconWithText } from "./IconWithText";
+import { LinkItUrl } from "react-linkify-it";
 
 export interface EventCardProps {
   event: Event;
@@ -57,7 +58,9 @@ export const EventCard: FC<EventCardProps> = ({ event }) => {
         {event.name}
       </Heading>
 
-      <Text mb={3}>{event.description}</Text>
+      <Text mb={3}>
+        <LinkItUrl className="inline-link">{event.description}</LinkItUrl>
+      </Text>
 
       <Stack direction="row" alignItems="center" spacing={4}>
         <IconWithText icon={BiCalendar}>{event.dateFormatted}</IconWithText>
