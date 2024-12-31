@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.inline-link {
+    word-break: break-word;
+    color: var(--chakra-colors-red-400);
+}
