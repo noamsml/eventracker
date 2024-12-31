@@ -18,6 +18,7 @@ spec:
       containers:
       - name: python-backend
         image: noamsml/decentered-events:latest
+        imagePullPolicy: Always
         env:
           - name: ENV
             value: containerized
