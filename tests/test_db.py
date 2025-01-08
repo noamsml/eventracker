@@ -35,7 +35,7 @@ def test_get_update_cursors(db_engine):
         session.commit()
 
     assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 200
-    assert access.get_cursor(db_engine, NEXT_WEEK) == 500
+    assert access.get_cursor(db_engine, YESTERDAY) == 500
 
     with Session(db_engine) as session:
         access.update_cursors(session, {TOMORROWS_MORROW: 210, NEXT_WEEK: 400})
@@ -44,3 +44,12 @@ def test_get_update_cursors(db_engine):
     assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 210
     assert access.get_cursor(db_engine, NEXT_WEEK) == 400
     assert access.get_cursor(db_engine, YESTERDAY) == 500
+
+def test_get_update_cursors_with_gap(db_engine):
+    with Session(db_engine) as session:
+        access.update_cursors(session, {YESTERDAY: 2000, NEXT_WEEK: 2200})
+        session.commit()
+
+    assert access.get_cursor(db_engine, YESTERDAY) == 2000
+    assert access.get_cursor(db_engine, TOMORROWS_MORROW) == 2000
+    assert access.get_cursor(db_engine, NEXT_WEEK) == 2200
