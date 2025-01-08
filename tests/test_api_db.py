@@ -95,7 +95,7 @@ def test_api_basic(db_engine, api_tester):
     assert response_json['events'][0]['link'] == LINK
 
 def test_api_hide_expired(db_engine, api_tester):
-    id = create_sample_event(PAST_EVENT, db_engine, end)
+    id = create_sample_event(PAST_EVENT, db_engine)
     response = api_tester.get("/v1/events")
     assert response.status_code == 200
 
