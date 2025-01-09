@@ -26,7 +26,7 @@ spec:
     - host: "events.noamsml.com"
       http:
         paths:
-          - path: /feed
+          - path: /feeds
             pathType: Prefix
             backend:
               service:
@@ -56,7 +56,7 @@ spec:
     - host: "events.decentered.org"
       http:
         paths:
-          - path: /feed
+          - path: /feeds
             pathType: Prefix
             backend:
               service:
