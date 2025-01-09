@@ -9,3 +9,5 @@ google-auth-oauthlib
 asgiproxy
 prometheus_fastapi_instrumentator
 python-dateutil
+feedgen
+feedparser

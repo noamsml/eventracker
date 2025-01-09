@@ -1,12 +1,13 @@
 from api import api
 import db.model as model
 import db.connectivity as connectivity
-from datetime import date, timedelta, datetime
+from datetime import date, timedelta, datetime, time
 import pytest
 from sqlalchemy import Engine
 from sqlalchemy.orm import Session
 from config import Env
 import config
+import feedparser
 
 from fastapi.testclient import TestClient
 
@@ -160,3 +161,38 @@ def test_api_only_end_date_no_times(db_engine, api_tester):
 
     assert len(response_json['events']) == 1
     assert set([ev['id'] for ev in response_json['events']]) == {id_two_weeks_hence}
+
+def test_atom(db_engine, api_tester):
+    id_tomorrowsmorrow = create_sample_event(TOMORROWS_MORROW, db_engine)
+
+    response = api_tester.get("/feeds/atom.xml")
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "application/atom+xml"
+
+    parsed = feedparser.parse(response.read())
+
+    assert len(parsed['entries']) == 1
+    entry = parsed['entries'][0]
+
+    assert entry['link'] == "http://link"
+    assert entry['title'] == "Name"
+    assert datetime.fromisoformat(entry['published']).date() == TOMORROWS_MORROW
+    assert datetime.fromisoformat(entry['published']).time() == time(16, 0)
+    assert entry['summary'] == "description\n\nLocation: Oakland\nAddress: address\nHours: 04:00 PM - 02:30 AM"
+
+def test_rss(db_engine, api_tester):
+    id_tomorrowsmorrow = create_sample_event(TOMORROWS_MORROW, db_engine)
+
+    response = api_tester.get("/feeds/rss.xml")
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "application/rss+xml"
+
+    parsed = feedparser.parse(response.read())
+
+    assert len(parsed['entries']) == 1
+    entry = parsed['entries'][0]
+
+    assert entry['link'] == "http://link"
+    assert entry['title'] == "Name"
+    # TODO checking the published date and time for RSS feeds -- but I am lazy and the atom test verifies the same thing
+    assert entry['summary'] == "description\n\nLocation: Oakland\nAddress: address\nHours: 04:00 PM - 02:30 AM"

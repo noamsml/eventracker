@@ -1,14 +1,16 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, Response
 from typing import List, Annotated
 import api.api_models as api_models
 import db.connectivity as connectivity
 import db.model as model
 import db.access as access
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, time
 from sqlalchemy import Engine
 import config
 from dateutil.tz import gettz
 from prometheus_client import Gauge
+from feedgen.feed import FeedGenerator
+from textwrap import dedent
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -18,7 +20,10 @@ Instrumentator().instrument(app).expose(app)
 
 CALIFORNIA_TIME = gettz("America/Los Angeles")
 
-RETURNED_EVENT_COUNT = Gauge("decentered_returned_events", "Returned events for decentered")
+RETURNED_EVENT_COUNT = Gauge(
+    "decentered_returned_events", "Returned events for decentered"
+)
+
 
 def now_timestamp():
     return datetime.now(CALIFORNIA_TIME)
@@ -29,7 +34,7 @@ def get_events(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
     start_date: date | None = None,
-    end_date: date | None = None
+    end_date: date | None = None,
 ) -> api_models.EventList:
     if (end_date == None) and (start_date != None):
         raise HTTPException(
@@ -37,6 +42,19 @@ def get_events(
             detail="Must specify either none or both of start_date, end_date",
         )
 
+    db_events = get_events_internal(engine, now_timestamp, start_date, end_date)
+
+    return api_models.EventList(
+        events=[to_api_event(db_event) for db_event in db_events]
+    )
+
+
+def get_events_internal(
+    engine: Engine,
+    now_timestamp: datetime,
+    start_date: date | None = None,
+    end_date: date | None = None,
+):
     date_range = get_query_date_range(start_date, end_date, now_timestamp)
 
     db_events = access.get_events(engine, date_range)
@@ -46,10 +64,65 @@ def get_events(
 
     RETURNED_EVENT_COUNT.set(len(db_events))
 
-    return api_models.EventList(
-        events=[to_api_event(db_event) for db_event in db_events]
+    return db_events
+
+
+def make_feed_description(event: model.LocalEvent):
+    return dedent("""\
+    {description}
+
+    Location: {location}
+    Address: {address}
+    Hours: {start} - {end}
+""").format(
+        description=event.description,
+        location=event.location,
+        address=event.address,
+        start=to_time(event.start_seconds),
+        end=to_time(event.end_seconds),
     )
 
+
+def get_feed_generator(engine: Engine, now_timestamp: datetime, id: str) -> FeedGenerator:
+    db_events = get_events_internal(engine, now_timestamp)
+
+    fg = FeedGenerator()
+    fg.title("Decentered Eventracker")
+    fg.id(id)
+    fg.link({"href": "https://events.decentered.org/"})
+    fg.description("Tracker for events around the bay area!")
+
+    for event in db_events:
+        feed_entry = fg.add_entry()
+        feed_entry.title(event.name)
+        feed_entry.description(make_feed_description(event))
+        feed_entry.published(
+            datetime.combine(event.date, to_time_obj(event.start_seconds))
+        )
+        feed_entry.id("https://events.decentered.org/events/{}".format(event.sheet_row))
+        if event.link:
+            feed_entry.link({"href": event.link, "title": "Event link"})
+    return fg
+
+
+@app.get("/feeds/atom.xml")
+def get_events_feed(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    now_timestamp: Annotated[datetime, Depends(now_timestamp)],
+):
+    fg = get_feed_generator(engine, now_timestamp, "https://events.decentered.org/feed/atom.xml")
+
+    return Response(content=fg.atom_str(), media_type="application/atom+xml")
+
+
+@app.get("/feeds/rss.xml")
+def get_events_feed(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    now_timestamp: Annotated[datetime, Depends(now_timestamp)],
+):
+    fg = get_feed_generator(engine, now_timestamp, "https://events.decentered.org/feed/rss.xml")
+
+    return Response(content=fg.rss_str(), media_type="application/rss+xml")
 
 def filter_events_today(db_events, now):
     now_dayseconds = now.hour * 3600 + now.minute * 60 + now.second
@@ -104,6 +177,31 @@ def to_api_time(time_seconds: int | None) -> api_models.TimeOfDay:
         minute=int((time_seconds % (60 * 60)) / 60),
         second=(time_seconds % (60)),
     )
+
+
+def to_time_obj(time_seconds: int | None) -> time:
+    api_time = to_api_time(time_seconds)
+
+    if api_time is None:
+        return time(0, 0)
+
+    return time(api_time.hour, api_time.minute, api_time.second, tzinfo=CALIFORNIA_TIME)
+
+
+def to_time(time_seconds: int | None) -> str:
+    api_time = to_api_time(time_seconds)
+
+    if api_time is None:
+        return ""
+
+    time_part = "{:02}:{:02}".format(api_time.hour % 12, api_time.minute)
+
+    if api_time.second:
+        time_part = "{}:{:02}".format(time_part, api_time.second)
+
+    is_am = (api_time.hour // 12) % 2 == 0
+
+    return "{} {}".format(time_part, "AM" if is_am else "PM")
 
 
 # When running locally in development, fall back to proxying to the npm react server so we can keep editing
