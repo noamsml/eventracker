@@ -49,6 +49,14 @@ def get_events(
     )
 
 
+# Endpoint exists to separate the liveness probe traffic from real traffic
+@app.get("/v1/events_synthetic")
+def get_events_synethic(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    now_timestamp: Annotated[datetime, Depends(now_timestamp)]
+) -> api_models.EventList:
+    return get_events(engine, now_timestamp)
+
 def get_events_internal(
     engine: Engine,
     now_timestamp: datetime,

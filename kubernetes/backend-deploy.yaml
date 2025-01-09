@@ -60,6 +60,15 @@ spec:
             items: 
               - key: serviceaccount.json
                 path: serviceaccount.json
+      # Semi-hack: Use the events generation code in the liveness probe
+      # this causes metrics on event generation to be touched every minute
+      # and avoids alerting on zero metrics
+      livenessProbe:
+        httpGet:
+          path: /v1/events_synthetic
+          port: 80
+          periodSeconds: 60
+
 ---
 apiVersion: v1
 kind: Service
