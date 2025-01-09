@@ -26,6 +26,16 @@ spec:
     - host: "events.noamsml.com"
       http:
         paths:
+          - path: /feed
+            pathType: Prefix
+            backend:
+              service:
+                name: decentered-backend
+                port:
+                  number: 80
+    - host: "events.noamsml.com"
+      http:
+        paths:
           - path: /
             pathType: Prefix
             backend:
@@ -37,6 +47,16 @@ spec:
       http:
         paths:
           - path: /v1
+            pathType: Prefix
+            backend:
+              service:
+                name: decentered-backend
+                port:
+                  number: 80
+    - host: "events.decentered.org"
+      http:
+        paths:
+          - path: /feed
             pathType: Prefix
             backend:
               service:
