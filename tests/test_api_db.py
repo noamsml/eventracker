@@ -178,8 +178,8 @@ def test_atom(db_engine, api_tester):
     assert entry['title'] == "Name"
     assert datetime.fromisoformat(entry['published']).date() == TOMORROWS_MORROW
     assert datetime.fromisoformat(entry['published']).time() == time(16, 0)
-    assert entry['summary'] == "description\n\nLocation: Oakland\nAddress: address\nHours: 04:00 PM - 02:30 AM"
-
+    assert entry['summary'] == "description <br /> <br />\nLocation: Oakland <br />\nAddress: address <br />\nHours: 04:00 PM - 02:30 AM"
+    
 def test_rss(db_engine, api_tester):
     id_tomorrowsmorrow = create_sample_event(TOMORROWS_MORROW, db_engine)
 
@@ -195,4 +195,4 @@ def test_rss(db_engine, api_tester):
     assert entry['link'] == "http://link"
     assert entry['title'] == "Name"
     # TODO checking the published date and time for RSS feeds -- but I am lazy and the atom test verifies the same thing
-    assert entry['summary'] == "description\n\nLocation: Oakland\nAddress: address\nHours: 04:00 PM - 02:30 AM"
+    assert entry['summary'] == "description <br /> <br />\nLocation: Oakland <br />\nAddress: address <br />\nHours: 04:00 PM - 02:30 AM"

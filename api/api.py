@@ -77,10 +77,9 @@ def get_events_internal(
 
 def make_feed_description(event: model.LocalEvent):
     return dedent("""\
-    {description}
-
-    Location: {location}
-    Address: {address}
+    {description} <br /> <br />
+    Location: {location} <br />
+    Address: {address} <br />
     Hours: {start} - {end}
 """).format(
         description=event.description,
@@ -105,7 +104,7 @@ def get_feed_generator(engine: Engine, now_timestamp: datetime, id: str) -> Feed
         feed_entry.title(event.name)
         feed_entry.description(make_feed_description(event))
         feed_entry.published(
-            datetime.combine(event.date, to_time_obj(event.start_seconds))
+            datetime.combine(event.date, to_time_obj(event.start_seconds), tzinfo=CALIFORNIA_TIME)
         )
         feed_entry.id("https://events.decentered.org/events/{}".format(event.sheet_row))
         if event.link:
