@@ -52,3 +52,4 @@ jobs:
           push: true
           file: kubernetes/containers/frontend.dockerfile
           tags: ${{ env.FRONTEND_LATEST_TAG }}
+          build-args: is_github_actions=true
