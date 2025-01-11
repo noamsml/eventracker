@@ -94,7 +94,6 @@ def test_api_basic(db_engine, api_tester):
     assert response_json['events'][0]['description'] == EVENT_DESCRIPTION
     assert response_json['events'][0]['cost'] == EVENT_COST
     assert response_json['events'][0]['link'] == LINK
-    assert False
 
 def test_api_hide_expired(db_engine, api_tester):
     id = create_sample_event(PAST_EVENT, db_engine)
@@ -180,7 +179,7 @@ def test_atom(db_engine, api_tester):
     assert datetime.fromisoformat(entry['published']).date() == TOMORROWS_MORROW
     assert datetime.fromisoformat(entry['published']).time() == time(16, 0)
     assert entry['summary'] == "description <br /> <br />\nLocation: Oakland <br />\nAddress: address <br />\nHours: 04:00 PM - 02:30 AM"
-
+    
 def test_rss(db_engine, api_tester):
     id_tomorrowsmorrow = create_sample_event(TOMORROWS_MORROW, db_engine)
 

@@ -27,7 +27,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and export to Docker
+      - name: Build test image
         uses: docker/build-push-action@v6
         with:
           load: true
@@ -35,7 +35,7 @@ jobs:
           file: kubernetes/containers/backend-test.dockerfile
           build-args: is_github_actions=true
 
-      - name: Test
+      - name: Run tests
         run: |
           docker run --rm ${{ env.BACKEND_TEST_TAG }}          
 
