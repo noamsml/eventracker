@@ -32,7 +32,7 @@ jobs:
         with:
           load: true
           tags: ${{ env.BACKEND_TEST_TAG }}
-          file: kubernetes/containers/backend.dockerfile
+          file: kubernetes/containers/backend-test.dockerfile
           build-args: is_github_actions=true
 
       - name: Test
