@@ -7,6 +7,7 @@ on:
 
 env:
   BACKEND_LATEST_TAG: noamsml/decentered-events:latest
+  BACKEND_TEST_TAG: noamsml/decentered-events:test
   FRONTEND_LATEST_TAG: noamsml/decentered-frontend:latest
   DOCKERHUB_USERNAME: noamsml
 
@@ -26,16 +27,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # TODO add testing stage
-      # - name: Build and export to Docker
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     load: true
-      #     tags: ${{ env.TEST_TAG }}
+      - name: Build and export to Docker
+        uses: docker/build-push-action@v6
+        with:
+          load: true
+          tags: ${{ env.BACKEND_TEST_TAG }}
+          file: kubernetes/containers/backend.dockerfile
 
-      # - name: Test
-      #   run: |
-      #     docker run --rm ${{ env.TEST_TAG }}          
+      - name: Test
+        run: |
+          docker run --rm ${{ env.BACKEND_TEST_TAG }}          
 
       - name: Build and push backend
         uses: docker/build-push-action@v6
