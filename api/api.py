@@ -11,6 +11,7 @@ from dateutil.tz import gettz
 from prometheus_client import Gauge
 from feedgen.feed import FeedGenerator
 from textwrap import dedent
+from fastapi.middleware.cors import CORSMiddleware
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -33,6 +34,7 @@ def now_timestamp():
 def get_events(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
+    response: Response,
     start_date: date | None = None,
     end_date: date | None = None,
 ) -> api_models.EventList:
@@ -44,6 +46,7 @@ def get_events(
 
     db_events = get_events_internal(engine, now_timestamp, start_date, end_date)
 
+    response.headers["Access-Control-Allow-Origin"] = "*"
     return api_models.EventList(
         events=[to_api_event(db_event) for db_event in db_events]
     )
@@ -53,9 +56,10 @@ def get_events(
 @app.get("/v1/events_synthetic")
 def get_events_synethic(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
-    now_timestamp: Annotated[datetime, Depends(now_timestamp)]
+    now_timestamp: Annotated[datetime, Depends(now_timestamp)],
+    response: Response
 ) -> api_models.EventList:
-    return get_events(engine, now_timestamp)
+    return get_events(engine, now_timestamp, response)
 
 def get_events_internal(
     engine: Engine,

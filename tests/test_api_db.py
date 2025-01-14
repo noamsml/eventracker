@@ -196,3 +196,8 @@ def test_rss(db_engine, api_tester):
     assert entry['title'] == "Name"
     # TODO checking the published date and time for RSS feeds -- but I am lazy and the atom test verifies the same thing
     assert entry['summary'] == "description <br /> <br />\nLocation: Oakland <br />\nAddress: address <br />\nHours: 04:00 PM - 02:30 AM"
+
+def test_api_cors_header(db_engine, api_tester):
+    response = api_tester.get("/v1/events")
+    assert response.status_code == 200
+    assert response.headers["Access-Control-Allow-Origin"] == "*"
