@@ -14,6 +14,7 @@ def test_parse_time():
     assert event_importer._parse_time("5:10 PM") == 17 * 60 * 60 + 10 * 60
     assert event_importer._parse_time("12 PM") == 12 * 60 * 60
     assert event_importer._parse_time("12") == 12 * 60 * 60
+    assert event_importer._parse_time("?") == None
 
 def test_get_cursor_updates():
     updates = [

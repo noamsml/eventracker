@@ -30,7 +30,8 @@ def test_retrieve_basic(db_engine):
         [490, "04/22/2024", "Decentered open mic", "Open Mic", "06:00:00 PM", "09:00:00 PM", "San Francisco", "The Center SF", "It's open mic", "Free", "https://decentered.org"],
         [491, "04/23/2024", "Late night jams", "Party", "10:00:00 PM", "04:00:00 AM", "Oakland (but it's chill)", "Mother Tongue", "Come jam with us", "$15", "https://noam.horse"],
         [492, "04/23/24", "No info event", "Clothing Swap"],
-        [493, "04/23/2024"]
+        [493, "04/23/2024"],
+        [494, "04/23/2024", "Till Whenever", "Party", "10:00:00 PM", "?", "San Francisco", "The Faight", "Just keep going", "$100", "https://events.noamsml.com"],
     ]
     # This is technically wrong typing -- maybe extract interface later?
     google_retriever_mock = GoogleRetriever(None, None)
@@ -46,15 +47,15 @@ def test_retrieve_basic(db_engine):
 
     stored_values = access.get_events(db_engine, (date(2024, 4, 20), date(2024, 4, 30)))
 
-    assert ["Decentered open mic", "Late night jams", "No info event"] == [event.name for event in stored_values]
-    assert ["Open Mic", "Party", "Clothing Swap"] == [event.type for event in stored_values]
-    assert [18 * 60 * 60, 22 * 60 * 60, 0] == [event.start_seconds for event in stored_values]
-    assert [21 * 60 * 60, 28 * 60 * 60, 24 * 60 * 60 - 1] == [event.end_seconds for event in stored_values]
-    assert ["San Francisco", "Oakland", ""] == [event.location for event in stored_values]
-    assert ["The Center SF", "Mother Tongue", ""] == [event.address for event in stored_values]
-    assert ["It's open mic", "Come jam with us", ""] == [event.description for event in stored_values]
-    assert ["Free", "$15", ""] == [event.cost for event in stored_values]
-    assert ["https://decentered.org", "https://noam.horse", ""] == [event.link for event in stored_values]
+    assert ["Decentered open mic", "Late night jams", "No info event", "Till Whenever"] == [event.name for event in stored_values]
+    assert ["Open Mic", "Party", "Clothing Swap", "Party"] == [event.type for event in stored_values]
+    assert [18 * 60 * 60, 22 * 60 * 60, 0, 22 * 60 * 60] == [event.start_seconds for event in stored_values]
+    assert [21 * 60 * 60, 28 * 60 * 60, 24 * 60 * 60 - 1, None] == [event.end_seconds for event in stored_values]
+    assert ["San Francisco", "Oakland", "", "San Francisco"] == [event.location for event in stored_values]
+    assert ["The Center SF", "Mother Tongue", "", "The Faight"] == [event.address for event in stored_values]
+    assert ["It's open mic", "Come jam with us", "", "Just keep going"] == [event.description for event in stored_values]
+    assert ["Free", "$15", "", "$100"] == [event.cost for event in stored_values]
+    assert ["https://decentered.org", "https://noam.horse", "", "https://events.noamsml.com"] == [event.link for event in stored_values]
 
 
 def test_retrieve_get_todays_cursor(db_engine):

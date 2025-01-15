@@ -66,9 +66,12 @@ def _create_db_row(row: SheetRow):
 
 TIME_REGEX = re.compile("(\\d{1,2})(:(\\d{2})(:(\\d{2}))?)?( AM| PM|)")
 def _parse_time(time_spec: str, start_time: int | None = None) -> int | None:
+    if time_spec:
+        time_spec = time_spec.strip(" ?")
+
     if not time_spec or not time_spec.strip():
         return None
-
+    
     time_parsed = TIME_REGEX.match(time_spec)
     # So eventually we should be resillient to badly formatted times, but I'd rather start erring on this side
     if not time_parsed:
