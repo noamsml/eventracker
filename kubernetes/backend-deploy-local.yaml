@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decentered-events
+  labels:
+    app: decentered-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: decentered-backend
+  template:
+    metadata:
+      labels:
+        app: decentered-backend
+        noam_monitoring: supported
+    spec:
+      containers:
+      - name: python-backend
+        image: noamsml/decentered-events:development
+        imagePullPolicy: Always
+        env:
+          - name: ENV
+            value: containerized
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: decentered-database-user-pw
+                key: user
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: decentered-database-user-pw
+                key: password
+        volumeMounts:
+          - name: config
+            mountPath: "/app/config/injected"
+            readOnly: true
+          - name: credentials
+            mountPath: "/app/config/credentials"
+            readOnly: true
+        resources:
+          requests:
+            memory: 70Mi
+          limits:
+            memory: 500Mi
+        ports:
+          - containerPort: 80
+            name: backend
+        # Semi-hack: Use the events generation code in the liveness probe
+        # this causes metrics on event generation to be touched every minute
+        # and avoids alerting on zero metrics
+        livenessProbe:
+          httpGet:
+            path: /v1/events_synthetic
+            port: 80
+          periodSeconds: 60
+      volumes:
+        - name: config
+          configMap:
+            name: backend-config.events
+            items:
+            - key: "containerized.json"
+              path: "containerized.json"
+        - name: credentials
+          secret:
+            secretName: decentered-backend-credentials
+            items: 
+              - key: serviceaccount.json
+                path: serviceaccount.json
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: decentered-backend
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: decentered-backend

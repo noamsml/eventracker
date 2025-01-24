@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config.events
+data:
+ # TODO(noam): Move submission session secret to kubernetes secret
+ containerized.json: |
+  {
+    "database": {
+        "username": {"env": "DATABASE_USERNAME"},
+        "password": {"env": "DATABASE_PASSWORD"},
+        "host": "mysql"
+    },
+    "google_token": "config/credentials/serviceaccount.json",
+    "base_row": 700,
+    "submission_session_secret": "not_a_secret",
+    "base_url": "http://localhost:8080"
+  }
