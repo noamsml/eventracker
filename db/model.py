@@ -65,6 +65,16 @@ class EventSubmission(Base):
     cost: Mapped[long_str]
     link: Mapped[long_str]
 
+class AdminUserSession(Base):
+    __tablename__ = "admin_user_sessions"
+
+    # Use UUIDs
+    id: Mapped[medium_str] = mapped_column(primary_key=True)
+    # Google credentials encoded as JSON
+    refresh_credentials: Mapped[longest_str]
+
+
+
 # Technically this is most likely a unary value, but storing it in a file or whatever is bad practice
 # so this is a table with one-ish row
 class Cursor(Base):

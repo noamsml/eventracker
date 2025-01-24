@@ -5,6 +5,8 @@ from dateutil.tz import gettz
 from typing import List, Dict
 import db.model as model
 import config
+import uuid
+import json
 
 # Misc functions to talk with the db -- at some point I should reorg these to live in model-specific classes and
 # all take a Session but I'm trying to get this whole thing done first
@@ -60,3 +62,40 @@ def update_cursors(session: Session, cursor_map: Dict[date, int]):
 
 def clear_events_table(session: Session):
     session.execute(delete(model.LocalEvent))
+
+def persist_submission(engine: Engine, submission: model.EventSubmission):
+    with Session(engine) as session: 
+        session.add(submission)
+        session.commit()
+
+def create_user(engine: Engine, credential_json: str) -> str:
+    with Session(engine) as session:
+        user = model.AdminUserSession(id = uuid.uuid.str(), refresh_credentials = credential_json)
+        session.add(user)
+        session.commit()
+
+
+def get_user(engine: Engine, id: str) -> str | None:
+    with Session(engine) as session:
+        user = session.scalars(
+            select(model.AdminUserSession)
+            .where(model.AdminUserSession.id == id)
+        ).one_or_none()
+
+        if user is None:
+            return None
+        
+        return user.refresh_credentials
+
+def update_user(engine: Engine, id: str, new_credentials: str):
+    with Session(engine) as session:
+        user = session.scalars(
+            select(model.AdminUserSession)
+            .where(model.AdminUserSession.id == id)
+        ).one_or_none()
+
+        if user is None:
+            raise Exception("User not found!")
+        
+        user.refresh_credentials = new_credentials
+        session.commit()

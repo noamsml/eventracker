@@ -1,4 +1,5 @@
 {
     "database": "memory",
-    "base_row": 500
+    "base_row": 500,
+    "submission_session_secret": "not_a_secret"
 }

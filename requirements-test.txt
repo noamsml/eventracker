@@ -11,3 +11,4 @@ prometheus_fastapi_instrumentator
 python-dateutil
 feedgen
 feedparser
+itsdangerous

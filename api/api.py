@@ -12,6 +12,8 @@ from prometheus_client import Gauge
 from feedgen.feed import FeedGenerator
 from textwrap import dedent
 from fastapi.middleware.cors import CORSMiddleware
+import submissions.converter
+import submissions.admin
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -135,6 +137,25 @@ def get_events_feed(
 
     return Response(content=fg.rss_str(), media_type="application/rss+xml")
 
+
+@app.post("/v1/submit")
+def post_submission(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], now_timestamp: Annotated[datetime, Depends(now_timestamp)], event_submission: api_models.EventSubmission):
+    validate_submission(event_submission, now_timestamp)
+
+    access.persist_submission(engine, submissions.converter.convert_submission(event_submission))
+    return { "success": True }
+
+def validate_submission(event_submission: api_models.EventSubmission, now_timestamp: datetime):
+    if event_submission.id != None:
+        raise HTTPException(status_code=400, detail="Unknown field 'id'")
+
+    if len(event_submission.dates_times) == 0:
+        raise HTTPException(status_code=400, detail="No dates or times specified")
+
+    for date_time in event_submission.dates_times:
+        if date_time.date < now_timestamp:
+            raise HTTPException(status_code=400, detail="Date {} is in the past!".formate(date_time.date))
+
 def filter_events_today(db_events, now):
     now_dayseconds = now.hour * 3600 + now.minute * 60 + now.second
     yester_date = now.date() + timedelta(days=-1)
@@ -221,3 +242,6 @@ if config.env() == config.Env.development:
     from .local_development_proxy import make_proxy
 
     app.mount("/", make_proxy("http://localhost:3000/"))
+
+
+app.mount("/submission/", submissions.admin.app)

@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from enum import Enum, auto
 from functools import cache
 import os
+from typing import Dict
 
 EVENTRACKER_ID="1eX21lRIMOl3LLUhanRptk0jWbKoyZJVnbsJ-UWP7JZY"
 
@@ -23,6 +24,13 @@ def env() -> Env:
 class EnvVariable(BaseModel):
     env: str
 
+def coerce_maybe_variable(maybe_env: str | EnvVariable):
+    if isinstance(maybe_env, EnvVariable):
+            return os.environ[maybe_env.env]
+
+    return maybe_env
+
+
 class DatabaseConfig(BaseModel):
     db_name: str | None = None
     host: str = "localhost"
@@ -32,16 +40,10 @@ class DatabaseConfig(BaseModel):
     password: str | EnvVariable
 
     def get_username(self):
-        if isinstance(self.username, EnvVariable):
-            return os.environ[self.username.env]
-
-        return self.username
+        return coerce_maybe_variable(self.username)
 
     def get_password(self):
-        if isinstance(self.password, EnvVariable):
-            return os.environ[self.password.env]
-
-        return self.password
+        return coerce_maybe_variable(self.password)
 
 class Config(BaseModel):
     database: DatabaseConfig | SpecialDatabase
@@ -50,7 +52,13 @@ class Config(BaseModel):
     # early 2024
     base_row: int = 700
     google_token: str | None = None
+    submission_session_secret: str | EnvVariable
+    submission_alternate_sheet_id: str = EVENTRACKER_ID
+    base_url: str = "https://events.decentered.org"
 
+    def get_submission_session_secret(self):
+        return coerce_maybe_variable(self.submission_session_secret)
+    
 @cache
 def config(force_env: Env | None = None):
     e = force_env or env()
