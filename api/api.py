@@ -76,7 +76,8 @@ def get_events_internal(
     if start_date == None:
         db_events = filter_events_today(db_events, now_timestamp)
 
-    RETURNED_EVENT_COUNT.set(len(db_events))
+    if start_date == None and (end_date == None or end_date > date.today() + timedelta(days=14)):
+        RETURNED_EVENT_COUNT.set(len(db_events))
 
     return db_events
 
