@@ -44,13 +44,13 @@ def get_events(
     start_date: Annotated[
         date | None,
         Query(
-            description="The start date of the events to return. If not specified, the start date is today. If specified, an end_date is required."
+            description="The start date of the events to return. If not specified, the start date is today. If specified, an end_date is required. Can be specified as YYYY-MM-DD or omitted."
         ),
     ] = None,
     end_date: Annotated[
         date | None,
         Query(
-            description="The end date of the events to return. If not specified, get all future events."
+            description="The end date of the events to return. If not specified, get all future events. Can be specified as YYYY-MM-DD or omitted."
         ),
     ] = None,
 ) -> api_models.EventList:

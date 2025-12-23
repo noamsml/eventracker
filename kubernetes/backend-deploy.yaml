@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: python-backend
-        image: noamsml/decentered-events:latest
+        image: noamsml/decentered-events:v1.1.2
         imagePullPolicy: Always
         env:
           - name: ENV
@@ -32,6 +32,8 @@ spec:
               secretKeyRef:
                 name: decentered-database-user-pw
                 key: password
+          - name: SESSION_SECRET
+            value: "NOT_SET_UP_AND_PROBABLY_NEVER_WILL_BE"
         volumeMounts:
           - name: config
             mountPath: "/app/config/injected"

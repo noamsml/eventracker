@@ -8,21 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - events.noamsml.com
     - events.decentered.org
     secretName: noamsml-kubernetes-tls
   ingressClassName: nginx
   rules:
-    - host: "events.noamsml.com"
-      http:
-        paths:
-          - path: /v1
-            pathType: Prefix
-            backend:
-              service:
-                name: decentered-backend
-                port:
-                  number: 80
     - host: "events.decentered.org"
       http:
         paths:
@@ -31,26 +20,6 @@ spec:
             backend:
               service:
                 name: decentered-backend
-                port:
-                  number: 80
-    - host: "events.noamsml.com"
-      http:
-        paths:
-          - path: /feeds
-            pathType: Prefix
-            backend:
-              service:
-                name: decentered-backend
-                port:
-                  number: 80
-    - host: "events.noamsml.com"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: decentered-frontend
                 port:
                   number: 80
     - host: "events.decentered.org"
