@@ -23,6 +23,16 @@ spec:
                 name: decentered-backend
                 port:
                   number: 80
+    - host: "events.decentered.org"
+      http:
+        paths:
+          - path: /docs
+            pathType: Prefix
+            backend:
+              service:
+                name: decentered-backend
+                port:
+                  number: 80
     - host: "events.noamsml.com"
       http:
         paths:

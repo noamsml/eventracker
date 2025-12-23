@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends, Response
+from fastapi import FastAPI, HTTPException, Depends, Query, Response
 from typing import List, Annotated
 import api.api_models as api_models
 import db.connectivity as connectivity
@@ -17,7 +17,11 @@ import submissions.admin
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
-app = FastAPI()
+app = FastAPI(
+    redoc_url="/docs",
+    openapi_url="/docs/openapi.json",
+    docs_url="/docs/old",
+)
 
 Instrumentator().instrument(app).expose(app)
 
@@ -37,13 +41,23 @@ def get_events(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
     response: Response,
-    start_date: date | None = None,
-    end_date: date | None = None,
+    start_date: Annotated[
+        date | None,
+        Query(
+            description="The start date of the events to return. If not specified, the start date is today. If specified, an end_date is required."
+        ),
+    ] = None,
+    end_date: Annotated[
+        date | None,
+        Query(
+            description="The end date of the events to return. If not specified, get all future events."
+        ),
+    ] = None,
 ) -> api_models.EventList:
     if (end_date == None) and (start_date != None):
         raise HTTPException(
             status_code=400,
-            detail="Must specify either none or both of start_date, end_date",
+            detail="If you specify a start_date you must specify an end_date",
         )
 
     db_events = get_events_internal(engine, now_timestamp, start_date, end_date)
@@ -55,13 +69,14 @@ def get_events(
 
 
 # Endpoint exists to separate the liveness probe traffic from real traffic
-@app.get("/v1/events_synthetic")
+@app.get("/v1/events_synthetic", include_in_schema=False)
 def get_events_synethic(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
-    response: Response
+    response: Response,
 ) -> api_models.EventList:
     return get_events(engine, now_timestamp, response)
+
 
 def get_events_internal(
     engine: Engine,
@@ -76,19 +91,23 @@ def get_events_internal(
     if start_date == None:
         db_events = filter_events_today(db_events, now_timestamp)
 
-    if start_date == None and (end_date == None or end_date > date.today() + timedelta(days=14)):
+    if start_date == None and (
+        end_date == None or end_date > date.today() + timedelta(days=14)
+    ):
         RETURNED_EVENT_COUNT.set(len(db_events))
 
     return db_events
 
 
 def make_feed_description(event: model.LocalEvent):
-    return dedent("""\
+    return dedent(
+        """\
     {description} <br /> <br />
     Location: {location} <br />
     Address: {address} <br />
     Hours: {start} - {end}
-""").format(
+"""
+    ).format(
         description=event.description,
         location=event.location,
         address=event.address,
@@ -97,7 +116,9 @@ def make_feed_description(event: model.LocalEvent):
     )
 
 
-def get_feed_generator(engine: Engine, now_timestamp: datetime, id: str) -> FeedGenerator:
+def get_feed_generator(
+    engine: Engine, now_timestamp: datetime, id: str
+) -> FeedGenerator:
     db_events = get_events_internal(engine, now_timestamp)
 
     fg = FeedGenerator()
@@ -111,7 +132,9 @@ def get_feed_generator(engine: Engine, now_timestamp: datetime, id: str) -> Feed
         feed_entry.title(event.name)
         feed_entry.description(make_feed_description(event))
         feed_entry.published(
-            datetime.combine(event.date, to_time_obj(event.start_seconds), tzinfo=CALIFORNIA_TIME)
+            datetime.combine(
+                event.date, to_time_obj(event.start_seconds), tzinfo=CALIFORNIA_TIME
+            )
         )
         feed_entry.id("https://events.decentered.org/events/{}".format(event.sheet_row))
         if event.link:
@@ -119,34 +142,47 @@ def get_feed_generator(engine: Engine, now_timestamp: datetime, id: str) -> Feed
     return fg
 
 
-@app.get("/feeds/atom.xml")
+@app.get("/feeds/atom.xml", include_in_schema=False)
 def get_events_feed(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
 ):
-    fg = get_feed_generator(engine, now_timestamp, "https://events.decentered.org/feed/atom.xml")
+    fg = get_feed_generator(
+        engine, now_timestamp, "https://events.decentered.org/feed/atom.xml"
+    )
 
     return Response(content=fg.atom_str(), media_type="application/atom+xml")
 
 
-@app.get("/feeds/rss.xml")
+@app.get("/feeds/rss.xml", include_in_schema=False)
 def get_events_feed(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
     now_timestamp: Annotated[datetime, Depends(now_timestamp)],
 ):
-    fg = get_feed_generator(engine, now_timestamp, "https://events.decentered.org/feed/rss.xml")
+    fg = get_feed_generator(
+        engine, now_timestamp, "https://events.decentered.org/feed/rss.xml"
+    )
 
     return Response(content=fg.rss_str(), media_type="application/rss+xml")
 
 
-@app.post("/v1/submit")
-def post_submission(engine: Annotated[Engine, Depends(connectivity.make_db_engine)], now_timestamp: Annotated[datetime, Depends(now_timestamp)], event_submission: api_models.EventSubmission):
+@app.post("/v1/submit", include_in_schema=False)
+def post_submission(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    now_timestamp: Annotated[datetime, Depends(now_timestamp)],
+    event_submission: api_models.EventSubmission,
+):
     validate_submission(event_submission, now_timestamp)
 
-    access.persist_submission(engine, submissions.converter.convert_submission(event_submission))
-    return { "success": True }
+    access.persist_submission(
+        engine, submissions.converter.convert_submission(event_submission)
+    )
+    return {"success": True}
 
-def validate_submission(event_submission: api_models.EventSubmission, now_timestamp: datetime):
+
+def validate_submission(
+    event_submission: api_models.EventSubmission, now_timestamp: datetime
+):
     if event_submission.id != None:
         raise HTTPException(status_code=400, detail="Unknown field 'id'")
 
@@ -155,7 +191,11 @@ def validate_submission(event_submission: api_models.EventSubmission, now_timest
 
     for date_time in event_submission.dates_times:
         if date_time.date < now_timestamp:
-            raise HTTPException(status_code=400, detail="Date {} is in the past!".formate(date_time.date))
+            raise HTTPException(
+                status_code=400,
+                detail="Date {} is in the past!".formate(date_time.date),
+            )
+
 
 def filter_events_today(db_events, now):
     now_dayseconds = now.hour * 3600 + now.minute * 60 + now.second
