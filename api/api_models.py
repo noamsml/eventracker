@@ -32,7 +32,7 @@ class Event(BaseModel):
 
     id: str = Field(description="The unique identifier for the event.")
     date: date_type = Field(
-        description="The date of the event. Represented in ISO 8601 format."
+        description="The date of the event. Represented as YYYY-MM-DD."
     )
     name: str = Field(description="The name or title of the event.")
     type: str = Field(
