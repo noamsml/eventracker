@@ -18,6 +18,8 @@ spec:
     matchLabels:
       app: mysql
   replicas: 1
+  updateStrategy:
+    type: RollingUpdate
   template:
     metadata:
       labels:
