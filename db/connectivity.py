@@ -19,6 +19,7 @@ def memory_db() -> Engine:
     return engine
 
 
+@cache
 def make_db_engine(force_env: config.Env | None = None) -> Engine:
     db_config = config.config(force_env).database
     if db_config == config.SpecialDatabase.memory:
