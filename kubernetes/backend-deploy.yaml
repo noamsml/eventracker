@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: python-backend
-        image: noamsml/decentered-events:v1.1.4
+        image: noamsml/decentered-events:v1.1.5
         imagePullPolicy: Always
         env:
           - name: ENV
@@ -45,7 +45,7 @@ spec:
           requests:
             memory: 70Mi
           limits:
-            memory: 500Mi
+            memory: 1Gi
         ports:
           - containerPort: 80
             name: backend
@@ -70,6 +70,16 @@ spec:
             items: 
               - key: serviceaccount.json
                 path: serviceaccount.json
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - decentered-backend
+              topologyKey: "kubernetes.io/hostname"
 
 ---
 apiVersion: v1

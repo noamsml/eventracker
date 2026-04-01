@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, Query, Response
 from typing import List, Annotated
+
+from pydantic import BaseModel
 import api.api_models as api_models
 import db.connectivity as connectivity
 import db.model as model
@@ -83,15 +85,21 @@ def get_events_synethic(
     return get_events(engine, now_timestamp, response)
 
 
+class NewCursor(BaseModel):
+    date: date
+    value: int
+
 @app.post("/admin/nuke_cursors", include_in_schema=False)
 def nuke_cursors(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    new_cursor: NewCursor,
 ):
     with Session(engine) as session:
         access.nuke_cursors(session)
+        access.update_cursors(session, {new_cursor.date: new_cursor.value})
         session.commit()
     return {"success": True}
-
+    
 @app.post("/admin/force_reimport", include_in_schema=False)
 def force_reimport(
     engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
