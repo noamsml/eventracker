@@ -12,10 +12,12 @@ from prometheus_client import Gauge
 from feedgen.feed import FeedGenerator
 from textwrap import dedent
 from fastapi.middleware.cors import CORSMiddleware
+from event_importer import EventImporter
+from spreadsheet.googlesheets import GoogleRetriever
 import submissions.converter
 import submissions.admin
 from sqlalchemy.orm import Session
-import scripts.import_events as import_events
+from spreadsheet.googleauth import retrieveCredentialsForUse
 
 
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -92,9 +94,14 @@ def nuke_cursors(
 
 @app.post("/admin/force_reimport", include_in_schema=False)
 def force_reimport(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+    config: Annotated[config.Config, Depends(config.config)],
 ):
-    import_events.main()
-    return {"success": True}
+    google_retriever = GoogleRetriever(retrieveCredentialsForUse(), config.sheet_id)
+    event_importer = EventImporter(google_retriever, engine)
+    imported = event_importer.perform_import(date.today())
+
+    return {"success": True, "imported": imported}
 
 def get_events_internal(
     engine: Engine,
