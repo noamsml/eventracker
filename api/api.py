@@ -15,6 +15,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import submissions.converter
 import submissions.admin
 from sqlalchemy.orm import Session
+import scripts.import_events as import_events
+
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -86,6 +88,12 @@ def nuke_cursors(
     with Session(engine) as session:
         access.nuke_cursors(session)
         session.commit()
+    return {"success": True}
+
+@app.post("/admin/force_reimport", include_in_schema=False)
+def force_reimport(
+):
+    import_events.main()
     return {"success": True}
 
 def get_events_internal(
