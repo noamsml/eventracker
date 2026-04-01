@@ -115,3 +115,4 @@ def _parse_date(sheet_date: str):
         return datetime.strptime(sheet_date, "%m/%d/%Y").date()
     except ValueError:
         return datetime.strptime(sheet_date, "%m/%d/%y").date()
+        

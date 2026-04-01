@@ -60,6 +60,9 @@ def update_cursors(session: Session, cursor_map: Dict[date, int]):
             session.add(new_cursor)
 
 
+def nuke_cursors(session: Session):
+    session.execute(delete(model.Cursor))
+
 def clear_events_table(session: Session):
     session.execute(delete(model.LocalEvent))
 

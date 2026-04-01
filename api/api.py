@@ -14,6 +14,7 @@ from textwrap import dedent
 from fastapi.middleware.cors import CORSMiddleware
 import submissions.converter
 import submissions.admin
+from sqlalchemy.orm import Session
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -77,6 +78,15 @@ def get_events_synethic(
 ) -> api_models.EventList:
     return get_events(engine, now_timestamp, response)
 
+
+@app.post("/admin/nuke_cursors", include_in_schema=False)
+def nuke_cursors(
+    engine: Annotated[Engine, Depends(connectivity.make_db_engine)],
+):
+    with Session(engine) as session:
+        access.nuke_cursors(session)
+        session.commit()
+    return {"success": True}
 
 def get_events_internal(
     engine: Engine,
